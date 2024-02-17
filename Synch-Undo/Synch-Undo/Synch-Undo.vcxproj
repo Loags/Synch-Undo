@@ -135,11 +135,15 @@
   <ItemGroup>
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GridComponent.cpp" />
+    <ClCompile Include="PlayerComponent.cpp" />
     <ClCompile Include="Synch-Undo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GridComponent.h" />
+    <ClInclude Include="PlayerComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

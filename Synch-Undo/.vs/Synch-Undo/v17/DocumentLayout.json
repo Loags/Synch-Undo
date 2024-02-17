@@ -11,16 +11,32 @@
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Synch-Undo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Synch-Undo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\PlayerComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\PlayerComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\PlayerComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\PlayerComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GridComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\GridComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Component.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Synch-Undo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Synch-Undo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GridComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\GridComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,8 +46,60 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerComponent.cpp",
+              "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\PlayerComponent.cpp",
+              "RelativeDocumentMoniker": "Synch-Undo\\PlayerComponent.cpp",
+              "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\PlayerComponent.cpp",
+              "RelativeToolTip": "Synch-Undo\\PlayerComponent.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-02-17T12:36:16.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayerComponent.h",
+              "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\PlayerComponent.h",
+              "RelativeDocumentMoniker": "Synch-Undo\\PlayerComponent.h",
+              "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\PlayerComponent.h",
+              "RelativeToolTip": "Synch-Undo\\PlayerComponent.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-02-17T12:36:11.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GridComponent.cpp",
+              "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GridComponent.cpp",
+              "RelativeDocumentMoniker": "Synch-Undo\\GridComponent.cpp",
+              "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GridComponent.cpp",
+              "RelativeToolTip": "Synch-Undo\\GridComponent.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-02-17T12:35:58.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GridComponent.h",
+              "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GridComponent.h",
+              "RelativeDocumentMoniker": "Synch-Undo\\GridComponent.h",
+              "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GridComponent.h",
+              "RelativeToolTip": "Synch-Undo\\GridComponent.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-02-17T12:29:46.511Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -40,7 +108,7 @@
               "RelativeDocumentMoniker": "Synch-Undo\\GameObject.h",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GameObject.h",
               "RelativeToolTip": "Synch-Undo\\GameObject.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAASAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-02-17T11:42:36.89Z",
               "EditorCaption": ""
@@ -53,46 +121,46 @@
               "RelativeDocumentMoniker": "Synch-Undo\\GameObject.cpp",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GameObject.cpp",
               "RelativeToolTip": "Synch-Undo\\GameObject.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-17T11:45:03.644Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Component.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Component.cpp",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.cpp",
               "RelativeToolTip": "Synch-Undo\\Component.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-17T11:35:47.977Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Component.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.h",
               "RelativeDocumentMoniker": "Synch-Undo\\Component.h",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.h",
               "RelativeToolTip": "Synch-Undo\\Component.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAaAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-02-17T11:35:43Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Synch-Undo.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Synch-Undo.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Synch-Undo.cpp",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Synch-Undo.cpp",
               "RelativeToolTip": "Synch-Undo\\Synch-Undo.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAABAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAC0AAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-17T11:05:07.79Z",
               "EditorCaption": ""
