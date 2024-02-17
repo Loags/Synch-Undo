@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Synch-Undo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Synch-Undo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Synch-Undo.cpp",
+              "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Synch-Undo.cpp",
+              "RelativeDocumentMoniker": "Synch-Undo\\Synch-Undo.cpp",
+              "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Synch-Undo.cpp",
+              "RelativeToolTip": "Synch-Undo\\Synch-Undo.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-02-17T11:05:07.79Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
