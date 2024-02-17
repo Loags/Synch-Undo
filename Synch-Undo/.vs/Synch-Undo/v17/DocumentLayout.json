@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Component.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Synch-Undo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Synch-Undo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -14,11 +30,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameObject.h",
+              "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GameObject.h",
+              "RelativeDocumentMoniker": "Synch-Undo\\GameObject.h",
+              "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GameObject.h",
+              "RelativeToolTip": "Synch-Undo\\GameObject.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-02-17T11:42:36.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "GameObject.cpp",
+              "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GameObject.cpp",
+              "RelativeDocumentMoniker": "Synch-Undo\\GameObject.cpp",
+              "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GameObject.cpp",
+              "RelativeToolTip": "Synch-Undo\\GameObject.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-02-17T11:45:03.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Component.cpp",
+              "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.cpp",
+              "RelativeDocumentMoniker": "Synch-Undo\\Component.cpp",
+              "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.cpp",
+              "RelativeToolTip": "Synch-Undo\\Component.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-02-17T11:35:47.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Component.h",
+              "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.h",
+              "RelativeDocumentMoniker": "Synch-Undo\\Component.h",
+              "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.h",
+              "RelativeToolTip": "Synch-Undo\\Component.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-02-17T11:35:43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Synch-Undo.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Synch-Undo.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Synch-Undo.cpp",

@@ -13,5 +13,7 @@ int main(int argc, char* argv[])
 		cout << "SDL initialization succeeded!";
 	}
 	cin.get();
+
+
 	return 0;
 }
