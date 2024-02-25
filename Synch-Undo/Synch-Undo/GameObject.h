@@ -8,6 +8,7 @@ class Component;
 class GameObject {
 public:
 	explicit GameObject(std::string name);
+	void PrintComponentsAndChildren(const int level = 0) const;
 	void AddComponent(Component* component);
 	void AddChildGameObject(GameObject* child);
 	void Render(SDL_Renderer* renderer) const;

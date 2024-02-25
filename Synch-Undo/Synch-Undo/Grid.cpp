@@ -71,9 +71,8 @@ void Grid::CreateWallPatterns() const
 
 	int wallsToPlace = 21;
 	while (wallsToPlace > 0) {
-		// Randomly choose a cell that's not on the outer layer
-		const int row = std::rand() % (rows - 2) + 1;
-		const int col = std::rand() % (cols - 2) + 1;
+		const int row = std::rand() % (rows - 2) + 2;
+		const int col = std::rand() % (cols - 2) + 2;
 
 		// Simple pattern: place one Wall cell and two adjacent ones
 		SetCellState(row, col, Cell::Wall);

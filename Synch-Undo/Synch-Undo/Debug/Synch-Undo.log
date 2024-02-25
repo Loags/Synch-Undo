@@ -1,3 +1,2 @@
-﻿  Grid.cpp
-G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Grid.cpp(70,22): warning C4244: "Argument": Konvertierung von "time_t" in "unsigned int", möglicher Datenverlust
+﻿  GameObject.cpp
   Synch-Undo.vcxproj -> G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Debug\Synch-Undo.exe

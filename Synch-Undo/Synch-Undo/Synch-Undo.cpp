@@ -21,12 +21,21 @@ int main(int argc, char* argv[])
 	SDL_Window* window = SDL_CreateWindow("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1200, 800, 0);
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
+	// Create the rootObject were all other GameObjects will be children
+	GameObject* rootObject = new GameObject("Root");
+
+
 	// Create the grid GameObject and add its component
 	GameObject* gridObject = new GameObject("Grid");
 	int windowWidth, windowHeight;
 	SDL_GetWindowSize(window, &windowWidth, &windowHeight);
 	Grid* grid = new Grid(gridObject, windowWidth, windowHeight, 48);
 	gridObject->AddComponent(grid);
+
+
+	rootObject->AddChildGameObject(gridObject);
+	std::cout << "\n";
+	rootObject->PrintComponentsAndChildren();
 
 	// Main game loop setup
 	bool gameRunning = true;
