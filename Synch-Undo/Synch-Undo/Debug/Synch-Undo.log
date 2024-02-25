@@ -1,8 +1,3 @@
-﻿  Component.cpp
-  GameObject.cpp
-  GridComponent.cpp
-  PlayerComponent.cpp
-  Synch-Undo.cpp
-  Code wird generiert...
-  LINK : G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Debug\Synch-Undo.exe wurde nicht gefunden oder beim letzten inkrementellen Linkvorgang nicht erstellt; vollständiger Link wird durchgeführt.
+﻿  Grid.cpp
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Grid.cpp(70,22): warning C4244: "Argument": Konvertierung von "time_t" in "unsigned int", möglicher Datenverlust
   Synch-Undo.vcxproj -> G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Debug\Synch-Undo.exe

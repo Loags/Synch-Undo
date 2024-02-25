@@ -24,10 +24,16 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="GridComponent.cpp">
+    <ClCompile Include="Grid.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="PlayerComponent.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Cell.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,11 +44,20 @@
     <ClInclude Include="GameObject.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="GridComponent.h">
+    <ClInclude Include="Grid.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="PlayerComponent.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Cell.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

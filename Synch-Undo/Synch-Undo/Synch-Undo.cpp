@@ -1,7 +1,7 @@
 #include <iostream>
 #include "SDL.h"
 #include "GameObject.h"
-#include "GridComponent.h"
+#include "Grid.h"
 #include "PlayerComponent.h"
 
 using namespace std;
@@ -18,18 +18,15 @@ int main(int argc, char* argv[])
 	}
 
 	// Create the SDL window and renderer
-	SDL_Window* window = SDL_CreateWindow("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
+	SDL_Window* window = SDL_CreateWindow("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1200, 800, 0);
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
 	// Create the grid GameObject and add its component
-	shared_ptr<GameObject> gridObject = make_shared<GameObject>("Grid");
-	shared_ptr<GridComponent> gridComponent = make_shared<GridComponent>(gridObject, 10, 10, 32);
-	gridObject->AddComponent(gridComponent);
-
-	// Create the player GameObject and add its component
-	shared_ptr<GameObject> playerObject = make_shared<GameObject>("Player");
-	shared_ptr<PlayerComponent> playerComponent = make_shared<PlayerComponent>(playerObject, 5, 5);
-	playerObject->AddComponent(playerComponent);
+	GameObject* gridObject = new GameObject("Grid");
+	int windowWidth, windowHeight;
+	SDL_GetWindowSize(window, &windowWidth, &windowHeight);
+	Grid* grid = new Grid(gridObject, windowWidth, windowHeight, 48);
+	gridObject->AddComponent(grid);
 
 	// Main game loop setup
 	bool gameRunning = true;
@@ -43,12 +40,10 @@ int main(int argc, char* argv[])
 
 		// Update GameObjects
 		gridObject->Update();
-		playerObject->Update();
 
 		// Render
 		SDL_RenderClear(renderer);
-		gridComponent->Render(renderer);
-		playerComponent->Render(renderer);
+		gridObject->Render(renderer);
 		SDL_RenderPresent(renderer);
 	}
 

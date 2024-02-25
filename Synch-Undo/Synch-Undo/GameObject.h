@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <memory>
 #include <SDL_render.h>
 
 class Component;
@@ -9,12 +8,24 @@ class Component;
 class GameObject {
 public:
 	explicit GameObject(std::string name);
-	void AddComponent(std::shared_ptr<Component> component);
-	template <typename T> T* GetComponent();
-	void Render(SDL_Renderer* renderer);
-	void Update();
+	void AddComponent(Component* component);
+	void AddChildGameObject(GameObject* child);
+	void Render(SDL_Renderer* renderer) const;
+	void Update() const;
+
+	template <typename T>
+	T* GetComponent() const {
+		for (Component* component : components) {
+			T* casted = dynamic_cast<T*>(component);
+			if (casted) {
+				return casted;
+			}
+		}
+		return nullptr;
+	}
 
 private:
 	std::string name;
-	std::vector<std::shared_ptr<Component>> components;
+	std::vector<Component*> components;
+	std::vector<GameObject*> children;
 };
