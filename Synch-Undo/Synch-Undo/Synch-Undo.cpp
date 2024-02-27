@@ -2,8 +2,9 @@
 #include "SDL.h"
 #include "GameObject.h"
 #include "Grid.h"
-#include "PlayerComponent.h"
+#include "Player.h"
 
+constexpr int CELL_SIZE = 48;
 using namespace std;
 int main(int argc, char* argv[])
 {
@@ -24,16 +25,20 @@ int main(int argc, char* argv[])
 	// Create the rootObject were all other GameObjects will be children
 	GameObject* rootObject = new GameObject("Root");
 
-
 	// Create the grid GameObject and add its component
 	GameObject* gridObject = new GameObject("Grid");
 	int windowWidth, windowHeight;
 	SDL_GetWindowSize(window, &windowWidth, &windowHeight);
-	Grid* grid = new Grid(gridObject, windowWidth, windowHeight, 48);
+	Grid* grid = new Grid(gridObject, windowWidth, windowHeight, CELL_SIZE);
 	gridObject->AddComponent(grid);
 
+	GameObject* playerObject = new GameObject("Player");
+	Player* player = new Player(playerObject, gridObject, CELL_SIZE , CELL_SIZE , CELL_SIZE / 8, CELL_SIZE * 0.75);
+	playerObject->AddComponent(player);
 
 	rootObject->AddChildGameObject(gridObject);
+	rootObject->AddChildGameObject(playerObject);
+
 	std::cout << "\n";
 	rootObject->PrintComponentsAndChildren();
 
@@ -45,14 +50,31 @@ int main(int argc, char* argv[])
 			if (e.type == SDL_QUIT) {
 				gameRunning = false;
 			}
+			if (e.type == SDL_KEYDOWN) {
+				switch (e.key.keysym.sym) {
+				case SDLK_w: // Move up
+					player->Move(0, -CELL_SIZE);
+					break;
+				case SDLK_s: // Move down
+					player->Move(0, CELL_SIZE);
+					break;
+				case SDLK_a: // Move left
+					player->Move(-CELL_SIZE, 0);
+					break;
+				case SDLK_d: // Move right
+					player->Move(CELL_SIZE, 0);
+					break;
+				}
+			}
 		}
 
 		// Update GameObjects
-		gridObject->Update();
+		rootObject->Update();
 
 		// Render
 		SDL_RenderClear(renderer);
-		gridObject->Render(renderer);
+		rootObject->Render(renderer);
+		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderPresent(renderer);
 	}
 

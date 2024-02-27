@@ -18,9 +18,10 @@ public:
 	Cell(GameObject* owner);
 	void Update() override;
 	void Render(SDL_Renderer* renderer) override;
+
 	std::string GetName() const override { return "Cell"; }
+	CellState GetCellState() const { return cellState; }
 
 	void SetCellState(const CellState newCellState) { cellState = newCellState; }
-	CellState GetCellState() const { return cellState; }
 };
 

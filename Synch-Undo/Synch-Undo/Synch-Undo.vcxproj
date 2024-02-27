@@ -137,7 +137,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Grid.cpp" />
-    <ClCompile Include="PlayerComponent.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Synch-Undo.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
   </ItemGroup>
@@ -146,7 +146,7 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Grid.h" />
-    <ClInclude Include="PlayerComponent.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="TransformComponent.h" />
   </ItemGroup>
   <ItemGroup>

@@ -27,7 +27,7 @@
     <ClCompile Include="Grid.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerComponent.cpp">
+    <ClCompile Include="Player.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Cell.cpp">
@@ -47,7 +47,7 @@
     <ClInclude Include="Grid.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerComponent.h">
+    <ClInclude Include="Player.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Cell.h">
