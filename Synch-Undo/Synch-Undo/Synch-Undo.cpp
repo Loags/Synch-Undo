@@ -60,19 +60,41 @@ int main(int argc, char* argv[])
 			}
 			if (e.type == SDL_KEYDOWN) {
 				switch (e.key.keysym.sym) {
+
 				case SDLK_w:
-					player->Move(gridObject, 0, -CELL_SIZE);
+					player->Move(gridObject, Movable::Direction::North);
 					break;
 				case SDLK_s:
-					player->Move(gridObject, 0, CELL_SIZE);
+					player->Move(gridObject, Movable::Direction::South);
 					break;
 				case SDLK_a:
-					player->Move(gridObject, -CELL_SIZE, 0);
+					player->Move(gridObject, Movable::Direction::West);
 					break;
 				case SDLK_d:
-					player->Move(gridObject, CELL_SIZE, 0);
+					player->Move(gridObject, Movable::Direction::East);
+					break;
+				case SDLK_SPACE:
+					player->Attack();
+					break;
+
+
+				case SDLK_UP:
+					enemy->Move(gridObject, Movable::Direction::North);
+					break;
+				case SDLK_DOWN:
+					enemy->Move(gridObject, Movable::Direction::South);
+					break;
+				case SDLK_LEFT:
+					enemy->Move(gridObject, Movable::Direction::West);
+					break;
+				case SDLK_RIGHT:
+					enemy->Move(gridObject, Movable::Direction::East);
+					break;
+				case SDLK_m:
+					enemy->Attack();
 					break;
 				}
+
 			}
 		}
 

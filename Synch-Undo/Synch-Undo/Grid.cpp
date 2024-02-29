@@ -8,15 +8,10 @@
 Grid::Grid(GameObject* owner, const int windowWidth, const int windowHeight,
 	const int cellSize)
 	: Component(owner),
-	windowWidth(windowWidth),
-	windowHeight(windowHeight),
 	rows(windowHeight / cellSize),
 	cols(windowWidth / cellSize),
 	cellSize(cellSize)
 {
-	//renderComponent = new RenderComponent(owner, gridLineRender, SDL_Color{ 0, 0, 0, 255 });
-	//owner->AddComponent(renderComponent);
-
 	cellObjects.resize(cols);
 	for (int col = 0; col < cols; ++col) {
 		cellObjects[col].resize(rows);
@@ -76,6 +71,13 @@ bool Grid::GetIsCellEmpty(const int col, const int row) const {
 		return cell->GetCellState() == Cell::Empty;
 	}
 	return false;
+}
+
+std::pair<int, int> Grid::GetPositionToGridCoords(const int posX, const int posY) const
+{
+	int col = posX / cellSize;
+	int row = posY / cellSize;
+	return std::make_pair(col, row);
 }
 
 void Grid::SetCellState(const int col, const int row, const Cell::CellState newState) const

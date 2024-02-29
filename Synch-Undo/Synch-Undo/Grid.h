@@ -5,13 +5,12 @@
 #include "RenderComponent.h"
 #include "TransformComponent.h"
 
+
 class GameObject;
 
 class Grid : public Component {
 
 private:
-	int windowWidth;
-	int windowHeight;
 	int rows;
 	int cols;
 	int cellSize;
@@ -41,8 +40,8 @@ public:
 	int GetCellSize() const { return cellSize; }
 	Cell* GetCellAtPos(const int col, const int row) const;
 	bool GetIsCellEmpty(const int col, const int row) const;
+	std::pair<int, int> GetPositionToGridCoords(const int posX, const int posY) const;
 
 	void SetCellState(const int col, const int row, const Cell::CellState newState) const;
-	//void Render(SDL_Renderer* renderer);
 	void CreateWallPatterns() const;
 };

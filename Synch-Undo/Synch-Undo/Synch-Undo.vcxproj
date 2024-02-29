@@ -135,6 +135,8 @@
   <ItemGroup>
     <ClCompile Include="Attackable.cpp" />
     <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CharacterStats.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -148,6 +150,8 @@
   <ItemGroup>
     <ClInclude Include="Attackable.h" />
     <ClInclude Include="Cell.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="CharacterStats.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameObject.h" />
@@ -159,10 +163,10 @@
     <ClInclude Include="TransformComponent.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ResourceCompile Include="Synch-Undo.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Synch-Undo.rc" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,17 +1,12 @@
 #pragma once
-#include "Component.h"
+#include "Attackable.h"
+#include "Character.h"
 #include "Movable.h"
-#include "RenderComponent.h"
-#include "TransformComponent.h"
 
 
-class Enemy : public Component, Movable
+
+class Enemy : public Character
 {
-private:
-	const GameObject* gridObject;
-	TransformComponent* transformComponent;
-	RenderComponent* renderComponent;
-
 public:
 
 	Enemy(GameObject* owner, const GameObject* gridObject, const int posX, const int posY, const int offSet, const int enemySize);
@@ -19,14 +14,19 @@ public:
 
 #pragma region Component
 
-	void Update() override;
-	std::string GetName() const override { return "Enemy"; }
+	std::string GetName() const override { return "EnemyComponent"; }
 
 #pragma endregion Component
 
 #pragma region Movable
 
-	void Move(const GameObject* gridObject, const int deltaX, const int deltaY) const override;
+	void Move(const GameObject* gridObject, const Direction newFacingDirection)  override;
 
 #pragma endregion Movable
+
+#pragma region Attackable
+
+	void Die() override;
+
+#pragma endregion Attackable
 };

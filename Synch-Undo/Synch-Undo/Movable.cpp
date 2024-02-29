@@ -2,32 +2,55 @@
 #include "Grid.h"
 #include "TransformComponent.h"
 
-Movable::Movable(const GameObject* movableOwner, const int offSet)
-	: movableOwner(movableOwner),
-	offSet(offSet)
+Movable::Movable(const GameObject* movableOwner, const int offSet) :
+	offSet(offSet),
+	movableOwner(movableOwner),
+	facingDirection(Direction::South)
 {
 }
 
-void Movable::Move(const GameObject* gridObject, const int deltaX, const int deltaY) const
+void Movable::Move(const GameObject* gridObject, const Direction newFacingDirection)
 {
 	const Grid* grid = gridObject->GetComponent<Grid>();
+	const int cellSize = grid->GetCellSize();
+
 	TransformComponent* transform = movableOwner->GetComponent<TransformComponent>();
 
-	const int newPosX = transform->GetX() + deltaX;
-	const int newPosY = transform->GetY() + deltaY;
+	int newPosX = transform->GetX();
+	int newPosY = transform->GetY();
 
-	const int cellSize = grid->GetCellSize();
-	const int gridX = (newPosX + offSet) / cellSize;
-	const int gridY = (newPosY + offSet) / cellSize;
+	switch (newFacingDirection) {
+	case Direction::North:
+		newPosY = transform->GetY() - cellSize;
+		break;
+	case Direction::South:
+		newPosY = transform->GetY() + cellSize;
+		break;
+	case Direction::East:
+		newPosX = transform->GetX() + cellSize;
+		break;
+	case Direction::West:
+		newPosX = transform->GetX() - cellSize;
+		break;
+	}
 
-	Cell* currentCell = grid->GetCellAtPos(transform->GetX() / cellSize, transform->GetY() / cellSize);
-	Cell* targetCell = grid->GetCellAtPos(gridX, gridY);
+	facingDirection = newFacingDirection;
+
+	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transform->GetX(), transform->GetY());
+	const std::pair<int, int> gridPosTarget = grid->GetPositionToGridCoords(newPosX + offSet, newPosY + offSet);
+
+	Cell* currentCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
+	Cell* targetCell = grid->GetCellAtPos(gridPosTarget.first, gridPosTarget.second);
 
 	if (targetCell == nullptr) return;
 
 	if (targetCell->GetCellState() == Cell::Empty) {
 		currentCell->SetCellState(Cell::Empty);
+		currentCell->SetCharacterObjectRef(nullptr);
+
 		targetCell->SetCellState(Cell::Occupied);
+		targetCell->SetCharacterObjectRef(movableOwner);
+
 		transform->SetPosition(newPosX, newPosY);
 	}
 }

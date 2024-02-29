@@ -13,6 +13,7 @@ public:
 	void AddChildGameObject(GameObject* child);
 	void Render(SDL_Renderer* renderer) const;
 	void Update() const;
+	void Destroy();
 
 	template <typename T>
 	T* GetComponent() const {

@@ -1,13 +1,15 @@
 #include "Player.h"
 #include <iostream>
+
+#include "Enemy.h"
+#include "Grid.h"
 #include "RenderComponent.h"
 
 
 Player::Player(GameObject* owner, const GameObject* gridObject, const int posX, const int posY, const int offSet,
 	const int playerSize) :
-	Component(owner),
-	Movable(owner, offSet),
-	gridObject(gridObject)
+	Character(owner, gridObject, offSet, CharacterStats::Player, 5, 1)
+
 {
 	transformComponent = new TransformComponent(owner, posX + offSet, posY + offSet, playerSize,
 		playerSize);
@@ -17,19 +19,8 @@ Player::Player(GameObject* owner, const GameObject* gridObject, const int posX, 
 	owner->AddComponent(renderComponent);
 }
 
-void Player::Update() {
-
-}
-
-void Player::Move(const GameObject* gridObject, const int deltaX, const int deltaY) const
+void Player::Move(const GameObject* gridObject, const Direction newFacingDirection)
 {
-	Movable::Move(gridObject, deltaX, deltaY);
+	Character::Move(gridObject, newFacingDirection);
 }
 
-void Player::Attack(Attackable* target)
-{
-}
-
-void Player::TakeDamage(int damage)
-{
-}

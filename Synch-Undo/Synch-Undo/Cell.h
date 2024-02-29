@@ -18,6 +18,7 @@ private:
 	SDL_Color colorWall = { 139, 69, 19, 255 };
 	TransformComponent* transformComponent;
 	RenderComponent* renderComponent;
+	const GameObject* characterObjectRef;
 
 	std::function<void(SDL_Renderer*, const TransformComponent*, const SDL_Color color)> cellRender = [this](SDL_Renderer* renderer, const TransformComponent* transform, const SDL_Color color) {
 		const SDL_Rect cellRect = { transform->GetX(),transform->GetY(), transform->GetWidth(),transform->GetHeight() };
@@ -47,7 +48,9 @@ public:
 
 	std::string GetName() const override { return "Cell"; }
 	CellState GetCellState() const { return cellState; }
+	const GameObject* GetCharacterObjectRef() const { return characterObjectRef; }
 
 	void SetCellState(const CellState newCellState) { cellState = newCellState; }
+	void SetCharacterObjectRef(const GameObject* newCharacterObjectRef) { characterObjectRef = newCharacterObjectRef; }
 };
 

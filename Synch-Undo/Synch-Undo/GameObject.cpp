@@ -64,3 +64,20 @@ void GameObject::Update() const
 		component->Update();
 	}
 }
+
+void GameObject::Destroy() {
+
+	for (GameObject* child : children) {
+		child->Destroy();
+		delete child;
+	}
+
+	for (Component* component : components) {
+		delete component;
+	}
+	components.clear();
+
+
+	children.clear();
+}
+

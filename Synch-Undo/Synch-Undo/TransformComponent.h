@@ -10,8 +10,6 @@ public:
 	void Update() override;
 	std::string GetName() const override { return "TransformComponent"; }
 
-
-	// Getters and setters for position, width, and height
 	int GetX() const { return posX; }
 	int GetY() const { return posY; }
 	void SetPosition(int const x, int const y) { posX = x; posY = y; }
