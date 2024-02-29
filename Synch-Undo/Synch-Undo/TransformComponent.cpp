@@ -10,6 +10,3 @@ TransformComponent::TransformComponent(GameObject* owner, const int posX, const 
 
 void TransformComponent::Update()
 {}
-
-void TransformComponent::Render(SDL_Renderer* renderer)
-{}

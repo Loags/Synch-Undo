@@ -1,3 +1,10 @@
-﻿  Synch-Undo.cpp
-G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Synch-Undo.cpp(36,105): warning C4244: "Argument": Konvertierung von "double" in "const int", möglicher Datenverlust
+﻿  Cell.cpp
+  Enemy.cpp
+  Grid.cpp
+  Movable.cpp
+  Player.cpp
+  Synch-Undo.cpp
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Synch-Undo.cpp(38,103): warning C4244: "Argument": Konvertierung von "double" in "const int", möglicher Datenverlust
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Synch-Undo.cpp(42,107): warning C4244: "Argument": Konvertierung von "double" in "const int", möglicher Datenverlust
+  Code wird generiert...
   Synch-Undo.vcxproj -> G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Debug\Synch-Undo.exe

@@ -2,6 +2,9 @@
 #include <SDL_pixels.h>
 
 #include "Component.h"
+#include "RenderComponent.h"
+#include "GameObject.h"
+
 
 class Cell : public Component
 {
@@ -10,14 +13,37 @@ public:
 
 private:
 	CellState cellState = Empty;
-	SDL_Color colorEmpty = { 128,128,128,1 };
-	SDL_Color colorOccupied = { 0,128,128,1 };
+	SDL_Color colorEmpty = { 128,128,128,255 };
+	SDL_Color colorOccupied = { 0,128,128,255 };
 	SDL_Color colorWall = { 139, 69, 19, 255 };
+	TransformComponent* transformComponent;
+	RenderComponent* renderComponent;
+
+	std::function<void(SDL_Renderer*, const TransformComponent*, const SDL_Color color)> cellRender = [this](SDL_Renderer* renderer, const TransformComponent* transform, const SDL_Color color) {
+		const SDL_Rect cellRect = { transform->GetX(),transform->GetY(), transform->GetWidth(),transform->GetHeight() };
+
+		switch (cellState)
+		{
+		case Empty:
+			SDL_SetRenderDrawColor(renderer, colorEmpty.r, colorEmpty.g, colorEmpty.b, colorEmpty.a);
+			break;
+		case Occupied:
+			SDL_SetRenderDrawColor(renderer, colorOccupied.r, colorOccupied.g, colorOccupied.b, colorOccupied.a);
+			break;
+		case Wall:
+			SDL_SetRenderDrawColor(renderer, colorWall.r, colorWall.g, colorWall.b, colorWall.a);
+			break;
+		}
+
+		SDL_RenderFillRect(renderer, &cellRect);
+
+		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+		SDL_RenderDrawRect(renderer, &cellRect);
+		};
 
 public:
-	Cell(GameObject* owner);
+	Cell(GameObject* owner, const int posX, const int posY, const int cellSize);
 	void Update() override;
-	void Render(SDL_Renderer* renderer) override;
 
 	std::string GetName() const override { return "Cell"; }
 	CellState GetCellState() const { return cellState; }

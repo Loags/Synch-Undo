@@ -1,18 +1,18 @@
 #include "GameObject.h"
 #include <iostream>
 #include "Component.h"
+#include "RenderComponent.h"
+
+class TransformComponent;
 
 GameObject::GameObject(std::string name) : name(std::move(name)) {}
 
 void GameObject::PrintComponentsAndChildren(const int level) const
 {
-	// spaces per hierarchy level
 	const std::string indent(level * 6, ' ');
 
-	// Print the GameObject name with indent
 	std::cout << indent << "GameObject: " << name << "\n";
 
-	// Print components if any
 	if (!components.empty()) {
 		std::cout << indent << "  Components:\n";
 		for (const Component* comp : components) {
@@ -20,7 +20,6 @@ void GameObject::PrintComponentsAndChildren(const int level) const
 		}
 	}
 
-	// Print children if any
 	if (!children.empty()) {
 		std::cout << indent << "  Children:\n";
 		for (const GameObject* child : children) {
@@ -41,10 +40,18 @@ void GameObject::AddChildGameObject(GameObject* child)
 void GameObject::Render(SDL_Renderer* renderer) const
 {
 	for (const GameObject* child : children) {
-		child->Render(renderer);
-	}
-	for (Component* component : components) {
-		component->Render(renderer);
+
+		if (child)
+			child->Render(renderer);
+
+		const RenderComponent* renderComp = child->GetComponent<RenderComponent>();
+
+		if (!renderComp) continue;
+
+		const TransformComponent* transform = child->GetComponent<TransformComponent>();
+		if (transform) {
+			renderComp->Render(renderer, transform, renderComp->GetRenderColor());
+		}
 	}
 }
 

@@ -8,7 +8,6 @@ class TransformComponent : public Component
 public:
 	TransformComponent(GameObject* owner, const int posX = 0.0f, const int posY = 0.0f, const int width = 0.0f, const int height = 0.0f);
 	void Update() override;
-	void Render(SDL_Renderer* renderer) override;
 	std::string GetName() const override { return "TransformComponent"; }
 
 

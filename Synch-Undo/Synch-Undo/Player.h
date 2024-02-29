@@ -1,24 +1,39 @@
 #pragma once
+#include "Attackable.h"
 #include "Component.h"
-#include <SDL.h>
-#include "Grid.h"
+#include "Movable.h"
+#include "RenderComponent.h"
+#include "TransformComponent.h"
+
 class GameObject;
 
-
-class Player : public Component {
+class Player : public Component, Movable, Attackable {
 private:
 	const GameObject* gridObject;
-	int x;
-	int y;
-	int offSet;
-	SDL_Color colorPlayer;
+	TransformComponent* transformComponent;
+	RenderComponent* renderComponent;
 
 public:
 
 	Player(GameObject* owner, const GameObject* gridObject, const int posX, const int posY, const int offSet, const int playerSize);
+
+#pragma region Component
+
 	void Update() override;
-	void Render(SDL_Renderer* renderer) override;
 	std::string GetName() const override { return "Player"; }
 
-	void Move(const int deltaX, const int deltaY) const;
+#pragma endregion Component
+
+#pragma region Movable
+
+	void Move(const GameObject* gridObject, const int deltaX, const int deltaY) const override;
+
+#pragma endregion Movable
+
+#pragma region Attackable
+
+	void Attack(Attackable* target) override;
+	void TakeDamage(int damage) override;
+
+#pragma endregion Attackable
 };

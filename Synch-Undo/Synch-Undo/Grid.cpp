@@ -1,6 +1,5 @@
 #include "Grid.h"
 #include "GameObject.h"
-#include "TransformComponent.h"
 #include <ctime>
 #include <iostream>
 
@@ -15,8 +14,10 @@ Grid::Grid(GameObject* owner, const int windowWidth, const int windowHeight,
 	cols(windowWidth / cellSize),
 	cellSize(cellSize)
 {
-	cellObjects.resize(cols);
+	//renderComponent = new RenderComponent(owner, gridLineRender, SDL_Color{ 0, 0, 0, 255 });
+	//owner->AddComponent(renderComponent);
 
+	cellObjects.resize(cols);
 	for (int col = 0; col < cols; ++col) {
 		cellObjects[col].resize(rows);
 		for (int row = 0; row < rows; ++row) {
@@ -24,9 +25,7 @@ Grid::Grid(GameObject* owner, const int windowWidth, const int windowHeight,
 			const int posY = row * cellSize;
 
 			GameObject* cellObject = new GameObject("cell");
-			TransformComponent* transformComponent = new TransformComponent(cellObject, posX, posY, cellSize, cellSize);
-			cellObject->AddComponent(transformComponent);
-			Cell* newCell = new Cell(cellObject);
+			Cell* newCell = new Cell(cellObject, posX, posY, cellSize);
 			cellObject->AddComponent(newCell);
 
 			cellObjects[col][row] = cellObject;
@@ -42,23 +41,12 @@ Grid::Grid(GameObject* owner, const int windowWidth, const int windowHeight,
 }
 
 
-void Grid::Update() {
-	// Update logic for the grid, if any
+void Grid::Update()
+{
+
 }
 
-void Grid::Render(SDL_Renderer* renderer) {
-	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-
-	// Draw horizontal and vertical lines
-	for (int row = 0; row <= rows; ++row) {
-		SDL_RenderDrawLine(renderer, 0, row * cellSize, cols * cellSize, row * cellSize);
-	}
-	for (int col = 0; col <= cols; ++col) {
-		SDL_RenderDrawLine(renderer, col * cellSize, 0, col * cellSize, rows * cellSize);
-	}
-}
-
-const Cell* Grid::GetCellAtPos(const int col, const int row) const
+Cell* Grid::GetCellAtPos(const int col, const int row) const
 {
 	if (col < 0 || col >= cols || row < 0 || row >= rows)
 	{
@@ -74,10 +62,10 @@ const Cell* Grid::GetCellAtPos(const int col, const int row) const
 	return nullptr;
 }
 
-bool Grid::IsCellEmpty(const int col, const int row) const {
+bool Grid::GetIsCellEmpty(const int col, const int row) const {
 	if (col < 0 || col >= cols || row < 0 || row >= rows)
 	{
-		std::cout << "[Grid  -  IsCellEmpty] Try checking is cell is empty at pos! " << col << " | " << row << "\n";
+		std::cout << "[Grid  -  GetIsCellEmpty] Try checking is cell is empty at pos! " << col << " | " << row << "\n";
 		return false;
 	}
 
@@ -97,7 +85,6 @@ void Grid::SetCellState(const int col, const int row, const Cell::CellState newS
 	}
 
 	const GameObject* cellObject = cellObjects[col][row];
-	std::cout << "Set cell to wall at: " << col << "  |  " << row << "\n";
 	Cell* cell = cellObject->GetComponent<Cell>();
 	if (cell) {
 		cell->SetCellState(newState);

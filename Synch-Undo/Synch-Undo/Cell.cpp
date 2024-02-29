@@ -1,35 +1,16 @@
 #include "Cell.h"
 
-#include "GameObject.h"
-#include "TransformComponent.h"
 
-Cell::Cell(GameObject* owner) :
+Cell::Cell(GameObject* owner, const int posX, const int posY, const int cellSize) :
 	Component(owner)
-{}
+{
+	transformComponent = new TransformComponent(owner, posX, posY, cellSize, cellSize);
+	owner->AddComponent(transformComponent);
+
+	renderComponent = new RenderComponent(owner, cellRender, colorEmpty);
+	owner->AddComponent(renderComponent);
+}
 
 void Cell::Update()
 {
 }
-
-void Cell::Render(SDL_Renderer* renderer)
-{
-	const TransformComponent* transform = owner->GetComponent<TransformComponent>();
-	const SDL_Rect cellRect = { transform->GetX(),transform->GetY(), transform->GetWidth(),transform->GetHeight() };
-
-	switch (cellState)
-	{
-	case Empty:
-		SDL_SetRenderDrawColor(renderer, colorEmpty.r, colorEmpty.g, colorEmpty.b, colorEmpty.a);
-		break;
-	case Occupied:
-		SDL_SetRenderDrawColor(renderer, colorOccupied.r, colorOccupied.g, colorOccupied.b, colorOccupied.a);
-		break;
-	case Wall:
-		SDL_SetRenderDrawColor(renderer, colorWall.r, colorWall.g, colorWall.b, colorWall.a);
-		break;
-	}
-
-	SDL_RenderFillRect(renderer, &cellRect);
-}
-
-

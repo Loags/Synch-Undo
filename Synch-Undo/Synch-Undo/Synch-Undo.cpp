@@ -1,4 +1,6 @@
 #include <iostream>
+
+#include "Enemy.h"
 #include "SDL.h"
 #include "GameObject.h"
 #include "Grid.h"
@@ -33,11 +35,17 @@ int main(int argc, char* argv[])
 	gridObject->AddComponent(grid);
 
 	GameObject* playerObject = new GameObject("Player");
-	Player* player = new Player(playerObject, gridObject, CELL_SIZE , CELL_SIZE , CELL_SIZE / 8, CELL_SIZE * 0.75);
+	Player* player = new Player(playerObject, gridObject, CELL_SIZE, CELL_SIZE, CELL_SIZE / 8, CELL_SIZE * 0.75);
 	playerObject->AddComponent(player);
+
+	GameObject* enemyObject = new GameObject("Enemy");
+	Enemy* enemy = new Enemy(enemyObject, gridObject, CELL_SIZE * 4, CELL_SIZE * 1, CELL_SIZE / 8, CELL_SIZE * 0.75);
+	enemyObject->AddComponent(enemy);
+
 
 	rootObject->AddChildGameObject(gridObject);
 	rootObject->AddChildGameObject(playerObject);
+	rootObject->AddChildGameObject(enemyObject);
 
 	std::cout << "\n";
 	rootObject->PrintComponentsAndChildren();
@@ -52,17 +60,17 @@ int main(int argc, char* argv[])
 			}
 			if (e.type == SDL_KEYDOWN) {
 				switch (e.key.keysym.sym) {
-				case SDLK_w: // Move up
-					player->Move(0, -CELL_SIZE);
+				case SDLK_w:
+					player->Move(gridObject, 0, -CELL_SIZE);
 					break;
-				case SDLK_s: // Move down
-					player->Move(0, CELL_SIZE);
+				case SDLK_s:
+					player->Move(gridObject, 0, CELL_SIZE);
 					break;
-				case SDLK_a: // Move left
-					player->Move(-CELL_SIZE, 0);
+				case SDLK_a:
+					player->Move(gridObject, -CELL_SIZE, 0);
 					break;
-				case SDLK_d: // Move right
-					player->Move(CELL_SIZE, 0);
+				case SDLK_d:
+					player->Move(gridObject, CELL_SIZE, 0);
 					break;
 				}
 			}
