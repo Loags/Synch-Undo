@@ -3,20 +3,25 @@
 #include "Component.h"
 #include "RenderComponent.h"
 
+
 class TransformComponent;
 
-GameObject::GameObject(std::string name) : name(std::move(name)) {}
+GameObject::GameObject(GameObject* owner, std::string name) :
+	owner(owner),
+	name(std::move(name))
+{}
 
 void GameObject::PrintComponentsAndChildren(const int level) const
 {
 	const std::string indent(level * 6, ' ');
+	if (name == "Grid" || name == "Cell") return;
 
 	std::cout << indent << "GameObject: " << name << "\n";
 
 	if (!components.empty()) {
 		std::cout << indent << "  Components:\n";
 		for (const Component* comp : components) {
-			std::cout << indent << "    - " << comp->GetName() << "\n";
+			std::cout << indent << "    - " << comp->GetComponentName() << "\n";
 		}
 	}
 
@@ -34,6 +39,7 @@ void GameObject::AddComponent(Component* component) {
 
 void GameObject::AddChildGameObject(GameObject* child)
 {
+	std::cout << "Adding child: " << child->name << " to parent: " << this->name << "\n";
 	children.push_back(child);
 }
 
@@ -67,7 +73,7 @@ void GameObject::Update() const
 
 void GameObject::Destroy() {
 
-	for (GameObject* child : children) {
+	/*for (GameObject* child : children) {
 		child->Destroy();
 		delete child;
 	}
@@ -76,8 +82,5 @@ void GameObject::Destroy() {
 		delete component;
 	}
 	components.clear();
-
-
-	children.clear();
+	children.clear();*/
 }
-

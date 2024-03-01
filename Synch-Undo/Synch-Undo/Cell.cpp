@@ -2,7 +2,7 @@
 
 
 Cell::Cell(GameObject* owner, const int posX, const int posY, const int cellSize) :
-	Component(owner),
+	Component("CellComponent", owner),
 	characterObjectRef(nullptr)
 {
 	transformComponent = new TransformComponent(owner, posX, posY, cellSize, cellSize);
@@ -15,3 +15,4 @@ Cell::Cell(GameObject* owner, const int posX, const int posY, const int cellSize
 void Cell::Update()
 {
 }
+

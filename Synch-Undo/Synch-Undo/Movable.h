@@ -8,6 +8,7 @@ public:
 	enum class Direction { North, South, East, West };
 protected:
 	int offSet;
+
 private:
 	const GameObject* movableOwner;
 	Direction facingDirection;

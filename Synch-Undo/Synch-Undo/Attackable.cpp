@@ -11,16 +11,18 @@ Attackable::Attackable(const int health, const int attackPower, const CharacterS
 void Attackable::Attack(Attackable* target)
 {
 	std::cout << CharacterStats::CharacterTypeStrings[stats.type] << " attacking " << CharacterStats::CharacterTypeStrings[target->stats.type] << "\n";
-	target->TakeDamage(stats.attackPower);
+	target->TakeDamage(stats.GetAttackPower());
 }
 
 void Attackable::TakeDamage(const int damage)
 {
 	std::cout << CharacterStats::CharacterTypeStrings[stats.type] << " taking " << damage << " damage" << "\n";
-	stats.health -= damage;
-	if (stats.health <= 0)
+	int currentHealth = stats.GetHealth();
+	stats.SetHealth(currentHealth -= damage);
+
+	if (stats.GetHealth() <= 0)
 	{
-		stats.health = 0;
+		stats.SetHealth(0);
 		Die();
 	}
 }
@@ -28,5 +30,10 @@ void Attackable::TakeDamage(const int damage)
 void Attackable::Die()
 {
 	std::cout << CharacterStats::CharacterTypeStrings[stats.type] << " died" << "\n";
-	
+	stats.SetisDead(true);
+}
+
+void Attackable::Respawn()
+{
+	std::cout << CharacterStats::CharacterTypeStrings[stats.type] << " respawned" << "\n";
 }

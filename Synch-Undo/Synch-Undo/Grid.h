@@ -5,7 +5,6 @@
 #include "RenderComponent.h"
 #include "TransformComponent.h"
 
-
 class GameObject;
 
 class Grid : public Component {
@@ -33,7 +32,6 @@ public:
 #pragma region Component
 
 	void Update() override;
-	std::string GetName() const override { return "Grid"; }
 
 #pragma endregion Component
 
@@ -43,5 +41,6 @@ public:
 	std::pair<int, int> GetPositionToGridCoords(const int posX, const int posY) const;
 
 	void SetCellState(const int col, const int row, const Cell::CellState newState) const;
+	Cell* FindDistantEmptyCell() const;
 	void CreateWallPatterns() const;
 };

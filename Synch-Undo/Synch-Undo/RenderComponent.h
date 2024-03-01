@@ -8,6 +8,7 @@ class RenderComponent : public Component
 {
 protected:
 	SDL_Color color;
+	bool isVisible;
 	const TransformComponent* transformComponent;
 
 public:
@@ -15,15 +16,10 @@ public:
 
 	RenderComponent(GameObject* owner, const std::function<void(SDL_Renderer*, const TransformComponent*, const SDL_Color color)>& customRender, const SDL_Color color);
 
-#pragma region Component
-
 	void Update() override;
-	std::string GetName() const override { return "RenderComponent"; }
-
-#pragma endregion Component
-
 	void Render(SDL_Renderer* renderer, const TransformComponent* transformComponent, const SDL_Color color)const;
 	void SetRenderColor(const SDL_Color newColor) { color = newColor; }
+	void SetVisible(bool visible) { isVisible = visible; }
 	SDL_Color GetRenderColor() const { return color; }
 };
 

@@ -2,7 +2,9 @@
 
 CharacterStats::CharacterStats(const int health, const int attackPower, const CharacterType type) :
 	health(health),
+	initialHealth(health),
 	attackPower(attackPower),
+	isDead(false),
 	type(type)
 {
 }

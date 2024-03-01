@@ -46,9 +46,9 @@ public:
 	Cell(GameObject* owner, const int posX, const int posY, const int cellSize);
 	void Update() override;
 
-	std::string GetName() const override { return "Cell"; }
 	CellState GetCellState() const { return cellState; }
 	const GameObject* GetCharacterObjectRef() const { return characterObjectRef; }
+	std::pair<int, int> GetCellPos() const { return { transformComponent->GetX(), transformComponent->GetY() }; }
 
 	void SetCellState(const CellState newCellState) { cellState = newCellState; }
 	void SetCharacterObjectRef(const GameObject* newCharacterObjectRef) { characterObjectRef = newCharacterObjectRef; }

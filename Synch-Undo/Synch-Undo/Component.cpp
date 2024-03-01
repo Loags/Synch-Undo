@@ -1,5 +1,6 @@
 #include "Component.h"
 
-Component::Component(GameObject* owner) :
+Component::Component(std::string componentName, GameObject* owner) :
+	componentName(std::move(componentName)),
 	owner(owner)
 {}

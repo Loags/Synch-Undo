@@ -12,9 +12,10 @@ public:
 	virtual ~Attackable() = default;
 
 	virtual void Attack(Attackable* target);
-	virtual void TakeDamage(const int damage);
+	void TakeDamage(const int damage);
 	virtual void Die();
+	virtual void Respawn();
 
-	bool IsAlive() const { return stats.health > 0; }
+	bool IsAlive() const { return stats.GetHealth() > 0; }
 };
 

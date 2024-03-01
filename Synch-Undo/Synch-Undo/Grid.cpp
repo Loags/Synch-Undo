@@ -1,13 +1,11 @@
 #include "Grid.h"
-#include "GameObject.h"
-#include <ctime>
 #include <iostream>
-
 #include "Cell.h"
+#include "Player.h"
 
 Grid::Grid(GameObject* owner, const int windowWidth, const int windowHeight,
 	const int cellSize)
-	: Component(owner),
+	: Component("GridComponent", owner),
 	rows(windowHeight / cellSize),
 	cols(windowWidth / cellSize),
 	cellSize(cellSize)
@@ -19,7 +17,7 @@ Grid::Grid(GameObject* owner, const int windowWidth, const int windowHeight,
 			const int posX = col * cellSize;
 			const int posY = row * cellSize;
 
-			GameObject* cellObject = new GameObject("cell");
+			GameObject* cellObject = new GameObject(owner, "cell");
 			Cell* newCell = new Cell(cellObject, posX, posY, cellSize);
 			cellObject->AddComponent(newCell);
 
@@ -92,6 +90,31 @@ void Grid::SetCellState(const int col, const int row, const Cell::CellState newS
 		cell->SetCellState(newState);
 	}
 }
+
+Cell* Grid::FindDistantEmptyCell() const
+{
+	std::cout << "owner parent child count: " << owner->GetParentObject()->GetChildrenCount() << "\n";
+
+	const GameObject* playerObject = owner->GetParentObject()->GetGameObjectWithComponent<Player>();
+
+	if (!playerObject) return nullptr;
+
+	const TransformComponent* playerTransform = playerObject->GetComponent<TransformComponent>();
+	const std::pair<int, int> playerGridPos = GetPositionToGridCoords(playerTransform->GetX(), playerTransform->GetY());
+
+	for (int col = 0; col < cols; ++col) {
+		for (int row = 0; row < rows; ++row) {
+			if (GetIsCellEmpty(col, row)) {
+				const int distance = std::abs(playerGridPos.first - col) + std::abs(playerGridPos.second - row);
+				if (distance >= 5) {
+					return GetCellAtPos(col, row);
+				}
+			}
+		}
+	}
+	return nullptr;
+}
+
 
 void Grid::CreateWallPatterns() const
 {
