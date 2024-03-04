@@ -14,7 +14,7 @@ public:
 	virtual void Update() = 0;
 	std::string GetComponentName() const { return componentName; }
 	GameObject* GetOwner() const { return owner; }
-
+	
 protected:
 	GameObject* owner;
 };

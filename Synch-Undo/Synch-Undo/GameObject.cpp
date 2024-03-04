@@ -71,16 +71,11 @@ void GameObject::Update() const
 	}
 }
 
-void GameObject::Destroy() {
-
-	/*for (GameObject* child : children) {
-		child->Destroy();
-		delete child;
+GameObject* GameObject::GetRootObject()
+{
+	GameObject* current = this;
+	while (current != nullptr && current->owner != nullptr) {
+		current = current->owner;
 	}
-
-	for (Component* component : components) {
-		delete component;
-	}
-	components.clear();
-	children.clear();*/
+	return current;
 }

@@ -63,6 +63,15 @@
     <ClCompile Include="CharacterController.cpp">
       <Filter>Quelldateien\Character</Filter>
     </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveCommand.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandInvoker.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -106,6 +115,15 @@
     </ClInclude>
     <ClInclude Include="CharacterController.h">
       <Filter>Headerdateien\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveCommand.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandInvoker.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "CommandInvoker.h"
 #include "Enemy.h"
 #include "SDL.h"
 #include "Grid.h"
@@ -25,6 +26,8 @@ int main(int argc, char* argv[])
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
 	GameObject* rootObject = new GameObject(nullptr, "Root");
+	CommandInvoker* commandInvoker = new CommandInvoker(rootObject);
+	rootObject->AddComponent(commandInvoker);
 
 	// Create the grid GameObject and add its component
 	GameObject* gridObject = new GameObject(rootObject, "Grid");
