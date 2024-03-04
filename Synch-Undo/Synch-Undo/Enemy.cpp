@@ -13,6 +13,14 @@ Enemy::Enemy(GameObject* owner, const GameObject* gridObject, const int posX, co
 
 	renderComponent = new RenderComponent(owner, nullptr, SDL_Color{ 255, 0, 0, 255 });
 	owner->AddComponent(renderComponent);
+
+	keyMap = {
+			{SDLK_UP, Direction::North},
+			{SDLK_DOWN, Direction::South},
+			{SDLK_LEFT, Direction::West},
+			{SDLK_RIGHT, Direction::East}
+	};
+	attackKey = SDLK_RETURN;
 }
 
 void Enemy::Update()

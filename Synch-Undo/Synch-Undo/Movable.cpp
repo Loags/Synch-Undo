@@ -34,8 +34,6 @@ void Movable::Move(const GameObject* gridObject, const Direction newFacingDirect
 		break;
 	}
 
-	facingDirection = newFacingDirection;
-
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transform->GetX(), transform->GetY());
 	const std::pair<int, int> gridPosTarget = grid->GetPositionToGridCoords(newPosX + offSet, newPosY + offSet);
 
@@ -54,3 +52,4 @@ void Movable::Move(const GameObject* gridObject, const Direction newFacingDirect
 		transform->SetPosition(newPosX, newPosY);
 	}
 }
+

@@ -1,9 +1,9 @@
-﻿  Attackable.cpp
-  Character.cpp
-  CharacterStats.cpp
+﻿  Character.cpp
+  CharacterController.cpp
   Enemy.cpp
   Grid.cpp
   Player.cpp
+  RenderComponent.cpp
   Synch-Undo.cpp
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Synch-Undo.cpp(37,103): warning C4244: "Argument": Konvertierung von "double" in "const int", möglicher Datenverlust
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Synch-Undo.cpp(41,107): warning C4244: "Argument": Konvertierung von "double" in "const int", möglicher Datenverlust

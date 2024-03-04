@@ -57,50 +57,15 @@ int main(int argc, char* argv[])
 			if (e.type == SDL_QUIT) {
 				gameRunning = false;
 			}
-			if (!player->stats.GetIsDead()) {
-				if (e.type == SDL_KEYDOWN) {
-					switch (e.key.keysym.sym) {
-
-					case SDLK_w:
-						player->Move(gridObject, Movable::Direction::North);
-						break;
-					case SDLK_s:
-						player->Move(gridObject, Movable::Direction::South);
-						break;
-					case SDLK_a:
-						player->Move(gridObject, Movable::Direction::West);
-						break;
-					case SDLK_d:
-						player->Move(gridObject, Movable::Direction::East);
-						break;
-					case SDLK_SPACE:
-						player->Attack();
-						break;
-					}
+			else if (e.type == SDL_KEYDOWN) {
+				if (!player->stats.GetIsDead()) {
+					player->HandleInput(e);
+				}
+				if (!enemy->stats.GetIsDead()) {
+					enemy->HandleInput(e);
 				}
 			}
 
-			if (!enemy->stats.GetIsDead()) {
-				if (e.type == SDL_KEYDOWN) {
-					switch (e.key.keysym.sym) {
-					case SDLK_UP:
-						enemy->Move(gridObject, Movable::Direction::North);
-						break;
-					case SDLK_DOWN:
-						enemy->Move(gridObject, Movable::Direction::South);
-						break;
-					case SDLK_LEFT:
-						enemy->Move(gridObject, Movable::Direction::West);
-						break;
-					case SDLK_RIGHT:
-						enemy->Move(gridObject, Movable::Direction::East);
-						break;
-					case SDLK_m:
-						enemy->Attack();
-						break;
-					}
-				}
-			}
 		}
 
 		// Update GameObjects

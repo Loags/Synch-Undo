@@ -136,6 +136,7 @@
     <ClCompile Include="Attackable.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CharacterController.cpp" />
     <ClCompile Include="CharacterStats.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="Attackable.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="CharacterController.h" />
     <ClInclude Include="CharacterStats.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Enemy.h" />

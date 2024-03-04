@@ -60,6 +60,9 @@
     <ClCompile Include="Character.cpp">
       <Filter>Quelldateien\Character</Filter>
     </ClCompile>
+    <ClCompile Include="CharacterController.cpp">
+      <Filter>Quelldateien\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -99,6 +102,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Character.h">
+      <Filter>Headerdateien\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterController.h">
       <Filter>Headerdateien\Character</Filter>
     </ClInclude>
   </ItemGroup>

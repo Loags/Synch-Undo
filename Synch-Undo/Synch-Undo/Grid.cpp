@@ -1,5 +1,7 @@
 #include "Grid.h"
 #include <iostream>
+#include <random>
+
 #include "Cell.h"
 #include "Player.h"
 
@@ -93,26 +95,36 @@ void Grid::SetCellState(const int col, const int row, const Cell::CellState newS
 
 Cell* Grid::FindDistantEmptyCell() const
 {
-	std::cout << "owner parent child count: " << owner->GetParentObject()->GetChildrenCount() << "\n";
+	std::random_device rd;
+	std::mt19937 eng(rd());
 
 	const GameObject* playerObject = owner->GetParentObject()->GetGameObjectWithComponent<Player>();
-
 	if (!playerObject) return nullptr;
 
 	const TransformComponent* playerTransform = playerObject->GetComponent<TransformComponent>();
 	const std::pair<int, int> playerGridPos = GetPositionToGridCoords(playerTransform->GetX(), playerTransform->GetY());
+
+	std::vector<Cell*> possibleCells;
 
 	for (int col = 0; col < cols; ++col) {
 		for (int row = 0; row < rows; ++row) {
 			if (GetIsCellEmpty(col, row)) {
 				const int distance = std::abs(playerGridPos.first - col) + std::abs(playerGridPos.second - row);
 				if (distance >= 5) {
-					return GetCellAtPos(col, row);
+					Cell* cell = GetCellAtPos(col, row);
+					if (cell) {
+						possibleCells.push_back(cell);
+					}
 				}
 			}
 		}
 	}
-	return nullptr;
+
+	if (possibleCells.empty()) return nullptr;
+
+	std::uniform_int_distribution<> dis(0, possibleCells.size() - 1);
+	const int randomIndex = dis(eng);
+	return possibleCells[randomIndex];
 }
 
 

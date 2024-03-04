@@ -19,5 +19,6 @@ public:
 
 	virtual void Move(const GameObject* gridObject, const Direction newFacingDirection);
 	Direction GetFacingDirection()const { return facingDirection; }
+	void SetFacingDirection(Direction newDirection) { facingDirection = newDirection; }
 };
 

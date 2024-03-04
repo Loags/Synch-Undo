@@ -14,15 +14,18 @@ Character::Character(GameObject* owner, const GameObject* gridObject, const int 
 	transformComponent(nullptr),
 	renderComponent(nullptr)
 {
+	this->CharacterController::SetCharacter(this);
 }
 
 void Character::Update()
 {
+
 }
 
 void Character::Move(const GameObject* gridObject, const Direction newFacingDirection)
 {
 	Movable::Move(gridObject, newFacingDirection);
+	SetFacingDirection(newFacingDirection);
 }
 
 void Character::Attack()
@@ -59,8 +62,8 @@ void Character::Die()
 {
 	Attackable::Die();
 	deathTime = SDL_GetTicks();
-	Grid* grid = gridObject->GetComponent<Grid>();
-	std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
+	const Grid* grid = gridObject->GetComponent<Grid>();
+	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
 	Cell* cell = grid->GetCellAtPos(gridPos.first, gridPos.second);
 	cell->SetCellState(Cell::Empty);
 	cell->SetCharacterObjectRef(nullptr);
