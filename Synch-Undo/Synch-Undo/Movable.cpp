@@ -9,7 +9,7 @@ Movable::Movable(const GameObject* movableOwner, const int offSet) :
 {
 }
 
-void Movable::Move(const GameObject* gridObject, const Direction newFacingDirection)
+bool Movable::Move(const GameObject* gridObject, const Direction newFacingDirection)
 {
 	const Grid* grid = gridObject->GetComponent<Grid>();
 	const int cellSize = grid->GetCellSize();
@@ -40,7 +40,7 @@ void Movable::Move(const GameObject* gridObject, const Direction newFacingDirect
 	Cell* currentCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
 	Cell* targetCell = grid->GetCellAtPos(gridPosTarget.first, gridPosTarget.second);
 
-	if (targetCell == nullptr) return;
+	if (targetCell == nullptr) return false;
 
 	if (targetCell->GetCellState() == Cell::Empty) {
 		currentCell->SetCellState(Cell::Empty);
@@ -50,6 +50,12 @@ void Movable::Move(const GameObject* gridObject, const Direction newFacingDirect
 		targetCell->SetCharacterObjectRef(movableOwner);
 
 		transform->SetPosition(newPosX, newPosY);
+		SetFacingDirection(newFacingDirection);
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 

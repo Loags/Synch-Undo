@@ -28,9 +28,9 @@ Player::Player(GameObject* owner, const GameObject* gridObject, const int posX, 
 	attackKey = SDLK_SPACE;
 }
 
-void Player::Move(const GameObject* gridObject, const Direction newFacingDirection)
+bool Player::Move(const GameObject* gridObject, const Direction newFacingDirection)
 {
-	Character::Move(gridObject, newFacingDirection);
+	return Character::Move(gridObject, newFacingDirection);
 }
 
 

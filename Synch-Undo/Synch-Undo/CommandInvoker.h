@@ -2,8 +2,9 @@
 #include <memory>
 #include <stack>
 
-#include "Command.h"
 #include "Component.h"
+
+class Command;
 
 class CommandInvoker : public Component
 {

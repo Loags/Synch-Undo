@@ -31,9 +31,9 @@ void Enemy::Update()
 	}
 }
 
-void Enemy::Move(const GameObject* gridObject, const Direction newFacingDirection)
+bool Enemy::Move(const GameObject* gridObject, const Direction newFacingDirection)
 {
-	Character::Move(gridObject, newFacingDirection);
+	return Character::Move(gridObject, newFacingDirection);
 }
 
 void Enemy::Die()

@@ -22,13 +22,12 @@ void Character::Update()
 
 }
 
-void Character::Move(const GameObject* gridObject, const Direction newFacingDirection)
+bool Character::Move(const GameObject* gridObject, const Direction newFacingDirection)
 {
-	Movable::Move(gridObject, newFacingDirection);
-	SetFacingDirection(newFacingDirection);
+	return Movable::Move(gridObject, newFacingDirection);
 }
 
-void Character::Attack()
+Character* Character::Attack()
 {
 	const Grid* grid = gridObject->GetComponent<Grid>();
 	const int cellSize = grid->GetCellSize();
@@ -50,7 +49,9 @@ void Character::Attack()
 	{
 		Character* targetCharacter = targetObject->GetComponent<Character>();
 		Attack(targetCharacter);
+		return targetCharacter;
 	}
+	return nullptr;
 }
 
 void Character::Attack(Attackable* target)

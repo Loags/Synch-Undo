@@ -12,5 +12,5 @@ public:
 	Player(GameObject* owner, const GameObject* gridObject, const int posX, const int posY, const int offSet, const int playerSize);
 	~Player() override = default;
 	void Update() override;
-	void Move(const GameObject* gridObject, const Direction newFacingDirection) override;
+	bool Move(const GameObject* gridObject, const Direction newFacingDirection) override;
 };

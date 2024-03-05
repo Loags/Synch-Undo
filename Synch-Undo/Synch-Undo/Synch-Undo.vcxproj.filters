@@ -72,6 +72,12 @@
     <ClCompile Include="CommandInvoker.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="RotateCommand.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackCommand.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -123,6 +129,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="CommandInvoker.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateCommand.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackCommand.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

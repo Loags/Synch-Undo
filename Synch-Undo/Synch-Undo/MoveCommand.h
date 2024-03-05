@@ -1,18 +1,18 @@
 #pragma once
 #include "Movable.h"
-#include "Character.h"
 #include "Command.h"
 
 class MoveCommand : public Command
 {
-	Character* character;
+protected:
 	Movable::Direction characterDirection;
-	Movable::Direction characterPreviousDirection;
+	Movable::Direction characterReversedDirection;
 public:
 	MoveCommand(Character* character, Movable::Direction direction);
 
-	void Execute() override;
+	bool Execute() override;
 	void Undo() override;
+	void ReverseDirection();
 	std::string ToString() const override;
 };
 

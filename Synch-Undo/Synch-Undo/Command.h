@@ -1,11 +1,17 @@
 #pragma once
 #include <string>
 
+#include "Character.h"
+
 class Command
 {
+protected:
+	Character* character;
+
 public:
 	virtual ~Command() = default;
-	virtual void Execute() = 0;
+	Command(Character* character);
+	virtual bool Execute() = 0;
 	virtual void Undo() = 0;
 	virtual std::string ToString() const = 0;
 };

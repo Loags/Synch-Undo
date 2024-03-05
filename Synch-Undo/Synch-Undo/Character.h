@@ -7,7 +7,7 @@
 #include "RenderComponent.h"
 #include "TransformComponent.h"
 
-class Character :public Component, public Movable, public Attackable, public CharacterController
+class Character : public Component, public Movable, public Attackable, public CharacterController
 {
 protected:
 	const GameObject* gridObject;
@@ -23,8 +23,8 @@ public:
 	Character(GameObject* owner, const GameObject* gridObject, const int offSet, const CharacterStats::CharacterType characterType, const int health, const int damage, const std::string& componentName);
 	~Character() override = default;
 	void Update() override;
-	void Move(const GameObject* gridObject, const Direction newFacingDirection) override;
-	void Attack();
+	bool Move(const GameObject* gridObject, const Direction newFacingDirection) override;
+	Character* Attack();
 	void Attack(Attackable* target) override;
 	void Die() override;
 	void Respawn() override;

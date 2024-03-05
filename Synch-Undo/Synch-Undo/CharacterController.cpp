@@ -1,6 +1,9 @@
 #include "CharacterController.h"
+
+#include "AttackCommand.h"
 #include "Character.h"
 #include "MoveCommand.h"
+#include "RotateCommand.h"
 
 CharacterController::CharacterController() :
 	character(nullptr),
@@ -31,14 +34,16 @@ void CharacterController::HandleInput(const SDL_Event& event) const {
 
 
 	if (event.key.keysym.sym == attackKey) {
-		character->Attack();
+		AttackCommand* attackCommand = new AttackCommand(character);
+		commandInvoker->ExecuteCommand(attackCommand);
 		return;
 	}
 
 	const std::unordered_map<SDL_Keycode, Movable::Direction>::const_iterator it = keyMap.find(event.key.keysym.sym);
 	if (it != keyMap.end()) {
 		if (isShiftPressed) {
-			character->SetFacingDirection(it->second);
+			RotateCommand* rotateCommand = new RotateCommand(character, it->second);
+			commandInvoker->ExecuteCommand(rotateCommand);
 		}
 		else {
 			MoveCommand* moveCommand = new MoveCommand(character, it->second);

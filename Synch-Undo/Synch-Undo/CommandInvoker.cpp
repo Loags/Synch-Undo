@@ -1,6 +1,7 @@
 #include "CommandInvoker.h"
 
 #include <iostream>
+#include "Command.h"
 
 
 CommandInvoker::CommandInvoker(GameObject* owner) :
@@ -10,9 +11,14 @@ CommandInvoker::CommandInvoker(GameObject* owner) :
 
 void CommandInvoker::ExecuteCommand(Command* command)
 {
-	command->Execute();
-	commandStack.push(std::unique_ptr<Command>(command));
-	DebugCommandStack();
+	const bool success = command->Execute();
+	if (success) {
+		commandStack.push(std::unique_ptr<Command>(command));
+		DebugCommandStack();
+	}
+	else {
+		delete command;
+	}
 }
 
 void CommandInvoker::Undo()

@@ -39,7 +39,6 @@ void GameObject::AddComponent(Component* component) {
 
 void GameObject::AddChildGameObject(GameObject* child)
 {
-	std::cout << "Adding child: " << child->name << " to parent: " << this->name << "\n";
 	children.push_back(child);
 }
 
