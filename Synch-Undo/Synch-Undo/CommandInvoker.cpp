@@ -1,6 +1,8 @@
 #include "CommandInvoker.h"
 
 #include <iostream>
+#include <SDL_timer.h>
+
 #include "Command.h"
 
 
@@ -19,17 +21,43 @@ void CommandInvoker::ExecuteCommand(Command* command)
 void CommandInvoker::Undo()
 {
 	if (!commandStack.empty()) {
+		counterUndo += 1;
+		if (counterUndo % 2 == 0) return;
 		const std::unique_ptr<Command>& command = commandStack.top();
 		command->Undo();
 		commandStack.pop();
 		DebugCommandStack();
-		counter += 1;
-		std::cout << "Undo counter: " << counter << "\n";
 	}
+}
+
+void CommandInvoker::ScheduleUndoAll(Uint32 intervalMs)
+{
+	counterUndoAll += 1;
+	if (counterUndoAll % 2 == 0) return;
+	isUndoAllScheduled = true;
+	undoAllIntervalMs = intervalMs;
+	lastUndoTime = SDL_GetTicks() - undoAllIntervalMs;
+}
+
+void CommandInvoker::CancelUndoAll()
+{
+	if (counterUndoAll % 2 != 0) return;
+	isUndoAllScheduled = false;
 }
 
 void CommandInvoker::Update()
 {
+	if (isUndoAllScheduled && !commandStack.empty()) {
+		const Uint32 currentTime = SDL_GetTicks();
+		if (currentTime - lastUndoTime >= undoAllIntervalMs) {
+			lastUndoTime = currentTime;
+			Undo();
+
+			if (commandStack.empty()) {
+				isUndoAllScheduled = false;
+			}
+		}
+	}
 }
 
 void CommandInvoker::DebugCommandStack()

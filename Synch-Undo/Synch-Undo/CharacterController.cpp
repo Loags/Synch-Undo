@@ -15,18 +15,12 @@ void CharacterController::SetCharacter(Character* character)
 	commandInvoker = character->GetCommandInvoker();
 }
 
-void CharacterController::HandleInput(const SDL_Event& event) const {
+void CharacterController::HandleInput(const SDL_Event& event) const
+{
 	if (character == nullptr) return;
 
 	if (event.key.repeat != 0)
 	{
-		return;
-	}
-
-	if (event.key.keysym.sym == undoKey)
-	{
-		HandleUndo();
-
 		return;
 	}
 
@@ -36,6 +30,20 @@ void CharacterController::HandleInput(const SDL_Event& event) const {
 	const std::unordered_map<SDL_Keycode, Movable::Direction>& keyMap = character->GetKeyMap();
 	const SDL_Keycode attackKey = character->GetAttackKey();
 
+
+	if (event.key.keysym.sym == undoKey)
+	{
+		if (isShiftPressed)
+		{
+			commandInvoker->GetIsUndoAllScheduled() ? commandInvoker->CancelUndoAll() : commandInvoker->ScheduleUndoAll(100);
+		}
+		else
+		{
+			if (!commandInvoker->GetIsUndoAllScheduled())
+				commandInvoker->Undo();
+		}
+		return;
+	}
 
 	if (event.key.keysym.sym == attackKey)
 	{
