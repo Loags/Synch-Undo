@@ -22,7 +22,6 @@ public:
 	T* GetComponentInChildren() const {
 		static_assert(std::is_base_of<Component, T>::value, "T must be a derived class of Component");
 
-		// First, check direct children
 		for (GameObject* child : children) {
 			T* component = child->GetComponent<T>();
 			if (component) {
@@ -30,7 +29,6 @@ public:
 			}
 		}
 
-		// If not found, recursively check each child's children
 		for (GameObject* child : children) {
 			T* componentInChildren = child->GetComponentInChildren<T>();
 			if (componentInChildren) {
@@ -38,7 +36,6 @@ public:
 			}
 		}
 
-		// If we get here, no component of type T was found in this GameObject's children
 		return nullptr;
 	}
 
@@ -46,18 +43,13 @@ public:
 	GameObject* GetGameObjectWithComponent() const {
 		static_assert(std::is_base_of<Component, T>::value, "T must be a derived class of Component");
 
-		// Check direct children
-		std::cout << "Child count: " << children.size() << "\n";
 		for (GameObject* child : children) {
-			std::cout << "Check: " << child->name << "\n";
 			const T* component = child->GetComponent<T>();
 			if (component) {
-				std::cout << "Found child!\n";
-				return child; // Return the GameObject that has the component
+				return child;
 			}
 		}
 
-		// Recursively check each child's children
 		for (GameObject* child : children) {
 			GameObject* gameObjectWithComponent = child->GetGameObjectWithComponent<T>();
 			if (gameObjectWithComponent) {
@@ -67,8 +59,6 @@ public:
 			}
 		}
 
-		// If not found, return nullptr
-		std::cout << "No GameObject found with the specific component\n";
 		return nullptr;
 	}
 

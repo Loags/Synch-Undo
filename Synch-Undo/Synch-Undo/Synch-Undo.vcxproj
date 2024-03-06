@@ -142,6 +142,7 @@
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandInvoker.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="DieCommand.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Grid.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="MoveCommand.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
+    <ClCompile Include="RespawnCommand.cpp" />
     <ClCompile Include="RotateCommand.cpp" />
     <ClCompile Include="Synch-Undo.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
@@ -163,6 +165,7 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandInvoker.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="DieCommand.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Grid.h" />
@@ -171,14 +174,12 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="RespawnCommand.h" />
     <ClInclude Include="RotateCommand.h" />
     <ClInclude Include="TransformComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Synch-Undo.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

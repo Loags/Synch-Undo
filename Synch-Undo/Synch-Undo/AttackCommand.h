@@ -9,7 +9,7 @@ private:
 
 public:
 	explicit AttackCommand(Character* character);
-	bool Execute() override;
+	void Execute() override;
 	void Undo() override;
 	std::string ToString() const override;
 };

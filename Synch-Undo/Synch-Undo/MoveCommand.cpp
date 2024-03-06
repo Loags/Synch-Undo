@@ -1,22 +1,31 @@
 #include "MoveCommand.h"
 
-MoveCommand::MoveCommand(Character* character, Movable::Direction direction) :
+MoveCommand::MoveCommand(Character* character, Movable::Direction direction, const int prevPosX, const int prevPosY) :
 	Command(character),
+	prevPosX(prevPosX),
+	prevPosY(prevPosY),
 	characterDirection(direction)
 {
-	characterReversedDirection = character->GetFacingDirection();
+	ReverseDirection();
 }
 
-bool MoveCommand::Execute()
+void MoveCommand::Execute()
 {
-	const bool success = character->Move(character->GetGridObject(), characterDirection);
-	return success;
+	const TransformComponent* transformComponent = character->GetOwner()->GetComponent<TransformComponent>();
+	const Grid* grid = character->GetGridObject()->GetComponent<Grid>();
+	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
+	const std::pair<int, int> gridPrevPos = grid->GetPositionToGridCoords(prevPosX, prevPosY);
+	prevCell = grid->GetCellAtPos(gridPrevPos.first, gridPrevPos.second);
+	newCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
 }
 
 void MoveCommand::Undo()
 {
 	ReverseDirection();
-	character->Move(character->GetGridObject(), characterReversedDirection);
+	TransformComponent* transformComponent = character->GetOwner()->GetComponent<TransformComponent>();
+	transformComponent->SetPosition(prevPosX, prevPosY);
+	prevCell->SetCellState(Cell::Occupied);
+	newCell->SetCellState(Cell::Empty);
 	character->SetFacingDirection(characterDirection);
 }
 

@@ -21,7 +21,7 @@ public:
 	void SetHealth(int newHealth) { health = newHealth; }
 	void SetInitialHealth(int newInitialHealth) { initialHealth = newInitialHealth; }
 	void SetAttackPower(int newAttackPower) { attackPower = newAttackPower; }
-	void SetisDead(bool newDead) { isDead = newDead; }
+	void SetIsDead(bool newDead) { isDead = newDead; }
 
 	int GetHealth() const { return health; }
 	int GetInitialHealth() const { return initialHealth; }

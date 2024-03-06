@@ -1,15 +1,26 @@
 #include "Movable.h"
 #include "Grid.h"
+#include "MoveCommand.h"
+#include "RotateCommand.h"
 #include "TransformComponent.h"
 
 Movable::Movable(const GameObject* movableOwner, const int offSet) :
 	offSet(offSet),
 	movableOwner(movableOwner),
-	facingDirection(Direction::South)
+	facingDirection(Direction::South),
+	character(nullptr),
+	commandInvoker(nullptr)
 {
 }
 
-bool Movable::Move(const GameObject* gridObject, const Direction newFacingDirection)
+void Movable::SetCharacter(Character* character)
+{
+	this->character = character;
+	commandInvoker = character->GetCommandInvoker();
+}
+
+
+void Movable::Move(const GameObject* gridObject, const Direction newFacingDirection)
 {
 	const Grid* grid = gridObject->GetComponent<Grid>();
 	const int cellSize = grid->GetCellSize();
@@ -18,6 +29,8 @@ bool Movable::Move(const GameObject* gridObject, const Direction newFacingDirect
 
 	int newPosX = transform->GetX();
 	int newPosY = transform->GetY();
+	int prevPosX = newPosX;
+	int prevPosY = newPosY;
 
 	switch (newFacingDirection) {
 	case Direction::North:
@@ -40,7 +53,7 @@ bool Movable::Move(const GameObject* gridObject, const Direction newFacingDirect
 	Cell* currentCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
 	Cell* targetCell = grid->GetCellAtPos(gridPosTarget.first, gridPosTarget.second);
 
-	if (targetCell == nullptr) return false;
+	if (targetCell == nullptr) return;
 
 	if (targetCell->GetCellState() == Cell::Empty) {
 		currentCell->SetCellState(Cell::Empty);
@@ -51,11 +64,16 @@ bool Movable::Move(const GameObject* gridObject, const Direction newFacingDirect
 
 		transform->SetPosition(newPosX, newPosY);
 		SetFacingDirection(newFacingDirection);
-		return true;
+
+		MoveCommand* moveCommand = new MoveCommand(character, newFacingDirection, prevPosX, prevPosY);
+		commandInvoker->ExecuteCommand(moveCommand);
 	}
-	else
-	{
-		return false;
-	}
+}
+
+void Movable::Rotate(const Direction newFacingDirection)
+{
+	SetFacingDirection(newFacingDirection);
+	RotateCommand* rotateCommand = new RotateCommand(character, newFacingDirection);
+	commandInvoker->ExecuteCommand(rotateCommand);
 }
 

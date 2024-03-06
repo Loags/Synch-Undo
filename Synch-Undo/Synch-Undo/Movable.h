@@ -1,6 +1,9 @@
 #pragma once
+#include "CommandInvoker.h"
 #include "GameObject.h"
 
+
+class Character;
 
 class Movable
 {
@@ -13,13 +16,17 @@ protected:
 private:
 	const GameObject* movableOwner;
 	Direction facingDirection;
+	Character* character;
+	CommandInvoker* commandInvoker;
 
 public:
 	virtual ~Movable() = default;
 	Movable(const GameObject* movableOwner, const int offSet);
+	void SetCharacter(Character* character);
 
-	virtual bool Move(const GameObject* gridObject, const Direction newFacingDirection);
+	virtual void Move(const GameObject* gridObject, const Direction newFacingDirection);
 	Direction GetFacingDirection()const { return facingDirection; }
 	void SetFacingDirection(Direction newDirection) { facingDirection = newDirection; }
+	void Rotate(const Direction newFacingDirection);
 };
 

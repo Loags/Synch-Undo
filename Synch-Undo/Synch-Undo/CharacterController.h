@@ -8,16 +8,15 @@ class Character;
 class CharacterController
 {
 protected:
-	Character* character;
 	SDL_KeyCode undoKey;
-	GameObject* rootObject;
+	Character* character;
 	CommandInvoker* commandInvoker;
 
 public:
 	CharacterController();
+	void SetCharacter(Character* character);
 	virtual ~CharacterController() = default;
 
-	void SetCharacter(Character* character);
 	void HandleInput(const SDL_Event& event) const;
 	void HandleUndo() const;
 };

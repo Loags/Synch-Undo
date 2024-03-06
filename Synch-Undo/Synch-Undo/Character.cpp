@@ -1,7 +1,5 @@
 #include "Character.h"
-
 #include <SDL_timer.h>
-
 #include "Grid.h"
 
 Character::Character(GameObject* owner, const GameObject* gridObject, const int offSet,
@@ -14,17 +12,23 @@ Character::Character(GameObject* owner, const GameObject* gridObject, const int 
 	transformComponent(nullptr),
 	renderComponent(nullptr)
 {
-	this->CharacterController::SetCharacter(this);
+	commandInvoker = GetOwner()->GetRootObject()->GetComponent<CommandInvoker>();
+	CharacterController::SetCharacter(this);
+	Attackable::SetCharacter(this);
+	Movable::SetCharacter(this);
 }
 
 void Character::Update()
 {
-
+	if (GetPendingRespawn() && SDL_GetTicks() - GetDeathTime() >= 5000) {
+		Respawn();
+		SetPendingRespawn(false);
+	}
 }
 
-bool Character::Move(const GameObject* gridObject, const Direction newFacingDirection)
+void Character::Move(const GameObject* gridObject, const Direction newFacingDirection)
 {
-	return Movable::Move(gridObject, newFacingDirection);
+	Movable::Move(gridObject, newFacingDirection);
 }
 
 Character* Character::Attack()
@@ -48,9 +52,11 @@ Character* Character::Attack()
 	if (targetObject)
 	{
 		Character* targetCharacter = targetObject->GetComponent<Character>();
+		lastAttackTarget = targetCharacter;
 		Attack(targetCharacter);
 		return targetCharacter;
 	}
+	lastAttackTarget = nullptr;
 	return nullptr;
 }
 
@@ -61,18 +67,27 @@ void Character::Attack(Attackable* target)
 
 void Character::Die()
 {
-	Attackable::Die();
-	deathTime = SDL_GetTicks();
+	SetDeathTime(SDL_GetTicks());
 	const Grid* grid = gridObject->GetComponent<Grid>();
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
 	Cell* cell = grid->GetCellAtPos(gridPos.first, gridPos.second);
 	cell->SetCellState(Cell::Empty);
 	cell->SetCharacterObjectRef(nullptr);
+	pendingRespawn = true;
+	renderComponent->SetVisible(false);
+	Attackable::Die();
 }
 
 void Character::Respawn()
 {
-	Attackable::Respawn();
 	stats.SetHealth(stats.GetInitialHealth());
-	stats.SetisDead(false);
+	stats.SetIsDead(false);
+	const Grid* grid = gridObject->GetComponent<Grid>();
+	Cell* cell = grid->FindDistantEmptyCell();
+	if (!cell) return;
+	cell->SetCellState(Cell::Occupied);
+	cell->SetCharacterObjectRef(owner);
+	transformComponent->SetPosition(cell->GetCellPos().first + offSet, cell->GetCellPos().second + offSet);
+	renderComponent->SetVisible(true);
+	Attackable::Respawn();
 }

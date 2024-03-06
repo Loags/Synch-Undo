@@ -1,13 +1,12 @@
 #include "RotateCommand.h"
 
 RotateCommand::RotateCommand(Character* character, Movable::Direction direction) :
-	MoveCommand(character, direction)
+	MoveCommand(character, direction, 0, 0)
 {
 }
-bool RotateCommand::Execute()
+void RotateCommand::Execute()
 {
 	character->SetFacingDirection(characterDirection);
-	return true;
 }
 
 void RotateCommand::Undo()

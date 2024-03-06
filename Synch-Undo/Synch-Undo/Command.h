@@ -11,7 +11,7 @@ protected:
 public:
 	virtual ~Command() = default;
 	Command(Character* character);
-	virtual bool Execute() = 0;
+	virtual void Execute() = 0;
 	virtual void Undo() = 0;
 	virtual std::string ToString() const = 0;
 };

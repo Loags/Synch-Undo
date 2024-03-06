@@ -28,14 +28,23 @@ Player::Player(GameObject* owner, const GameObject* gridObject, const int posX, 
 	attackKey = SDLK_SPACE;
 }
 
-bool Player::Move(const GameObject* gridObject, const Direction newFacingDirection)
+void Player::Move(const GameObject* gridObject, const Direction newFacingDirection)
 {
-	return Character::Move(gridObject, newFacingDirection);
+	Character::Move(gridObject, newFacingDirection);
 }
 
+void Player::Die()
+{
+	Character::Die();
+}
+
+void Player::Respawn()
+{
+	Character::Respawn();
+}
 
 void Player::Update()
 {
-
+	Character::Update();
 }
 

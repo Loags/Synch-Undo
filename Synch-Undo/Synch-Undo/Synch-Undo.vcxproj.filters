@@ -19,6 +19,12 @@
     <Filter Include="Quelldateien\Character">
       <UniqueIdentifier>{2f4ed4df-4ddb-4946-a3a4-7ee33811667c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\Commands">
+      <UniqueIdentifier>{8fb2426f-b7ae-4a16-805c-87e793466085}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Commands">
+      <UniqueIdentifier>{3305032f-19d0-42d0-80f4-1b3ddb014d87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Synch-Undo.cpp">
@@ -64,18 +70,24 @@
       <Filter>Quelldateien\Character</Filter>
     </ClCompile>
     <ClCompile Include="Command.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="MoveCommand.cpp">
-      <Filter>Quelldateien</Filter>
+    <ClCompile Include="AttackCommand.cpp">
+      <Filter>Quelldateien\Commands</Filter>
     </ClCompile>
     <ClCompile Include="CommandInvoker.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="DieCommand.cpp">
+      <Filter>Quelldateien\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveCommand.cpp">
+      <Filter>Quelldateien\Commands</Filter>
     </ClCompile>
     <ClCompile Include="RotateCommand.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="AttackCommand.cpp">
+    <ClCompile Include="RespawnCommand.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -122,19 +134,25 @@
     <ClInclude Include="CharacterController.h">
       <Filter>Headerdateien\Character</Filter>
     </ClInclude>
-    <ClInclude Include="Command.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="MoveCommand.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="CommandInvoker.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="RotateCommand.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="AttackCommand.h">
+      <Filter>Headerdateien\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Headerdateien\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandInvoker.h">
+      <Filter>Headerdateien\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="DieCommand.h">
+      <Filter>Headerdateien\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveCommand.h">
+      <Filter>Headerdateien\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="RespawnCommand.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -142,8 +160,5 @@
     <ResourceCompile Include="Synch-Undo.rc">
       <Filter>Ressourcendateien</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

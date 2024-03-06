@@ -1,28 +1,32 @@
 #include "CharacterController.h"
-
-#include "AttackCommand.h"
 #include "Character.h"
 #include "MoveCommand.h"
-#include "RotateCommand.h"
 
 CharacterController::CharacterController() :
+	undoKey(SDLK_u),
 	character(nullptr),
-	undoKey(SDLK_u)
+	commandInvoker(nullptr)
 {
 }
 
 void CharacterController::SetCharacter(Character* character)
 {
 	this->character = character;
-	rootObject = character->GetOwner()->GetRootObject();
-	commandInvoker = rootObject->GetComponent<CommandInvoker>();
+	commandInvoker = character->GetCommandInvoker();
 }
 
 void CharacterController::HandleInput(const SDL_Event& event) const {
 	if (character == nullptr) return;
+
+	if (event.key.repeat != 0)
+	{
+		return;
+	}
+
 	if (event.key.keysym.sym == undoKey)
 	{
 		HandleUndo();
+
 		return;
 	}
 
@@ -33,23 +37,25 @@ void CharacterController::HandleInput(const SDL_Event& event) const {
 	const SDL_Keycode attackKey = character->GetAttackKey();
 
 
-	if (event.key.keysym.sym == attackKey) {
-		AttackCommand* attackCommand = new AttackCommand(character);
-		commandInvoker->ExecuteCommand(attackCommand);
+	if (event.key.keysym.sym == attackKey)
+	{
+		character->Attack();
 		return;
 	}
 
 	const std::unordered_map<SDL_Keycode, Movable::Direction>::const_iterator it = keyMap.find(event.key.keysym.sym);
-	if (it != keyMap.end()) {
-		if (isShiftPressed) {
-			RotateCommand* rotateCommand = new RotateCommand(character, it->second);
-			commandInvoker->ExecuteCommand(rotateCommand);
+	if (it != keyMap.end())
+	{
+		if (isShiftPressed)
+		{
+			character->Rotate(it->second);
 		}
-		else {
-			MoveCommand* moveCommand = new MoveCommand(character, it->second);
-			commandInvoker->ExecuteCommand(moveCommand);
+		else
+		{
+			character->Move(character->GetGridObject(), it->second);
 		}
 	}
+
 }
 
 void CharacterController::HandleUndo() const

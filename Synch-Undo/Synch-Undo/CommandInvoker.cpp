@@ -11,14 +11,9 @@ CommandInvoker::CommandInvoker(GameObject* owner) :
 
 void CommandInvoker::ExecuteCommand(Command* command)
 {
-	const bool success = command->Execute();
-	if (success) {
-		commandStack.push(std::unique_ptr<Command>(command));
-		DebugCommandStack();
-	}
-	else {
-		delete command;
-	}
+	command->Execute();
+	commandStack.push(std::unique_ptr<Command>(command));
+	DebugCommandStack();
 }
 
 void CommandInvoker::Undo()
@@ -28,6 +23,8 @@ void CommandInvoker::Undo()
 		command->Undo();
 		commandStack.pop();
 		DebugCommandStack();
+		counter += 1;
+		std::cout << "Undo counter: " << counter << "\n";
 	}
 }
 

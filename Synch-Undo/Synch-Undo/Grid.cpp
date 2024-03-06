@@ -3,6 +3,7 @@
 #include <random>
 
 #include "Cell.h"
+#include "Enemy.h"
 #include "Player.h"
 
 Grid::Grid(GameObject* owner, const int windowWidth, const int windowHeight,
@@ -98,18 +99,24 @@ Cell* Grid::FindDistantEmptyCell() const
 	std::random_device rd;
 	std::mt19937 eng(rd());
 
-	const GameObject* playerObject = owner->GetParentObject()->GetGameObjectWithComponent<Player>();
-	if (!playerObject) return nullptr;
+	const GameObject* playerObject = owner->GetRootObject()->GetGameObjectWithComponent<Player>();
+	const GameObject* enemyObject = owner->GetRootObject()->GetGameObjectWithComponent<Enemy>();
 
-	const TransformComponent* playerTransform = playerObject->GetComponent<TransformComponent>();
-	const std::pair<int, int> playerGridPos = GetPositionToGridCoords(playerTransform->GetX(), playerTransform->GetY());
+	const GameObject* characterObject = nullptr;
+	if (playerObject)
+		characterObject = playerObject;
+	else if (enemyObject)
+		characterObject = enemyObject;
+
+	const TransformComponent* characterTransform = characterObject->GetComponent<TransformComponent>();
+	const std::pair<int, int> characterGridPos = GetPositionToGridCoords(characterTransform->GetX(), characterTransform->GetY());
 
 	std::vector<Cell*> possibleCells;
 
 	for (int col = 0; col < cols; ++col) {
 		for (int row = 0; row < rows; ++row) {
 			if (GetIsCellEmpty(col, row)) {
-				const int distance = std::abs(playerGridPos.first - col) + std::abs(playerGridPos.second - row);
+				const int distance = std::abs(characterGridPos.first - col) + std::abs(characterGridPos.second - row);
 				if (distance >= 5) {
 					Cell* cell = GetCellAtPos(col, row);
 					if (cell) {

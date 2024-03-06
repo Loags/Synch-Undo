@@ -1,15 +1,14 @@
 #include "AttackCommand.h"
 
 AttackCommand::AttackCommand(Character* character) :
-	Command(character), target(nullptr)
+	Command(character),
+	target(nullptr)
 {
 }
 
-bool AttackCommand::Execute()
+void AttackCommand::Execute()
 {
-	target = character->Attack();
-	const bool success = target;
-	return success;
+	target = character->GetLastAttackTarget();
 }
 
 void AttackCommand::Undo()

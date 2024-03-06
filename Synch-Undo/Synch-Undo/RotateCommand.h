@@ -7,7 +7,7 @@ public:
 	RotateCommand(Character* character, Movable::Direction direction);
 
 private:
-	bool Execute() override;
+	void Execute() override;
 	void Undo() override;
 	std::string ToString() const override;
 };

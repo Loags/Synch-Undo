@@ -1,5 +1,4 @@
 #include "Enemy.h"
-
 #include <iostream>
 #include <SDL_timer.h>
 #include "Grid.h"
@@ -25,32 +24,20 @@ Enemy::Enemy(GameObject* owner, const GameObject* gridObject, const int posX, co
 
 void Enemy::Update()
 {
-	if (pendingRespawn && SDL_GetTicks() - deathTime >= 5000) {
-		Respawn();
-		pendingRespawn = false;
-	}
+	Character::Update();
 }
 
-bool Enemy::Move(const GameObject* gridObject, const Direction newFacingDirection)
+void Enemy::Move(const GameObject* gridObject, const Direction newFacingDirection)
 {
-	return Character::Move(gridObject, newFacingDirection);
+	Character::Move(gridObject, newFacingDirection);
 }
 
 void Enemy::Die()
 {
 	Character::Die();
-	pendingRespawn = true;
-	renderComponent->SetVisible(false);
 }
 
 void Enemy::Respawn()
 {
 	Character::Respawn();
-	const Grid* grid = gridObject->GetComponent<Grid>();
-	Cell* cell = grid->FindDistantEmptyCell();
-	if (!cell) return;
-	cell->SetCellState(Cell::Occupied);
-	cell->SetCharacterObjectRef(owner);
-	transformComponent->SetPosition(cell->GetCellPos().first + offSet, cell->GetCellPos().second + offSet);
-	renderComponent->SetVisible(true);
 }
