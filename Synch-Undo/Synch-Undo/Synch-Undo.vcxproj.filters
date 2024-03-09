@@ -25,6 +25,18 @@
     <Filter Include="Quelldateien\Commands">
       <UniqueIdentifier>{3305032f-19d0-42d0-80f4-1b3ddb014d87}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\Items">
+      <UniqueIdentifier>{f2ac7eae-0cdd-43e6-9d68-184683b41ff3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Items">
+      <UniqueIdentifier>{b7eb86de-4e85-4f73-a535-0252cf82f885}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Grid">
+      <UniqueIdentifier>{833dbaac-5a23-4f28-9825-5920be15f1d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Grid">
+      <UniqueIdentifier>{5511ec25-3241-44fd-b340-782dd02a276c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Synch-Undo.cpp">
@@ -34,12 +46,6 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Grid.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Cell.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="TransformComponent.cpp">
@@ -84,11 +90,32 @@
     <ClCompile Include="MoveCommand.cpp">
       <Filter>Quelldateien\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="RotateCommand.cpp">
-      <Filter>Quelldateien</Filter>
+    <ClCompile Include="Item.cpp">
+      <Filter>Quelldateien\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemManager.cpp">
+      <Filter>Quelldateien\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Quelldateien\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="Cell.cpp">
+      <Filter>Quelldateien\Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="Interactable.cpp">
+      <Filter>Quelldateien\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="PickUpCommand.cpp">
+      <Filter>Quelldateien\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="PickUp.cpp">
+      <Filter>Quelldateien\Items</Filter>
     </ClCompile>
     <ClCompile Include="RespawnCommand.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateCommand.cpp">
+      <Filter>Quelldateien\Commands</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -96,9 +123,6 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Cell.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="TransformComponent.h">
@@ -125,17 +149,11 @@
     <ClInclude Include="Movable.h">
       <Filter>Headerdateien\Character</Filter>
     </ClInclude>
-    <ClInclude Include="Grid.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Character.h">
       <Filter>Headerdateien\Character</Filter>
     </ClInclude>
     <ClInclude Include="CharacterController.h">
       <Filter>Headerdateien\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="RotateCommand.h">
-      <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="AttackCommand.h">
       <Filter>Headerdateien\Commands</Filter>
@@ -152,8 +170,32 @@
     <ClInclude Include="MoveCommand.h">
       <Filter>Headerdateien\Commands</Filter>
     </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Headerdateien\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemManager.h">
+      <Filter>Headerdateien\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Interactable.h">
+      <Filter>Headerdateien\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Headerdateien\Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="Cell.h">
+      <Filter>Headerdateien\Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="PickUpCommand.h">
+      <Filter>Headerdateien\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="PickUp.h">
+      <Filter>Headerdateien\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateCommand.h">
+      <Filter>Headerdateien\Commands</Filter>
+    </ClInclude>
     <ClInclude Include="RespawnCommand.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\Commands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

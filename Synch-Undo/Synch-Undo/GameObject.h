@@ -14,9 +14,11 @@ public:
 	void AddChildGameObject(GameObject* child);
 	void Render(SDL_Renderer* renderer) const;
 	void Update() const;
+	void Reparent(GameObject* newParent);
 	int GetChildrenCount() const { return children.size(); }
 	GameObject* GetParentObject() const { return owner; }
 	GameObject* GetRootObject();
+	std::string GetName() const { return name; }
 
 	template<typename T>
 	T* GetComponentInChildren() const {

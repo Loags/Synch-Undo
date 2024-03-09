@@ -4,6 +4,7 @@
 #include "Enemy.h"
 #include "SDL.h"
 #include "Grid.h"
+#include "ItemManager.h"
 #include "Player.h"
 
 constexpr int CELL_SIZE = 48;
@@ -18,7 +19,7 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		cout << "SDL initialization succeeded!";
+		cout << "SDL initialization succeeded!\n";
 	}
 
 	// Create the SDL window and renderer
@@ -29,7 +30,8 @@ int main(int argc, char* argv[])
 	CommandInvoker* commandInvoker = new CommandInvoker(rootObject);
 	rootObject->AddComponent(commandInvoker);
 
-	// Create the grid GameObject and add its component
+
+	// Create the gridRef GameObject and add its component
 	GameObject* gridObject = new GameObject(rootObject, "Grid");
 	int windowWidth, windowHeight;
 	SDL_GetWindowSize(window, &windowWidth, &windowHeight);
@@ -49,26 +51,59 @@ int main(int argc, char* argv[])
 	rootObject->AddChildGameObject(playerObject);
 	rootObject->AddChildGameObject(enemyObject);
 
-	std::cout << "\n";
-	rootObject->PrintComponentsAndChildren();
+	ItemManager* itemManager = new ItemManager(rootObject);
+	rootObject->AddComponent(itemManager);
+
+	//std::cout << "\n";
+	//rootObject->PrintComponentsAndChildren();
 
 	// Main game loop setup
 	bool gameRunning = true;
+	bool consoleAccess = false;
 	SDL_Event e;
 	while (gameRunning) {
 		while (SDL_PollEvent(&e)) {
 			if (e.type == SDL_QUIT) {
 				gameRunning = false;
 			}
-			else if (e.type == SDL_KEYDOWN) {
-				if (!player->stats.GetIsDead()) {
-					player->HandleInput(e);
+			if (e.type == SDL_KEYDOWN) {
+
+				if (e.key.keysym.sym == SDLK_p)
+				{
+					consoleAccess = true;
 				}
-				if (!enemy->stats.GetIsDead()) {
-					enemy->HandleInput(e);
+				else if (!consoleAccess)
+				{
+					if (!player->stats.GetIsDead()) {
+						player->HandleInput(e);
+					}
+					if (!enemy->stats.GetIsDead()) {
+						enemy->HandleInput(e);
+					}
 				}
 			}
+		}
 
+		while (consoleAccess) {
+			std::string input;
+			std::cout << "Enter command (type 'print' to display GameObjects and Components, 'exit' to quit): ";
+			std::getline(std::cin, input);
+
+			if (input == "print") {
+				rootObject->PrintComponentsAndChildren(0);
+			}
+			else if (input == "exit") {
+				consoleAccess = false;
+				break;
+			}
+			else if (input == "start")
+			{
+				consoleAccess = false;
+				break;
+			}
+			else {
+				std::cout << "Unknown command. Please try again.\n";
+			}
 		}
 
 		// Update GameObjects

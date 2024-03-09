@@ -20,6 +20,10 @@ Enemy::Enemy(GameObject* owner, const GameObject* gridObject, const int posX, co
 			{SDLK_RIGHT, Direction::East}
 	};
 	attackKey = SDLK_RETURN;
+
+	const Grid* grid = gridObject->GetComponent<Grid>();
+	const std::pair<int, int> pos = grid->GetPositionToGridCoords(posX, posY);
+	grid->SetCellState(pos.first, pos.second, Cell::Occupied);
 }
 
 void Enemy::Update()

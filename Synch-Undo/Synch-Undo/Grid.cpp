@@ -1,9 +1,9 @@
 #include "Grid.h"
 #include <iostream>
 #include <random>
-
 #include "Cell.h"
 #include "Enemy.h"
+#include "Item.h"
 #include "Player.h"
 
 Grid::Grid(GameObject* owner, const int windowWidth, const int windowHeight,
@@ -35,7 +35,6 @@ Grid::Grid(GameObject* owner, const int windowWidth, const int windowHeight,
 	}
 	CreateWallPatterns();
 }
-
 
 void Grid::Update()
 {
@@ -133,7 +132,6 @@ Cell* Grid::FindDistantEmptyCell() const
 	const int randomIndex = dis(eng);
 	return possibleCells[randomIndex];
 }
-
 
 void Grid::CreateWallPatterns() const
 {

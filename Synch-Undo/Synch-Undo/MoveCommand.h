@@ -10,12 +10,13 @@ private:
 	int prevPosY;
 	Cell* prevCell;
 	Cell* newCell;
+	Character* character;
 
 protected:
 	Movable::Direction characterDirection;
 	Movable::Direction characterReversedDirection;
 public:
-	MoveCommand(Character* character, Movable::Direction direction, const int prevPosX, const int prevPosY);
+	MoveCommand(GameObject* object, Movable::Direction direction, const int prevPosX, const int prevPosY);
 
 	void Execute() override;
 	void Undo() override;

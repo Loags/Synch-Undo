@@ -1,11 +1,14 @@
 #include "RotateCommand.h"
 
-RotateCommand::RotateCommand(Character* character, Movable::Direction direction) :
-	MoveCommand(character, direction, 0, 0)
+#include "Character.h"
+
+RotateCommand::RotateCommand(GameObject* object, Movable::Direction direction) :
+	MoveCommand(object, direction, 0, 0)
 {
 }
 void RotateCommand::Execute()
 {
+	character = object->GetComponent<Character>();
 	character->SetFacingDirection(characterDirection);
 }
 

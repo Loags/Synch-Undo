@@ -1,4 +1,6 @@
 #include "Movable.h"
+
+#include "Character.h"
 #include "Grid.h"
 #include "MoveCommand.h"
 #include "RotateCommand.h"
@@ -29,8 +31,8 @@ void Movable::Move(const GameObject* gridObject, const Direction newFacingDirect
 
 	int newPosX = transform->GetX();
 	int newPosY = transform->GetY();
-	int prevPosX = newPosX;
-	int prevPosY = newPosY;
+	const int prevPosX = newPosX;
+	const int prevPosY = newPosY;
 
 	switch (newFacingDirection) {
 	case Direction::North:
@@ -55,7 +57,7 @@ void Movable::Move(const GameObject* gridObject, const Direction newFacingDirect
 
 	if (targetCell == nullptr) return;
 
-	if (targetCell->GetCellState() == Cell::Empty) {
+	if (targetCell->GetCellState() == Cell::Empty || targetCell->GetCellState() == Cell::PickUp) {
 		currentCell->SetCellState(Cell::Empty);
 		currentCell->SetCharacterObjectRef(nullptr);
 
@@ -65,7 +67,7 @@ void Movable::Move(const GameObject* gridObject, const Direction newFacingDirect
 		transform->SetPosition(newPosX, newPosY);
 		SetFacingDirection(newFacingDirection);
 
-		MoveCommand* moveCommand = new MoveCommand(character, newFacingDirection, prevPosX, prevPosY);
+		MoveCommand* moveCommand = new MoveCommand(character->GetOwner(), newFacingDirection, prevPosX, prevPosY);
 		commandInvoker->ExecuteCommand(moveCommand);
 	}
 }
@@ -73,7 +75,7 @@ void Movable::Move(const GameObject* gridObject, const Direction newFacingDirect
 void Movable::Rotate(const Direction newFacingDirection)
 {
 	SetFacingDirection(newFacingDirection);
-	RotateCommand* rotateCommand = new RotateCommand(character, newFacingDirection);
+	RotateCommand* rotateCommand = new RotateCommand(character->GetOwner(), newFacingDirection);
 	commandInvoker->ExecuteCommand(rotateCommand);
 }
 

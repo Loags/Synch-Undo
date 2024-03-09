@@ -1,6 +1,7 @@
 #include "Attackable.h"
 
 #include "AttackCommand.h"
+#include "Character.h"
 #include "DieCommand.h"
 #include "RespawnCommand.h"
 
@@ -19,7 +20,7 @@ void Attackable::SetCharacter(Character* character)
 
 void Attackable::Attack(Attackable* target)
 {
-	AttackCommand* attackCommand = new AttackCommand(character);
+	AttackCommand* attackCommand = new AttackCommand(character->GetOwner());
 	commandInvoker->ExecuteCommand(attackCommand);
 	target->TakeDamage(stats.GetAttackPower());
 }
@@ -39,12 +40,12 @@ void Attackable::TakeDamage(const int damage)
 void Attackable::Die()
 {
 	stats.SetIsDead(true);
-	DieCommand* dieCommand = new DieCommand(character);
+	DieCommand* dieCommand = new DieCommand(character->GetOwner());
 	commandInvoker->ExecuteCommand(dieCommand);
 }
 
 void Attackable::Respawn()
 {
-	RespawnCommand* respawnCommand = new RespawnCommand(character);
+	RespawnCommand* respawnCommand = new RespawnCommand(character->GetOwner());
 	commandInvoker->ExecuteCommand(respawnCommand);
 }

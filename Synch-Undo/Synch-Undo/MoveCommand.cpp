@@ -1,7 +1,9 @@
 #include "MoveCommand.h"
 
-MoveCommand::MoveCommand(Character* character, Movable::Direction direction, const int prevPosX, const int prevPosY) :
-	Command(character),
+#include "Character.h"
+
+MoveCommand::MoveCommand(GameObject* object, Movable::Direction direction, const int prevPosX, const int prevPosY) :
+	Command(object),
 	prevPosX(prevPosX),
 	prevPosY(prevPosY),
 	characterDirection(direction)
@@ -11,8 +13,9 @@ MoveCommand::MoveCommand(Character* character, Movable::Direction direction, con
 
 void MoveCommand::Execute()
 {
-	const TransformComponent* transformComponent = character->GetOwner()->GetComponent<TransformComponent>();
-	const Grid* grid = character->GetGridObject()->GetComponent<Grid>();
+	character = object->GetComponent<Character>();
+	const TransformComponent* transformComponent = object->GetComponent<TransformComponent>();
+	const Grid* grid = object->GetRootObject()->GetComponentInChildren<Grid>();
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
 	const std::pair<int, int> gridPrevPos = grid->GetPositionToGridCoords(prevPosX, prevPosY);
 	prevCell = grid->GetCellAtPos(gridPrevPos.first, gridPrevPos.second);
@@ -22,7 +25,7 @@ void MoveCommand::Execute()
 void MoveCommand::Undo()
 {
 	ReverseDirection();
-	TransformComponent* transformComponent = character->GetOwner()->GetComponent<TransformComponent>();
+	TransformComponent* transformComponent = object->GetComponent<TransformComponent>();
 	transformComponent->SetPosition(prevPosX, prevPosY);
 	prevCell->SetCellState(Cell::Occupied);
 	newCell->SetCellState(Cell::Empty);

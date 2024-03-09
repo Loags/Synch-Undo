@@ -2,15 +2,18 @@
 #include "Command.h"
 #include "Grid.h"
 
+class Character;
+
 class DieCommand : public Command
 {
 private:
 	int deathPosX;
 	int deathPosY;
 	Cell* deathCell;
+	Character* character;
 
 public:
-	explicit DieCommand(Character* character);
+	explicit DieCommand(GameObject* object);
 
 	void Execute() override;
 	void Undo() override;

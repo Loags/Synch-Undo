@@ -3,8 +3,10 @@
 
 class RotateCommand : public MoveCommand
 {
+private:
+	Character* character;
 public:
-	RotateCommand(Character* character, Movable::Direction direction);
+	RotateCommand(GameObject* object, Movable::Direction direction);
 
 private:
 	void Execute() override;

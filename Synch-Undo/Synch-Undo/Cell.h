@@ -9,7 +9,7 @@
 class Cell : public Component
 {
 public:
-	enum CellState { Empty, Occupied, Wall };
+	enum CellState { Empty, Occupied, Wall, PickUp };
 
 private:
 	CellState cellState = Empty;

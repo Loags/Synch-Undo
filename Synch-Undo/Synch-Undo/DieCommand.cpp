@@ -1,19 +1,23 @@
 #include "DieCommand.h"
 
-DieCommand::DieCommand(Character* character) :
-	Command(character),
+#include "Character.h"
+
+DieCommand::DieCommand(GameObject* object) :
+	Command(object),
 	deathPosX(0),
 	deathPosY(0),
-	deathCell(nullptr)
+	deathCell(nullptr),
+	character(nullptr)
 {
 }
 
 void DieCommand::Execute()
 {
-	const TransformComponent* transformComponent = character->GetOwner()->GetComponent<TransformComponent>();
+	character = object->GetComponent<Character>();
+	const TransformComponent* transformComponent = object->GetComponent<TransformComponent>();
 	deathPosX = transformComponent->GetX();
 	deathPosY = transformComponent->GetY();
-	const Grid* grid = character->GetGridObject()->GetComponent<Grid>();
+	const Grid* grid = object->GetRootObject()->GetComponentInChildren<Grid>();
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(deathPosX, deathPosY);
 	deathCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
 }
@@ -21,7 +25,8 @@ void DieCommand::Execute()
 void DieCommand::Undo()
 {
 	deathCell->SetCellState(Cell::Occupied);
-	deathCell->SetCharacterObjectRef(character->GetOwner());
+	deathCell->SetCharacterObjectRef(object);
+
 
 	character->SetPendingRespawn(false);
 	character->SetDeathTime(0);

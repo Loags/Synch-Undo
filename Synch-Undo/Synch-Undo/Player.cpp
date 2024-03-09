@@ -26,6 +26,9 @@ Player::Player(GameObject* owner, const GameObject* gridObject, const int posX, 
 			{SDLK_d, Direction::East}
 	};
 	attackKey = SDLK_SPACE;
+	const Grid* grid = gridObject->GetComponent<Grid>();
+	const std::pair<int, int> pos = grid->GetPositionToGridCoords(posX, posY);
+	grid->SetCellState(pos.first, pos.second, Cell::Occupied);
 }
 
 void Player::Move(const GameObject* gridObject, const Direction newFacingDirection)

@@ -1,6 +1,7 @@
 #include "Command.h"
 
-Command::Command(Character* character)
-	: character(character)
+Command::Command(GameObject* object)
+	: object(object),
+	type(CommandType::Single)
 {
 }

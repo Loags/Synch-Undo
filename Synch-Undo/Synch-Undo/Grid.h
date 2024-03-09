@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 #include "Component.h"
 #include <vector>
 #include "Cell.h"
@@ -29,12 +30,7 @@ private:
 public:
 	Grid(GameObject* owner, const int windowWidth, const int windowHeight, const int cellSize);
 
-#pragma region Component
-
 	void Update() override;
-
-#pragma endregion Component
-
 	int GetCellSize() const { return cellSize; }
 	Cell* GetCellAtPos(const int col, const int row) const;
 	bool GetIsCellEmpty(const int col, const int row) const;

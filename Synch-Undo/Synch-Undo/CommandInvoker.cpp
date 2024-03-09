@@ -20,6 +20,8 @@ void CommandInvoker::ExecuteCommand(Command* command)
 
 void CommandInvoker::Undo()
 {
+	// TODO: Add a way to undo twice after a specific command! When a pickUp is collected it will immediately spawn again!
+	// TODO: Check with the enum inside Command.h
 	if (!commandStack.empty()) {
 		counterUndo += 1;
 		if (counterUndo % 2 == 0) return;

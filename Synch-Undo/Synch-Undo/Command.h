@@ -1,18 +1,21 @@
 #pragma once
 #include <string>
 
-#include "Character.h"
+class GameObject;
 
 class Command
 {
 protected:
-	Character* character;
+	enum class CommandType { Single, Double };
+	GameObject* object;
+	CommandType type;
 
 public:
 	virtual ~Command() = default;
-	Command(Character* character);
+	Command(GameObject* object);
 	virtual void Execute() = 0;
 	virtual void Undo() = 0;
 	virtual std::string ToString() const = 0;
+	void SetCommandType(CommandType newType) { type = newType; }
 };
 

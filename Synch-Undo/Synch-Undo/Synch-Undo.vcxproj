@@ -146,8 +146,13 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="Interactable.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemManager.cpp" />
     <ClCompile Include="Movable.cpp" />
     <ClCompile Include="MoveCommand.cpp" />
+    <ClCompile Include="PickUp.cpp" />
+    <ClCompile Include="PickUpCommand.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="RespawnCommand.cpp" />
@@ -169,8 +174,13 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Grid.h" />
+    <ClInclude Include="Interactable.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemManager.h" />
     <ClInclude Include="Movable.h" />
     <ClInclude Include="MoveCommand.h" />
+    <ClInclude Include="PickUp.h" />
+    <ClInclude Include="PickUpCommand.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="resource.h" />

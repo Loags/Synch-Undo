@@ -14,7 +14,6 @@ GameObject::GameObject(GameObject* owner, std::string name) :
 void GameObject::PrintComponentsAndChildren(const int level) const
 {
 	const std::string indent(level * 6, ' ');
-	if (name == "Grid" || name == "Cell") return;
 
 	std::cout << indent << "GameObject: " << name << "\n";
 
@@ -44,18 +43,21 @@ void GameObject::AddChildGameObject(GameObject* child)
 
 void GameObject::Render(SDL_Renderer* renderer) const
 {
+	// Render this object's components first, if any
+	for (const auto& component : components) {
+		const RenderComponent* renderComp = dynamic_cast<const RenderComponent*>(component);
+		if (renderComp) {
+			const TransformComponent* transform = GetComponent<TransformComponent>();
+			if (transform) {
+				renderComp->Render(renderer, transform, renderComp->GetRenderColor());
+			}
+		}
+	}
+
+	// Then recursively render all children
 	for (const GameObject* child : children) {
-
-		if (child)
+		if (child) {
 			child->Render(renderer);
-
-		const RenderComponent* renderComp = child->GetComponent<RenderComponent>();
-
-		if (!renderComp) continue;
-
-		const TransformComponent* transform = child->GetComponent<TransformComponent>();
-		if (transform) {
-			renderComp->Render(renderer, transform, renderComp->GetRenderColor());
 		}
 	}
 }
@@ -69,6 +71,23 @@ void GameObject::Update() const
 		component->Update();
 	}
 }
+
+void GameObject::Reparent(GameObject* newParent) {
+	// Remove from current parent
+	if (this->owner) {
+		auto& siblings = this->owner->children;
+		siblings.erase(std::remove(siblings.begin(), siblings.end(), this), siblings.end());
+	}
+
+	// Set new parent
+	this->owner = newParent;
+
+	// Add to new parent's children list
+	if (newParent) {
+		newParent->children.push_back(this);
+	}
+}
+
 
 GameObject* GameObject::GetRootObject()
 {

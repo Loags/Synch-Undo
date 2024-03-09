@@ -1,21 +1,23 @@
 #include "RespawnCommand.h"
-
 #include <SDL_timer.h>
+#include "Character.h"
 
-RespawnCommand::RespawnCommand(Character* character) :
-	Command(character),
+RespawnCommand::RespawnCommand(GameObject* object) :
+	Command(object),
 	respawnPosX(0),
 	respawnPosY(0),
-	respawnCell(nullptr)
+	respawnCell(nullptr),
+	character(nullptr)
 {
 }
 
 void RespawnCommand::Execute()
 {
-	const TransformComponent* transformComponent = character->GetOwner()->GetComponent<TransformComponent>();
+	character = object->GetComponent<Character>();
+	const TransformComponent* transformComponent = object->GetComponent<TransformComponent>();
 	respawnPosX = transformComponent->GetX();
 	respawnPosY = transformComponent->GetY();
-	const Grid* grid = character->GetGridObject()->GetComponent<Grid>();
+	const Grid* grid = object->GetRootObject()->GetComponentInChildren<Grid>();
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(respawnPosX, respawnPosY);
 	respawnCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
 }
