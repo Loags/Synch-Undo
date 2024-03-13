@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "CommandInvoker.h"
+#include "ConsoleManager.h"
 #include "Enemy.h"
 #include "SDL.h"
 #include "Grid.h"
@@ -28,7 +29,9 @@ int main(int argc, char* argv[])
 
 	GameObject* rootObject = new GameObject(nullptr, "Root");
 	CommandInvoker* commandInvoker = new CommandInvoker(rootObject);
+	ConsoleManager* consoleManager = new ConsoleManager(rootObject);
 	rootObject->AddComponent(commandInvoker);
+	rootObject->AddComponent(consoleManager);
 
 
 	// Create the gridRef GameObject and add its component
@@ -54,12 +57,9 @@ int main(int argc, char* argv[])
 	ItemManager* itemManager = new ItemManager(rootObject);
 	rootObject->AddComponent(itemManager);
 
-	//std::cout << "\n";
-	//rootObject->PrintComponentsAndChildren();
-
 	// Main game loop setup
 	bool gameRunning = true;
-	bool consoleAccess = false;
+
 	SDL_Event e;
 	while (gameRunning) {
 		while (SDL_PollEvent(&e)) {
@@ -70,9 +70,9 @@ int main(int argc, char* argv[])
 
 				if (e.key.keysym.sym == SDLK_p)
 				{
-					consoleAccess = true;
+					consoleManager->SetConsoleAccess(true);
 				}
-				else if (!consoleAccess)
+				else if (!consoleManager->GetConsoleAccess())
 				{
 					if (!player->stats.GetIsDead()) {
 						player->HandleInput(e);
@@ -84,26 +84,8 @@ int main(int argc, char* argv[])
 			}
 		}
 
-		while (consoleAccess) {
-			std::string input;
-			std::cout << "Enter command (type 'print' to display GameObjects and Components, 'exit' to quit): ";
-			std::getline(std::cin, input);
-
-			if (input == "print") {
-				rootObject->PrintComponentsAndChildren(0);
-			}
-			else if (input == "exit") {
-				consoleAccess = false;
-				break;
-			}
-			else if (input == "start")
-			{
-				consoleAccess = false;
-				break;
-			}
-			else {
-				std::cout << "Unknown command. Please try again.\n";
-			}
+		while (consoleManager->GetConsoleAccess()) {
+			consoleManager->ProcessInput();
 		}
 
 		// Update GameObjects

@@ -12,5 +12,8 @@ private:
 	void Execute() override;
 	void Undo() override;
 	std::string ToString() const override;
+	RotateCommand* Clone() const override {
+		return new RotateCommand(*this);
+	}
 };
 

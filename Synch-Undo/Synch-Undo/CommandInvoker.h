@@ -15,6 +15,7 @@ private:
 	bool isUndoAllScheduled = false;
 	Uint32 undoAllIntervalMs = 1000;
 	Uint32 lastUndoTime = 0;
+	Command* commandCopy;
 
 
 public:

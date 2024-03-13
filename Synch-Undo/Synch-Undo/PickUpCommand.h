@@ -16,5 +16,8 @@ public:
 	void Execute() override;
 	void Undo() override;
 	std::string ToString() const override;
+	PickUpCommand* Clone() const override {
+		return new PickUpCommand(*this);
+	}
 };
 

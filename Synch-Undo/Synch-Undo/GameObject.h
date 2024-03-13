@@ -64,6 +64,23 @@ public:
 		return nullptr;
 	}
 
+	template<typename T>
+	std::vector<GameObject*> GetAllGameObjectWithComponent() const {
+		static_assert(std::is_base_of<Component, T>::value, "T must be a derived class of Component");
+		std::vector<GameObject*> gameObjectsWithComponent;
+
+		if (GetComponent<T>() != nullptr) {
+			gameObjectsWithComponent.push_back(const_cast<GameObject*>(this));
+		}
+
+		for (const GameObject* child : children) {
+			auto childGameObjects = child->GetAllGameObjectWithComponent<T>();
+			gameObjectsWithComponent.insert(gameObjectsWithComponent.end(), childGameObjects.begin(), childGameObjects.end());
+		}
+
+		return gameObjectsWithComponent;
+	}
+
 	template <typename T>
 	T* GetComponent() const
 	{

@@ -28,7 +28,9 @@ void MoveCommand::Undo()
 	TransformComponent* transformComponent = object->GetComponent<TransformComponent>();
 	transformComponent->SetPosition(prevPosX, prevPosY);
 	prevCell->SetCellState(Cell::Occupied);
+	prevCell->SetCharacterObjectRef(object);
 	newCell->SetCellState(Cell::Empty);
+	newCell->SetCharacterObjectRef(nullptr);
 	character->SetFacingDirection(characterDirection);
 }
 

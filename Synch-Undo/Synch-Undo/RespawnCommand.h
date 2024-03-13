@@ -17,5 +17,8 @@ public:
 	void Execute() override;
 	void Undo() override;
 	std::string ToString() const override;
+	RespawnCommand* Clone() const override {
+		return new RespawnCommand(*this);
+	}
 };
 

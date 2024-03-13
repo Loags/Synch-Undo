@@ -142,6 +142,7 @@
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandInvoker.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="ConsoleManager.cpp" />
     <ClCompile Include="DieCommand.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandInvoker.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="ConsoleManager.h" />
     <ClInclude Include="DieCommand.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameObject.h" />
@@ -190,6 +192,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Synch-Undo.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

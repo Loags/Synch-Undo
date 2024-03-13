@@ -117,6 +117,9 @@
     <ClCompile Include="RotateCommand.cpp">
       <Filter>Quelldateien\Commands</Filter>
     </ClCompile>
+    <ClCompile Include="ConsoleManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -197,10 +200,16 @@
     <ClInclude Include="RespawnCommand.h">
       <Filter>Headerdateien\Commands</Filter>
     </ClInclude>
+    <ClInclude Include="ConsoleManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Synch-Undo.rc">
       <Filter>Ressourcendateien</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

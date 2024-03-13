@@ -18,5 +18,8 @@ public:
 	void Execute() override;
 	void Undo() override;
 	std::string ToString() const override;
+	DieCommand* Clone() const override {
+		return new DieCommand(*this);
+	}
 };
 

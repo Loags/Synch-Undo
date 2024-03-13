@@ -15,5 +15,8 @@ public:
 	void Execute() override;
 	void Undo() override;
 	std::string ToString() const override;
+	AttackCommand* Clone() const override {
+		return new AttackCommand(*this);
+	}
 };
 

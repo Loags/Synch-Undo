@@ -13,7 +13,6 @@ class Item : public Component, public Interactable
 {
 protected:
 	SDL_Color colorItem = { 0, 0, 0, 255 };
-	TransformComponent* transformComponent;
 	RenderComponent* renderComponent;
 	Cell* cellRef;
 	std::function<void(SDL_Renderer*, const TransformComponent*, const SDL_Color color)> itemRender = [this]
@@ -26,8 +25,12 @@ protected:
 		};
 
 public:
+	TransformComponent* transformComponent;
+
+public:
 	Item(GameObject* owner, int posX, int posY, int cellSize, Cell* cellRef);
 	void SetCellRef(Cell* newCellRef) { cellRef = newCellRef; }
+	Cell* GetCellRef() const { return cellRef; }
 	void Update() override;
 	void Interact() override;
 	void virtual SpawnItem();

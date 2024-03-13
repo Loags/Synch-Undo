@@ -7,7 +7,8 @@
 
 
 CommandInvoker::CommandInvoker(GameObject* owner) :
-	Component("CommandInvoker", owner)
+	Component("CommandInvoker", owner),
+	commandCopy(nullptr)
 {
 }
 
@@ -15,20 +16,32 @@ void CommandInvoker::ExecuteCommand(Command* command)
 {
 	command->Execute();
 	commandStack.push(std::unique_ptr<Command>(command));
-	DebugCommandStack();
 }
 
 void CommandInvoker::Undo()
 {
-	// TODO: Add a way to undo twice after a specific command! When a pickUp is collected it will immediately spawn again!
-	// TODO: Check with the enum inside Command.h
 	if (!commandStack.empty()) {
 		counterUndo += 1;
 		if (counterUndo % 2 == 0) return;
+
 		const std::unique_ptr<Command>& command = commandStack.top();
-		command->Undo();
-		commandStack.pop();
-		DebugCommandStack();
+		if (command->GetCommandType() == Command::CommandType::Double && commandCopy == nullptr) {
+			commandCopy = command->Clone();
+			commandStack.pop();
+
+			if (!commandStack.empty()) {
+				const std::unique_ptr<Command>& nextCommand = commandStack.top();
+				nextCommand->Undo();
+				commandStack.pop();
+			}
+			commandCopy->Undo();
+			delete commandCopy;
+			commandCopy = nullptr;
+		}
+		else {
+			command->Undo();
+			commandStack.pop();
+		}
 	}
 }
 
@@ -65,11 +78,12 @@ void CommandInvoker::Update()
 void CommandInvoker::DebugCommandStack()
 {
 	std::stack<std::unique_ptr<Command>> tempStack;
+	const std::string indent(6, ' ');
 
 	std::cout << "Current Command Stack:" << "\n";
 	while (!commandStack.empty()) {
 
-		std::cout << "  - " << commandStack.top()->ToString() << "\n";
+		std::cout << indent << commandStack.top()->ToString() << "\n";
 
 		tempStack.push(std::move(commandStack.top()));
 		commandStack.pop();
@@ -80,5 +94,5 @@ void CommandInvoker::DebugCommandStack()
 		tempStack.pop();
 	}
 
-	std::cout << "\n\n\n\n";
+	std::cout << "\n";
 }

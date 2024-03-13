@@ -15,6 +15,8 @@ void GameObject::PrintComponentsAndChildren(const int level) const
 {
 	const std::string indent(level * 6, ' ');
 
+	if (name == "Root")
+		std::cout << "\n================ Hierarchy ================\n";
 	std::cout << indent << "GameObject: " << name << "\n";
 
 	if (!components.empty()) {

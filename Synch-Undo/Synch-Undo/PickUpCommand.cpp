@@ -35,5 +35,6 @@ void PickUpCommand::Undo()
 
 std::string PickUpCommand::ToString() const
 {
-	return "output";
+	std::string output = "PickUp collected at cell: " + std::to_string(pickUpCell->GetCellPos().first) + "  |  " + std::to_string(pickUpCell->GetCellPos().second);
+	return output;
 }

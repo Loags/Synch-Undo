@@ -22,5 +22,8 @@ public:
 	void Undo() override;
 	void ReverseDirection();
 	std::string ToString() const override;
+	MoveCommand* Clone() const override {
+		return new MoveCommand(*this);
+	}
 };
 
