@@ -8,3 +8,5 @@ GameStateManager::GameStateManager(GameObject* owner) :
 void GameStateManager::Update()
 {
 }
+
+GameStateManager::TurnState GameStateManager::turnState = TurnState::PlayerTurn;

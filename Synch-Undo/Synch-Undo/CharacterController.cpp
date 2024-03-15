@@ -33,11 +33,12 @@ void CharacterController::HandleInput(const SDL_Event& event) const
 	const SDL_Keycode attackKey = character->GetAttackKey();
 
 
-	if (gameStateManager->GetCurrentTurnState() != character->GetTargetTurnState())return;
+	if (GameStateManager::GetCurrentTurnState() != character->GetTargetTurnState())return;
 
 	if (event.key.keysym.sym == attackKey)
 	{
 		character->Attack();
+		GameStateManager::SetCurrentTurnState(GameStateManager::TurnState::EnemyTurn);
 		return;
 	}
 
@@ -47,10 +48,12 @@ void CharacterController::HandleInput(const SDL_Event& event) const
 		if (isShiftPressed)
 		{
 			character->Rotate(it->second);
+			GameStateManager::SetCurrentTurnState(GameStateManager::TurnState::EnemyTurn);
 		}
 		else
 		{
 			character->Move(character->GetGridObject(), it->second);
+			GameStateManager::SetCurrentTurnState(GameStateManager::TurnState::EnemyTurn);
 		}
 	}
 

@@ -10,12 +10,12 @@ public:
 	};
 
 private:
-	TurnState turnState = TurnState::PlayerTurn;
+	static TurnState turnState;
 
 public:
 	GameStateManager(GameObject* owner);
-	TurnState GetCurrentTurnState() const { return turnState; }
-	void SetCurrentTurnState(TurnState newTurnState) { turnState = newTurnState; }
+	static TurnState GetCurrentTurnState() { return turnState; }
+	static void SetCurrentTurnState(TurnState newTurnState) { turnState = newTurnState; }
 	void Update() override;
 };
 

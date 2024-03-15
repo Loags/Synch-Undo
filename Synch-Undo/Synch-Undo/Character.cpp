@@ -14,7 +14,6 @@ Character::Character(GameObject* owner, const GameObject* gridObject, const int 
 	itemManager(nullptr)
 {
 	commandInvoker = GetOwner()->GetRootObject()->GetComponent<CommandInvoker>();
-	//itemManager = GetOwner()->GetRootObject()->GetComponent<ItemManager>();
 	CharacterController::SetCharacter(this);
 	Attackable::SetCharacter(this);
 	Movable::SetCharacter(this);

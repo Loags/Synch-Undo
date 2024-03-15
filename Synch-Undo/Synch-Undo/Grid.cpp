@@ -1,9 +1,10 @@
 #include "Grid.h"
 #include <iostream>
+#include <map>
+#include <queue>
 #include <random>
 #include "Cell.h"
 #include "Enemy.h"
-#include "Item.h"
 #include "Player.h"
 
 Grid::Grid(GameObject* owner, const int windowWidth, const int windowHeight,
@@ -132,6 +133,95 @@ Cell* Grid::FindDistantEmptyCell() const
 	const int randomIndex = dis(eng);
 	return possibleCells[randomIndex];
 }
+
+std::pair<int, int> Grid::GetCharacterGridPosition(const CharacterStats::CharacterType characterType) const
+{
+	const GameObject* characterObject = nullptr;
+	if (characterType == CharacterStats::CharacterType::Player)
+		characterObject = owner->GetRootObject()->GetGameObjectWithComponent<Player>();
+	else if (characterType == CharacterStats::CharacterType::Enemy)
+		characterObject = owner->GetRootObject()->GetGameObjectWithComponent<Enemy>();
+
+	const TransformComponent* characterTransform = characterObject->GetComponent<TransformComponent>();
+	const std::pair<int, int> characterGridPos = GetPositionToGridCoords(characterTransform->GetX(), characterTransform->GetY());
+	return characterGridPos;
+}
+
+std::vector<Movable::Direction> Grid::FindPathBFS(const std::pair<int, int> start, const std::pair<int, int> goal) const {
+	std::queue<PathNode*> queue;
+	std::map<std::pair<int, int>, PathNode*> visited; // Use to track visited nodes and their parents
+	std::vector<Movable::Direction> directions;
+
+	queue.push(new PathNode(start, nullptr));
+	visited[start] = nullptr; // Mark the start node as visited
+
+	bool goalFound = false;
+	PathNode* goalNode = nullptr;
+
+	while (!queue.empty() && !goalFound) {
+		PathNode* currentNode = queue.front();
+
+		queue.pop();
+
+		if (goalFound) {
+			break; // No need to look further if the goal is found
+		}
+
+		// Add neighbors
+		std::vector<std::pair<int, int>> movements = { {0, 1}, {1, 0}, {0, -1}, {-1, 0} };
+		for (const std::pair<int, int>& move : movements) {
+			std::pair<int, int> nextPosition = std::make_pair(currentNode->position.first + move.first, currentNode->position.second + move.second);
+			if (nextPosition.first == goal.first && nextPosition.second == goal.second)
+			{
+				goalFound = true;
+				goalNode = new PathNode(nextPosition, currentNode);
+				visited[nextPosition] = goalNode;
+				break;
+			}
+
+			if (IsCellTraversable(nextPosition) && visited.find(nextPosition) == visited.end())
+			{
+				PathNode* nextNode = new PathNode(nextPosition, currentNode);
+				queue.push(nextNode);
+				visited[nextPosition] = nextNode;
+			}
+		}
+	}
+
+	// Backtrack to find the path from goal to start, if found
+	if (goalFound && goalNode != nullptr) {
+		for (const PathNode* node = goalNode; node->parent != nullptr; node = node->parent) {
+			const std::pair<int, int> direction = std::make_pair(
+				node->position.first - node->parent->position.first,
+				node->position.second - node->parent->position.second
+			);
+
+			// Convert the pair to Direction and add to directions
+			if (direction.second == -1) directions.push_back(Movable::Direction::North);
+			else if (direction.second == 1) directions.push_back(Movable::Direction::South);
+			else if (direction.first == -1) directions.push_back(Movable::Direction::West);
+			else if (direction.first == 1) directions.push_back(Movable::Direction::East);
+		}
+		std::reverse(directions.begin(), directions.end()); // Reverse to get the correct order from start to goal
+	}
+
+	// Cleanup: Deallocate PathNodes
+	for (const std::pair<const std::pair<int, int>, PathNode*>& entry : visited) {
+		delete entry.second;
+	}
+
+	return directions;
+}
+
+
+bool Grid::IsCellTraversable(const std::pair<int, int> pos) const {
+	if (pos.first < 0 || pos.first >= cols || pos.second < 0 || pos.second >= rows) {
+		return false;
+	}
+	const Cell* cell = GetCellAtPos(pos.first, pos.second);
+	return cell && (cell->GetCellState() == Cell::Empty || cell->GetCellState() == Cell::PickUp);
+}
+
 
 void Grid::CreateWallPatterns() const
 {

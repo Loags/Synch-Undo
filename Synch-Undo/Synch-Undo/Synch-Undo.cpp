@@ -73,14 +73,8 @@ int main(int argc, char* argv[])
 				}
 				else if (!consoleManager->GetConsoleAccess())
 				{
-					if (gameStateManager->GetCurrentTurnState() == GameStateManager::TurnState::PlayerTurn && !player->stats.GetIsDead()) {
+					if (GameStateManager::GetCurrentTurnState() == GameStateManager::TurnState::PlayerTurn && !player->stats.GetIsDead()) {
 						player->HandleInput(e);
-						gameStateManager->SetCurrentTurnState(GameStateManager::TurnState::EnemyTurn);
-					}
-
-					if (gameStateManager->GetCurrentTurnState() == GameStateManager::TurnState::EnemyTurn && !enemy->stats.GetIsDead()) {
-						enemy->HandleInput(e);
-						gameStateManager->SetCurrentTurnState(GameStateManager::TurnState::PlayerTurn);
 					}
 
 					const Uint8* state = SDL_GetKeyboardState(nullptr);
