@@ -5,7 +5,8 @@
 CharacterController::CharacterController() :
 	undoKey(SDLK_u),
 	character(nullptr),
-	commandInvoker(nullptr)
+	commandInvoker(nullptr),
+	gameStateManager(nullptr)
 {
 }
 
@@ -13,6 +14,7 @@ void CharacterController::SetCharacter(Character* character)
 {
 	this->character = character;
 	commandInvoker = character->GetCommandInvoker();
+	gameStateManager = character->GetOwner()->GetRootObject()->GetComponent<GameStateManager>();
 }
 
 void CharacterController::HandleInput(const SDL_Event& event) const
@@ -31,19 +33,7 @@ void CharacterController::HandleInput(const SDL_Event& event) const
 	const SDL_Keycode attackKey = character->GetAttackKey();
 
 
-	if (event.key.keysym.sym == undoKey)
-	{
-		if (isShiftPressed)
-		{
-			commandInvoker->GetIsUndoAllScheduled() ? commandInvoker->CancelUndoAll() : commandInvoker->ScheduleUndoAll(100);
-		}
-		else
-		{
-			if (!commandInvoker->GetIsUndoAllScheduled())
-				commandInvoker->Undo();
-		}
-		return;
-	}
+	if (gameStateManager->GetCurrentTurnState() != character->GetTargetTurnState())return;
 
 	if (event.key.keysym.sym == attackKey)
 	{

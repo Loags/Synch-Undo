@@ -3,6 +3,7 @@
 
 #include "CommandInvoker.h"
 
+class GameStateManager;
 class Character;
 
 class CharacterController
@@ -11,6 +12,7 @@ protected:
 	SDL_KeyCode undoKey;
 	Character* character;
 	CommandInvoker* commandInvoker;
+	GameStateManager* gameStateManager;
 
 public:
 	CharacterController();

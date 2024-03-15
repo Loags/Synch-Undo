@@ -34,6 +34,9 @@ private:
 		case Wall:
 			SDL_SetRenderDrawColor(renderer, colorWall.r, colorWall.g, colorWall.b, colorWall.a);
 			break;
+		case PickUp:
+			SDL_SetRenderDrawColor(renderer, colorEmpty.r, colorEmpty.g, colorEmpty.b, colorEmpty.a);
+			break;
 		}
 
 		SDL_RenderFillRect(renderer, &cellRect);

@@ -1,13 +1,18 @@
 #include "DieCommand.h"
 
 #include "Character.h"
+#include "PickUp.h"
 
 DieCommand::DieCommand(GameObject* object) :
 	Command(object),
 	deathPosX(0),
 	deathPosY(0),
 	deathCell(nullptr),
-	character(nullptr)
+	character(nullptr),
+	spawnPosX(0),
+	spawnPosY(0),
+	spawnCell(nullptr),
+	pickUp(nullptr)
 {
 }
 
@@ -20,13 +25,20 @@ void DieCommand::Execute()
 	const Grid* grid = object->GetRootObject()->GetComponentInChildren<Grid>();
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(deathPosX, deathPosY);
 	deathCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
+
+	pickUp = deathCell->GetOwner()->GetComponentInChildren<PickUp>();
 }
 
 void DieCommand::Undo()
 {
+	if (pickUp && !pickUp->GetIsPickedUp())
+	{
+		pickUp->SetIsPickedUp(true);
+		pickUp->GetOwner()->GetComponent<RenderComponent>()->SetVisible(false);
+	}
+
 	deathCell->SetCellState(Cell::Occupied);
 	deathCell->SetCharacterObjectRef(object);
-
 
 	character->SetPendingRespawn(false);
 	character->SetDeathTime(0);

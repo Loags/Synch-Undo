@@ -28,6 +28,7 @@ private:
 	void ShowControls() const;
 	void ShowStats() const;
 	void ShowPickups() const;
+	void ShowItems() const;
 	void ShowCommandStack() const;
 };
 

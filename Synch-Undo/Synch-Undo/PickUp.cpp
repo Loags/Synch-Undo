@@ -11,8 +11,11 @@ PickUp::PickUp(GameObject* owner, int posX, int posY, int cellSize, ItemManager*
 	Item(owner, posX, posY, cellSize, cellRef),
 	itemManager(itemManager),
 	isPickedUp(false),
-	commandInvoker(nullptr)
+	commandInvoker(nullptr),
+	value(1),
+	player(nullptr)
 {
+	interactableType = InteractableType::PickUp;
 }
 
 void PickUp::Update()
@@ -21,7 +24,7 @@ void PickUp::Update()
 	const GameObject* objectRef = cellRef->GetCharacterObjectRef();
 	if (objectRef)
 	{
-		const Player* player = objectRef->GetComponent<Player>();
+		player = objectRef->GetComponent<Player>();
 		if (player)
 		{
 			if (!GetIsPickedUp())
@@ -35,10 +38,11 @@ void PickUp::Interact()
 	Item::Interact();
 	renderComponent->SetVisible(false);
 	SetIsPickedUp(true);
-	itemManager->NotifyPickUpInteracted();
-	PickUpCommand* pickUpCommand = new PickUpCommand(owner);
+	player->SetScore(value);
+	PickUpCommand* pickUpCommand = new PickUpCommand(owner, player);
 	commandInvoker = owner->GetRootObject()->GetComponent<CommandInvoker>();
 	commandInvoker->ExecuteCommand(pickUpCommand);
+	itemManager->NotifyPickUpInteracted();
 }
 
 void PickUp::SpawnItem()

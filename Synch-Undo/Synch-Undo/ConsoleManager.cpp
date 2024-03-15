@@ -5,6 +5,7 @@
 #include "Enemy.h"
 #include "PickUp.h"
 #include "Player.h"
+#include "Grid.h"
 
 
 ConsoleManager::ConsoleManager(GameObject* owner) :
@@ -25,6 +26,7 @@ void ConsoleManager::ProcessInput()
 	const std::string printCommandStack = "commandstack";
 	const std::string printStats = "stats";
 	const std::string printPickUps = "pickups";
+	const std::string printItems = "items";
 	const std::string exitConsole = "exit";
 
 	std::cout << "\n\nAvailable commands:\n";
@@ -33,6 +35,7 @@ void ConsoleManager::ProcessInput()
 	std::cout << indent << printCommandStack << "  -  Stack overview of all commands the Player and Enemy executed!\n";
 	std::cout << indent << printStats << "  -  Overview of all stats for the Player and Enemy!\n";
 	std::cout << indent << printPickUps << "  -  Overview of all PickUps on the Grid!\n";
+	std::cout << indent << printItems << "  -  Overview of all Items on the Grid!\n";
 	std::cout << indent << exitConsole << "  -  Exit the console and enable input for the game!\n\n\n";
 
 
@@ -58,6 +61,10 @@ void ConsoleManager::ProcessInput()
 	else if (input == printPickUps)
 	{
 		ShowPickups();
+	}
+	else if (input == printItems)
+	{
+		ShowItems();
 	}
 	else if (input == exitConsole)
 	{
@@ -98,7 +105,8 @@ void ConsoleManager::ShowStats() const
 	std::cout << "Player Stats:\n";
 	std::cout << indent << "Health: " << player->stats.GetHealth() << " / " << player->stats.GetInitialHealth() << "\n";
 	std::cout << indent << "Attack Power: " << player->stats.GetAttackPower() << "\n";
-	std::cout << indent << "Status: " << (player->stats.GetIsDead() ? "Dead" : "Alive") << "\n\n";
+	std::cout << indent << "Status: " << (player->stats.GetIsDead() ? "Dead" : "Alive") << "\n";
+	std::cout << indent << "Score: " << player->GetScore() << "\n\n";
 
 	std::cout << "Enemy Stats:\n";
 	std::cout << indent << "Health: " << enemy->stats.GetHealth() << " / " << enemy->stats.GetInitialHealth() << "\n";
@@ -112,11 +120,45 @@ void ConsoleManager::ShowPickups() const {
 	const std::vector<GameObject*> pickUpObjects = owner->GetAllGameObjectWithComponent<PickUp>();
 	for (GameObject* const& pickupObject : pickUpObjects) {
 		const PickUp* pickup = pickupObject->GetComponent<PickUp>();
+		const Grid* grid = owner->GetComponentInChildren<Grid>();
+		const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(pickup->GetCellRef()->GetCellPos().first,
+			pickup->GetCellRef()->GetCellPos().second);
 		std::cout << "Pickup:\n";
-		std::cout << indent << "Location: " << pickup->transformComponent->GetX() << ", " << pickup->transformComponent->GetY() << "\n";
-		std::cout << indent << "Location Grid: " << std::to_string(pickup->GetCellRef()->GetCellPos().first) << ", " <<
-			std::to_string(pickup->GetCellRef()->GetCellPos().second) << "\n";
+		std::cout << indent << "Location: " << pickup->GetOwner()->GetComponent<TransformComponent>()->GetX() << ", " <<
+			pickup->GetOwner()->GetComponent<TransformComponent>()->GetY() << "\n";
+		std::cout << indent << "Location Grid: " << std::to_string(gridPos.first) << ", " <<
+			std::to_string(gridPos.second) << "\n";
 		std::cout << indent << "Status: " << (pickup->GetIsPickedUp() ? "Collected" : "Available") << "\n";
+		if (!pickup->GetIsPickedUp())
+			std::cout << indent << "Value: " << pickup->GetValue() << "\n";
+	}
+	std::cout << "\n========================================\n";
+}
+
+void ConsoleManager::ShowItems() const
+{
+	std::cout << "\n================ Items ================\n\n";
+	const std::vector<GameObject*> itemObjects = owner->GetAllGameObjectWithComponent<Item>();
+	for (GameObject* const& itemObject : itemObjects) {
+		const Item* item = itemObject->GetComponent<Item>();
+		const Grid* grid = owner->GetComponentInChildren<Grid>();
+		const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(item->GetCellRef()->GetCellPos().first,
+			item->GetCellRef()->GetCellPos().second);
+		std::cout << "Item: (" << Item::InteractableToString(item->GetInteractableType()) << ")\n";
+		std::cout << indent << "Location: " << item->GetOwner()->GetComponent<TransformComponent>()->GetX() << ", " <<
+			item->GetOwner()->GetComponent<TransformComponent>()->GetY() << "\n";
+		std::cout << indent << "Location Grid: " << std::to_string(gridPos.first) << ", " <<
+			std::to_string(gridPos.second) << "\n";
+
+		if (item->GetInteractableType() == Interactable::InteractableType::PickUp)
+		{
+			const PickUp* pickUp = dynamic_cast<const PickUp*>(item);
+			if (pickUp) {
+				std::cout << indent << "Status: " << (pickUp->GetIsPickedUp() ? "Collected" : "Available") << "\n";
+				if (!pickUp->GetIsPickedUp())
+					std::cout << indent << "Value: " << pickUp->GetValue() << "\n";
+			}
+		}
 	}
 	std::cout << "\n========================================\n";
 }

@@ -3,6 +3,7 @@
 #include "CommandInvoker.h"
 #include "ConsoleManager.h"
 #include "Enemy.h"
+#include "GameStateManager.h"
 #include "SDL.h"
 #include "Grid.h"
 #include "ItemManager.h"
@@ -23,18 +24,17 @@ int main(int argc, char* argv[])
 		cout << "SDL initialization succeeded!\n";
 	}
 
-	// Create the SDL window and renderer
 	SDL_Window* window = SDL_CreateWindow("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1200, 800, 0);
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
 	GameObject* rootObject = new GameObject(nullptr, "Root");
 	CommandInvoker* commandInvoker = new CommandInvoker(rootObject);
 	ConsoleManager* consoleManager = new ConsoleManager(rootObject);
+	GameStateManager* gameStateManager = new GameStateManager(rootObject);
 	rootObject->AddComponent(commandInvoker);
 	rootObject->AddComponent(consoleManager);
+	rootObject->AddComponent(gameStateManager);
 
-
-	// Create the gridRef GameObject and add its component
 	GameObject* gridObject = new GameObject(rootObject, "Grid");
 	int windowWidth, windowHeight;
 	SDL_GetWindowSize(window, &windowWidth, &windowHeight);
@@ -57,7 +57,6 @@ int main(int argc, char* argv[])
 	ItemManager* itemManager = new ItemManager(rootObject);
 	rootObject->AddComponent(itemManager);
 
-	// Main game loop setup
 	bool gameRunning = true;
 
 	SDL_Event e;
@@ -74,11 +73,27 @@ int main(int argc, char* argv[])
 				}
 				else if (!consoleManager->GetConsoleAccess())
 				{
-					if (!player->stats.GetIsDead()) {
+					if (gameStateManager->GetCurrentTurnState() == GameStateManager::TurnState::PlayerTurn && !player->stats.GetIsDead()) {
 						player->HandleInput(e);
+						gameStateManager->SetCurrentTurnState(GameStateManager::TurnState::EnemyTurn);
 					}
-					if (!enemy->stats.GetIsDead()) {
+
+					if (gameStateManager->GetCurrentTurnState() == GameStateManager::TurnState::EnemyTurn && !enemy->stats.GetIsDead()) {
 						enemy->HandleInput(e);
+						gameStateManager->SetCurrentTurnState(GameStateManager::TurnState::PlayerTurn);
+					}
+
+					const Uint8* state = SDL_GetKeyboardState(nullptr);
+					const bool isShiftPressed = state[SDL_SCANCODE_LSHIFT] || state[SDL_SCANCODE_RSHIFT];
+
+					if (e.key.keysym.sym == SDLK_u)
+					{
+						if (isShiftPressed)
+						{
+							commandInvoker->GetIsUndoAllScheduled() ? commandInvoker->CancelUndoAll() : commandInvoker->ScheduleUndoAll(100);
+						}
+						else if (!commandInvoker->GetIsUndoAllScheduled())
+							commandInvoker->Undo();
 					}
 				}
 			}
@@ -88,17 +103,14 @@ int main(int argc, char* argv[])
 			consoleManager->ProcessInput();
 		}
 
-		// Update GameObjects
 		rootObject->Update();
 
-		// Render
 		SDL_RenderClear(renderer);
 		rootObject->Render(renderer);
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderPresent(renderer);
 	}
 
-	// Cleanup
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();

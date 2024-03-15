@@ -2,6 +2,7 @@
 #include <iostream>
 #include <SDL_timer.h>
 #include "Grid.h"
+#include "ItemManager.h"
 #include "RenderComponent.h"
 
 
@@ -21,7 +22,9 @@ Enemy::Enemy(GameObject* owner, const GameObject* gridObject, const int posX, co
 	};
 	attackKey = SDLK_RETURN;
 
-	const Grid* grid = gridObject->GetComponent<Grid>();
+	targetTurnState = GameStateManager::TurnState::EnemyTurn;
+
+	grid = gridObject->GetComponent<Grid>();
 	const std::pair<int, int> pos = grid->GetPositionToGridCoords(posX, posY);
 	grid->SetCellState(pos.first, pos.second, Cell::Occupied);
 }
@@ -38,6 +41,10 @@ void Enemy::Move(const GameObject* gridObject, const Direction newFacingDirectio
 
 void Enemy::Die()
 {
+	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
+	Cell* targetCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
+	itemManager->SpawnPickUpAtCell(targetCell, 1);
+
 	Character::Die();
 }
 

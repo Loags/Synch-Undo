@@ -42,6 +42,7 @@ void Attackable::Die()
 	stats.SetIsDead(true);
 	DieCommand* dieCommand = new DieCommand(character->GetOwner());
 	commandInvoker->ExecuteCommand(dieCommand);
+	std::cout << "execute death command!";
 }
 
 void Attackable::Respawn()

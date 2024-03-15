@@ -10,9 +10,11 @@ Character::Character(GameObject* owner, const GameObject* gridObject, const int 
 	Attackable(health, damage, characterType),
 	gridObject(gridObject),
 	transformComponent(nullptr),
-	renderComponent(nullptr)
+	renderComponent(nullptr),
+	itemManager(nullptr)
 {
 	commandInvoker = GetOwner()->GetRootObject()->GetComponent<CommandInvoker>();
+	//itemManager = GetOwner()->GetRootObject()->GetComponent<ItemManager>();
 	CharacterController::SetCharacter(this);
 	Attackable::SetCharacter(this);
 	Movable::SetCharacter(this);
@@ -20,7 +22,7 @@ Character::Character(GameObject* owner, const GameObject* gridObject, const int 
 
 void Character::Update()
 {
-	if (GetPendingRespawn() && SDL_GetTicks() - GetDeathTime() >= 5000) {
+	if (GetPendingRespawn() && SDL_GetTicks() - GetDeathTime() >= 2500) {
 		Respawn();
 		SetPendingRespawn(false);
 	}

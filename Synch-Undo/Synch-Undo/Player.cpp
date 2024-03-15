@@ -4,12 +4,14 @@
 
 #include "Enemy.h"
 #include "Grid.h"
+#include "ItemManager.h"
 #include "RenderComponent.h"
 
 
 Player::Player(GameObject* owner, const GameObject* gridObject, const int posX, const int posY, const int offSet,
 	const int playerSize) :
-	Character(owner, gridObject, offSet, CharacterStats::Player, 5, 1, "PlayerComponent")
+	Character(owner, gridObject, offSet, CharacterStats::Player, 5, 1, "PlayerComponent"),
+	score(0)
 
 {
 	transformComponent = new TransformComponent(owner, posX + offSet, posY + offSet, playerSize,
@@ -20,13 +22,16 @@ Player::Player(GameObject* owner, const GameObject* gridObject, const int posX, 
 	owner->AddComponent(renderComponent);
 
 	keyMap = {
-			{SDLK_w, Direction::North},
-			{SDLK_s, Direction::South},
-			{SDLK_a, Direction::West},
-			{SDLK_d, Direction::East}
+		{SDLK_w, Direction::North},
+		{SDLK_s, Direction::South},
+		{SDLK_a, Direction::West},
+		{SDLK_d, Direction::East}
 	};
 	attackKey = SDLK_SPACE;
-	const Grid* grid = gridObject->GetComponent<Grid>();
+
+	targetTurnState = GameStateManager::TurnState::PlayerTurn;
+
+	grid = gridObject->GetComponent<Grid>();
 	const std::pair<int, int> pos = grid->GetPositionToGridCoords(posX, posY);
 	grid->SetCellState(pos.first, pos.second, Cell::Occupied);
 }
@@ -38,6 +43,14 @@ void Player::Move(const GameObject* gridObject, const Direction newFacingDirecti
 
 void Player::Die()
 {
+	if (GetScore() > 0)
+	{
+		const std::pair<int, int> playerGridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
+		Cell* targetCell = grid->GetCellAtPos(playerGridPos.first, playerGridPos.second);
+		SetScore(-score);
+		itemManager->SpawnPickUpAtCell(targetCell, score);
+	}
+
 	Character::Die();
 }
 

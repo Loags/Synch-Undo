@@ -11,6 +11,7 @@ G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\ConsoleManager.cpp;G:\MDH\7_S
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\DieCommand.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\DieCommand.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Enemy.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Enemy.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\GameObject.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\GameObject.obj
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\GameStateManager.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\GameStateManager.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Grid.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Grid.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Interactable.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Interactable.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Item.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Item.obj
@@ -23,5 +24,6 @@ G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Player.cpp;G:\MDH\7_Semester\
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\RenderComponent.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\RenderComponent.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\RespawnCommand.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\RespawnCommand.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\RotateCommand.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\RotateCommand.obj
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\SpawnPickUpCommand.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\SpawnPickUpCommand.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Synch-Undo.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Synch-Undo.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\TransformComponent.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\TransformComponent.obj

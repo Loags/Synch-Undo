@@ -3,12 +3,13 @@
 #include "PickUp.h"
 #include "Player.h"
 
-PickUpCommand::PickUpCommand(GameObject* object) :
+PickUpCommand::PickUpCommand(GameObject* object, Player* player) :
 	Command(object),
 	pickUpPosX(0),
 	pickUpPosY(0),
 	pickUpCell(nullptr),
-	pickUp(nullptr)
+	pickUp(nullptr),
+	player(player)
 {
 	SetCommandType(CommandType::Double);
 }
@@ -27,10 +28,9 @@ void PickUpCommand::Execute()
 void PickUpCommand::Undo()
 {
 	pickUpCell->SetCellState(Cell::PickUp);
-
 	pickUp->SetIsPickedUp(false);
-
 	object->GetComponent<RenderComponent>()->SetVisible(true);
+	player->SetScore(-pickUp->GetValue());
 }
 
 std::string PickUpCommand::ToString() const
