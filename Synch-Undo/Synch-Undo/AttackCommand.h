@@ -3,7 +3,7 @@
 
 class Character;
 
-class AttackCommand : public Command
+class AttackCommand final : public Command
 {
 
 private:

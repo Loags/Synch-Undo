@@ -7,10 +7,12 @@ class GameObject;
 
 class Attackable
 {
+private:
+	CommandInvoker* commandInvoker;
+
 public:
 	CharacterStats stats;
 	Character* character;
-	CommandInvoker* commandInvoker;
 
 	Attackable(const int health, const int attackPower, const CharacterStats::CharacterType type);
 	virtual ~Attackable() = default;

@@ -5,7 +5,7 @@
 
 class Player;
 
-class PickUp : public Item
+class PickUp final : public Item
 {
 private:
 	ItemManager* itemManager;

@@ -6,7 +6,7 @@
 
 class Command;
 
-class CommandInvoker : public Component
+class CommandInvoker final : public Component
 {
 private:
 	std::stack<std::unique_ptr<Command>> commandStack;

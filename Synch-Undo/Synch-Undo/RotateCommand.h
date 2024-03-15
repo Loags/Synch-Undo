@@ -1,7 +1,7 @@
 #pragma once
 #include "MoveCommand.h"
 
-class RotateCommand : public MoveCommand
+class RotateCommand final : public MoveCommand
 {
 private:
 	Character* character;

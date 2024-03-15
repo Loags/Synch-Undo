@@ -4,7 +4,7 @@ class Player;
 class PickUp;
 class Cell;
 
-class PickUpCommand : public Command
+class PickUpCommand final : public Command
 {
 protected:
 	int pickUpPosX;

@@ -4,7 +4,7 @@
 
 class Character;
 
-class RespawnCommand : public Command
+class RespawnCommand final : public Command
 {
 private:
 	int respawnPosX;

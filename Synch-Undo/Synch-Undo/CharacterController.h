@@ -8,10 +8,12 @@ class Character;
 
 class CharacterController
 {
+private:
+	CommandInvoker* commandInvoker;
+
 protected:
 	SDL_KeyCode undoKey;
 	Character* character;
-	CommandInvoker* commandInvoker;
 	GameStateManager* gameStateManager;
 
 public:

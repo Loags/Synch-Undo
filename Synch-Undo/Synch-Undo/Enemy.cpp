@@ -18,14 +18,6 @@ Enemy::Enemy(GameObject* owner, const GameObject* gridObject, const int posX, co
 	renderComponent = new RenderComponent(owner, nullptr, SDL_Color{ 255, 0, 0, 255 });
 	owner->AddComponent(renderComponent);
 
-	keyMap = {
-		{SDLK_UP, Direction::North},
-		{SDLK_DOWN, Direction::South},
-		{SDLK_LEFT, Direction::West},
-		{SDLK_RIGHT, Direction::East}
-	};
-	attackKey = SDLK_RETURN;
-
 	targetTurnState = GameStateManager::TurnState::EnemyTurn;
 
 	grid = gridObject->GetComponent<Grid>();
@@ -59,7 +51,6 @@ void Enemy::Update()
 	const Direction playerDirection = DeterminePlayerDirection(playerGridPos, enemyGridPos);
 
 	const std::vector<Movable::Direction> path = grid->FindPathBFS(enemyGridPos, playerGridPos);
-	std::cout << "Path length: " << path.size();
 	if (!path.empty()) {
 		const Movable::Direction nextStep = path[0];
 		GameStateManager::SetCurrentTurnState(GameStateManager::TurnState::PlayerTurn);
@@ -68,49 +59,22 @@ void Enemy::Update()
 			if (!IsFacingPlayer(GetFacingDirection(), playerGridPos, enemyGridPos))
 			{
 				Rotate(playerDirection);
-				std::cout << "rotate";
 			}
 			else
 			{
 				Attack();
-				std::cout << "attack";
 			}
 		}
 		else
 		{
 			Move(gridObject, nextStep);
-			std::cout << "move";
 		}
 	}
 	else {
-		std::cout << "Path is empty";
-		// No path found, consider other strategies (wait, move randomly, etc.)
+		std::cout << "Path is empty!";
 	}
 }
 
-void Enemy::Decision(const std::pair<int, int> playerGridPos, const std::pair<int, int> enemyGridPos, const Movable::Direction playerDirection)
-{
-	GameStateManager::SetCurrentTurnState(GameStateManager::TurnState::PlayerTurn);
-	if (IsPlayerAdjacent(playerGridPos, enemyGridPos))
-	{
-		if (!IsFacingPlayer(GetFacingDirection(), playerGridPos, enemyGridPos))
-		{
-			Rotate(playerDirection);
-			std::cout << "rotate";
-		}
-		else
-		{
-			Attack();
-			std::cout << "attack";
-		}
-	}
-	else
-	{
-		const Direction nextStepDirection = FindNextStepTowardsPlayer(playerGridPos, enemyGridPos);
-		Move(gridObject, nextStepDirection);
-		std::cout << "move";
-	}
-}
 void Enemy::Move(const GameObject* gridObject, const Direction newFacingDirection)
 {
 	Character::Move(gridObject, newFacingDirection);
@@ -191,36 +155,4 @@ bool Enemy::IsFacingPlayer(const Direction enemyFacing, const std::pair<int, int
 	}
 
 	return enemyFacing == requiredFacing;
-}
-
-Enemy::Direction Enemy::FindNextStepTowardsPlayer(std::pair<int, int> playerPos, std::pair<int, int> enemyPos) const
-{
-	const std::vector<Direction> possibleDirections = { Direction::North, Direction::East, Direction::South, Direction::West };
-	Direction bestDirection = Direction::North;
-	int shortestDistance = std::numeric_limits<int>::max();
-
-	for (const Direction dir : possibleDirections)
-	{
-		std::pair<int, int> nextPos = enemyPos;
-		switch (dir) {
-		case Direction::North: nextPos.second -= 1; break;
-		case Direction::South: nextPos.second += 1; break;
-		case Direction::East:  nextPos.first += 1; break;
-		case Direction::West:  nextPos.first -= 1; break;
-		}
-		const Cell* targetCell = grid->GetCellAtPos(nextPos.first, nextPos.second);
-		if (targetCell->GetCellState() == Cell::Empty || targetCell->GetCellState() == Cell::PickUp)
-		{
-			const int dx = playerPos.first - nextPos.first;
-			const int dy = playerPos.second - nextPos.second;
-			const int distance = abs(dx) + abs(dy);
-			if (distance < shortestDistance)
-			{
-				shortestDistance = distance;
-				bestDirection = dir;
-			}
-		}
-	}
-
-	return bestDirection;
 }

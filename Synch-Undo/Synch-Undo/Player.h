@@ -4,7 +4,7 @@
 
 class GameObject;
 
-class Player : public Character
+class Player final : public Character
 {
 private:
 	int score;

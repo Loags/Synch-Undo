@@ -12,8 +12,6 @@ Item::Item(GameObject* owner, const int posX, const int posY, const int cellSize
 
 	renderComponent = new RenderComponent(owner, itemRender, colorItem);
 	owner->AddComponent(renderComponent);
-
-	cellRef = owner->GetComponent<Cell>();
 }
 
 void Item::Update()

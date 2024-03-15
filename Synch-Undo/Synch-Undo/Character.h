@@ -28,7 +28,7 @@ protected:
 	GameStateManager::TurnState targetTurnState;
 	CommandInvoker* commandInvoker;
 	ItemManager* itemManager;
-	const Grid* grid;
+	Grid* grid;
 
 public:
 	Character(GameObject* owner, const GameObject* gridObject, const int offSet, const CharacterStats::CharacterType characterType, const int health, const int damage, const std::string& componentName);

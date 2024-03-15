@@ -29,7 +29,7 @@ PickUp* ItemManager::SpawnPickUpAtCell(Cell* targetCell, const int value)
 	const int pickUpPosX = targetCell->GetCellPos().first + gridRef->GetCellSize() / 4;
 	const int pickUpPosY = targetCell->GetCellPos().second + gridRef->GetCellSize() / 4;
 
-	GameObject* pickUpObject = new GameObject(targetCell->GetOwner(), "ItemObject");
+	GameObject* pickUpObject = new GameObject(targetCell->GetOwner(), "PickUpObject");
 	PickUp* pickUp = new PickUp(pickUpObject, pickUpPosX, pickUpPosY, gridRef->GetCellSize() / 2, this, targetCell);
 	pickUp->SetValue(value);
 	pickUpObject->AddComponent(pickUp);
@@ -38,6 +38,7 @@ PickUp* ItemManager::SpawnPickUpAtCell(Cell* targetCell, const int value)
 
 	return pickUp;
 }
+
 void ItemManager::SpawnPickUp(int index, bool IsInitialSpawn)
 {
 	Cell* emptyCell = gridRef->FindDistantEmptyCell();

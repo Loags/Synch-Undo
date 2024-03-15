@@ -5,7 +5,7 @@
 class PickUp;
 class Character;
 
-class DieCommand : public Command
+class DieCommand final : public Command
 {
 private:
 	int deathPosX;

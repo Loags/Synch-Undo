@@ -14,6 +14,7 @@ Character::Character(GameObject* owner, const GameObject* gridObject, const int 
 	itemManager(nullptr)
 {
 	commandInvoker = GetOwner()->GetRootObject()->GetComponent<CommandInvoker>();
+	grid = gridObject->GetComponent<Grid>();
 	CharacterController::SetCharacter(this);
 	Attackable::SetCharacter(this);
 	Movable::SetCharacter(this);
@@ -34,7 +35,6 @@ void Character::Move(const GameObject* gridObject, const Direction newFacingDire
 
 Character* Character::Attack()
 {
-	const Grid* grid = gridObject->GetComponent<Grid>();
 	const int cellSize = grid->GetCellSize();
 
 	int attackPosX = 0;
@@ -69,7 +69,6 @@ void Character::Attack(Attackable* target)
 void Character::Die()
 {
 	SetDeathTime(SDL_GetTicks());
-	const Grid* grid = gridObject->GetComponent<Grid>();
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
 	Cell* cell = grid->GetCellAtPos(gridPos.first, gridPos.second);
 	cell->SetCellState(Cell::Empty);
@@ -83,7 +82,6 @@ void Character::Respawn()
 {
 	stats.SetHealth(stats.GetInitialHealth());
 	stats.SetIsDead(false);
-	const Grid* grid = gridObject->GetComponent<Grid>();
 	Cell* cell = grid->FindDistantEmptyCell();
 	if (!cell) return;
 	cell->SetCellState(Cell::Occupied);

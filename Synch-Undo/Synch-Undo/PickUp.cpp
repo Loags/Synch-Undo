@@ -52,3 +52,5 @@ void PickUp::SpawnItem()
 	cellRef->SetCellState(Cell::PickUp);
 	SetIsPickedUp(false);
 }
+
+
