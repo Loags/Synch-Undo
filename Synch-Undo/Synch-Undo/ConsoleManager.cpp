@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "Enemy.h"
-#include "PickUp.h"
+#include "ScorePickUp.h"
 #include "Player.h"
 #include "Grid.h"
 
@@ -117,9 +117,9 @@ void ConsoleManager::ShowStats() const
 
 void ConsoleManager::ShowPickups() const {
 	std::cout << "\n================ Pickups ================\n\n";
-	const std::vector<GameObject*> pickUpObjects = owner->GetAllGameObjectWithComponent<PickUp>();
+	const std::vector<GameObject*> pickUpObjects = owner->GetAllGameObjectWithComponent<ScorePickUp>();
 	for (GameObject* const& pickupObject : pickUpObjects) {
-		const PickUp* pickup = pickupObject->GetComponent<PickUp>();
+		const ScorePickUp* pickup = pickupObject->GetComponent<ScorePickUp>();
 		const Grid* grid = owner->GetComponentInChildren<Grid>();
 		const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(pickup->GetCellRef()->GetCellPos().first,
 			pickup->GetCellRef()->GetCellPos().second);
@@ -128,8 +128,8 @@ void ConsoleManager::ShowPickups() const {
 			pickup->GetOwner()->GetComponent<TransformComponent>()->GetY() << "\n";
 		std::cout << indent << "Location Grid: " << std::to_string(gridPos.first) << ", " <<
 			std::to_string(gridPos.second) << "\n";
-		std::cout << indent << "Status: " << (pickup->GetIsPickedUp() ? "Collected" : "Available") << "\n";
-		if (!pickup->GetIsPickedUp())
+		std::cout << indent << "Status: " << (pickup->GetInteracted() ? "Collected" : "Available") << "\n";
+		if (!pickup->GetInteracted())
 			std::cout << indent << "Value: " << pickup->GetValue() << "\n";
 	}
 	std::cout << "\n========================================\n";
@@ -150,12 +150,12 @@ void ConsoleManager::ShowItems() const
 		std::cout << indent << "Location Grid: " << std::to_string(gridPos.first) << ", " <<
 			std::to_string(gridPos.second) << "\n";
 
-		if (item->GetInteractableType() == Interactable::InteractableType::PickUp)
+		if (item->GetInteractableType() == Interactable::InteractableType::ScorePickUp)
 		{
-			const PickUp* pickUp = dynamic_cast<const PickUp*>(item);
+			const ScorePickUp* pickUp = dynamic_cast<const ScorePickUp*>(item);
 			if (pickUp) {
-				std::cout << indent << "Status: " << (pickUp->GetIsPickedUp() ? "Collected" : "Available") << "\n";
-				if (!pickUp->GetIsPickedUp())
+				std::cout << indent << "Status: " << (pickUp->GetInteracted() ? "Collected" : "Available") << "\n";
+				if (!pickUp->GetInteracted())
 					std::cout << indent << "Value: " << pickUp->GetValue() << "\n";
 			}
 		}

@@ -2,7 +2,7 @@
 #include "Command.h"
 #include "Grid.h"
 
-class PickUp;
+class ScorePickUp;
 class Character;
 
 class DieCommand final : public Command
@@ -16,7 +16,7 @@ private:
 	int spawnPosX;
 	int spawnPosY;
 	Cell* spawnCell;
-	PickUp* pickUp;
+	ScorePickUp* pickUp;
 
 public:
 	explicit DieCommand(GameObject* object);

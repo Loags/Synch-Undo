@@ -48,7 +48,7 @@ void Player::Die()
 		const std::pair<int, int> playerGridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
 		Cell* targetCell = grid->GetCellAtPos(playerGridPos.first, playerGridPos.second);
 		SetScore(-score);
-		itemManager->SpawnPickUpAtCell(targetCell, score);
+		itemManager->SpawnItemAtCell(targetCell, Interactable::InteractableType::ScorePickUp, score);
 	}
 
 	Character::Die();

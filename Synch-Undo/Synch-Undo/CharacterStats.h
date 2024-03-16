@@ -18,7 +18,7 @@ public:
 	static const std::array<std::string, 2> CharacterTypeStrings;
 
 
-	void SetHealth(int newHealth) { health = newHealth; }
+	void SetHealth(int newHealth);
 	void SetInitialHealth(int newInitialHealth) { initialHealth = newInitialHealth; }
 	void SetAttackPower(int newAttackPower) { attackPower = newAttackPower; }
 	void SetIsDead(bool newDead) { isDead = newDead; }

@@ -1,14 +1,14 @@
 #include "PickUpCommand.h"
 #include "Grid.h"
-#include "PickUp.h"
+#include "HealthPickUp.h"
 #include "Player.h"
 
 PickUpCommand::PickUpCommand(GameObject* object, Player* player) :
 	Command(object),
-	pickUpPosX(0),
-	pickUpPosY(0),
-	pickUpCell(nullptr),
-	pickUp(nullptr),
+	itemPosX(0),
+	itemPosY(0),
+	itemCell(nullptr),
+	item(nullptr),
 	player(player)
 {
 	SetCommandType(CommandType::Double);
@@ -16,25 +16,22 @@ PickUpCommand::PickUpCommand(GameObject* object, Player* player) :
 
 void PickUpCommand::Execute()
 {
-	pickUp = object->GetComponent<PickUp>();
 	const TransformComponent* transformComponent = object->GetComponent<TransformComponent>();
 	const Grid* grid = object->GetRootObject()->GetComponentInChildren<Grid>();
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
-	pickUpPosX = transformComponent->GetX();
-	pickUpPosY = transformComponent->GetY();
-	pickUpCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
+	itemPosX = transformComponent->GetX();
+	itemPosY = transformComponent->GetY();
+	itemCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
 }
 
 void PickUpCommand::Undo()
 {
-	pickUpCell->SetCellState(Cell::PickUp);
-	pickUp->SetIsPickedUp(false);
+	itemCell->SetCellState(Cell::PickUp);
+	item->SetInteracted(false);
 	object->GetComponent<RenderComponent>()->SetVisible(true);
-	player->SetScore(-pickUp->GetValue());
 }
 
 std::string PickUpCommand::ToString() const
 {
-	std::string output = "PickUp collected at cell: " + std::to_string(pickUpCell->GetCellPos().first) + "  |  " + std::to_string(pickUpCell->GetCellPos().second);
-	return output;
+	return "";
 }

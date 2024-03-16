@@ -4,13 +4,15 @@
 class Interactable
 {
 public:
-	enum class InteractableType { Item, PickUp };
+	enum class InteractableType { Item, ScorePickUp, HealthPickUp };
 	static std::string InteractableToString(const InteractableType interactable) {
 		switch (interactable) {
 		case InteractableType::Item:
 			return "Item";
-		case InteractableType::PickUp:
-			return "PickUp";
+		case InteractableType::ScorePickUp:
+			return "ScorePickUp";
+		case InteractableType::HealthPickUp:
+			return "HealthPickUp";
 		}
 		return {};
 	}

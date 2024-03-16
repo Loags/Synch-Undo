@@ -1,16 +1,17 @@
 #pragma once
 #include "Command.h"
+
+class Item;
 class Player;
-class PickUp;
 class Cell;
 
-class PickUpCommand final : public Command
+class PickUpCommand : public Command
 {
 protected:
-	int pickUpPosX;
-	int pickUpPosY;
-	Cell* pickUpCell;
-	PickUp* pickUp;
+	int itemPosX;
+	int itemPosY;
+	Cell* itemCell;
+	Item* item;
 	Player* player;
 
 public:

@@ -1,7 +1,8 @@
 #include "SpawnPickUpCommand.h"
 
-#include "PickUp.h"
+#include "ScorePickUp.h"
 #include "Player.h"
+#include "Grid.h"
 
 SpawnPickUpCommand::SpawnPickUpCommand(GameObject* object, GameObject* prevOwner) :
 	Command(object),
@@ -19,7 +20,7 @@ SpawnPickUpCommand::SpawnPickUpCommand(GameObject* object, GameObject* prevOwner
 
 void SpawnPickUpCommand::Execute()
 {
-	pickUp = object->GetComponentInChildren<PickUp>();
+	pickUp = object->GetComponentInChildren<ScorePickUp>();
 	const TransformComponent* transformComponent = object->GetComponent<TransformComponent>();
 	const Grid* grid = object->GetRootObject()->GetComponentInChildren<Grid>();
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
@@ -42,7 +43,7 @@ void SpawnPickUpCommand::Undo()
 	pickUpTransform->SetPosition(prevPosX, prevPosY);
 	pickUp->SetCellRef(prevCell);
 	pickUp->GetOwner()->GetComponent<RenderComponent>()->SetVisible(false);
-	pickUp->SetIsPickedUp(false);
+	pickUp->SetInteracted(false);
 	//pickUp->SpawnItem();
 	pickUp->GetOwner()->Reparent(prevOwner);
 }

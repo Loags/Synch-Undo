@@ -2,24 +2,41 @@
 
 #include "Cell.h"
 #include "GameObject.h"
+#include "Player.h"
 
 Item::Item(GameObject* owner, const int posX, const int posY, const int cellSize, Cell* cellRef) :
 	Component("Item", owner),
-	cellRef(cellRef)
+	interacted(false),
+	renderComponent(nullptr),
+	cellRef(cellRef),
+	player(nullptr),
+	commandInvoker(nullptr)
 {
 	transformComponent = new TransformComponent(owner, posX, posY, cellSize, cellSize);
 	owner->AddComponent(transformComponent);
 
-	renderComponent = new RenderComponent(owner, itemRender, colorItem);
-	owner->AddComponent(renderComponent);
+	commandInvoker = owner->GetRootObject()->GetComponent<CommandInvoker>();
+	itemManager = owner->GetRootObject()->GetComponent<ItemManager>();
 }
 
 void Item::Update()
 {
+	const GameObject* objectRef = cellRef->GetCharacterObjectRef();
+	if (objectRef)
+	{
+		player = objectRef->GetComponent<Player>();
+		if (player)
+		{
+			if (!GetInteracted())
+				Interact();
+		}
+	}
+
 }
 
 void Item::Interact()
 {
+	SetInteracted(true);
 }
 
 void Item::SpawnItem()

@@ -1,7 +1,7 @@
 #include "DieCommand.h"
 
 #include "Character.h"
-#include "PickUp.h"
+#include "ScorePickUp.h"
 
 DieCommand::DieCommand(GameObject* object) :
 	Command(object),
@@ -26,14 +26,14 @@ void DieCommand::Execute()
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(deathPosX, deathPosY);
 	deathCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
 
-	pickUp = deathCell->GetOwner()->GetComponentInChildren<PickUp>();
+	pickUp = deathCell->GetOwner()->GetComponentInChildren<ScorePickUp>();
 }
 
 void DieCommand::Undo()
 {
-	if (pickUp && !pickUp->GetIsPickedUp())
+	if (pickUp && !pickUp->GetInteracted())
 	{
-		pickUp->SetIsPickedUp(true);
+		pickUp->SetInteracted(true);
 		pickUp->GetOwner()->GetComponent<RenderComponent>()->SetVisible(false);
 	}
 

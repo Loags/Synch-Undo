@@ -1,21 +1,21 @@
 #pragma once
 #include <vector>
-
 #include "Component.h"
-#include "Grid.h"
 #include "Item.h"
 
+class HealthPickUp;
+class ScorePickUp;
 class Cell;
 class Grid;
-
 class CommandInvoker;
-class PickUp;
+
 
 class ItemManager : public Component
 {
 private:
 	Grid* gridRef;
-	std::vector<PickUp*> pickUpsOnGrid;
+	std::vector<Item*> scorePickUpsOnGrid;
+	std::vector<Item*> healthPickUpsOnGrid;
 	std::vector<Item*> itemsOnGrid;
 	CommandInvoker* commandInvoker;
 
@@ -23,10 +23,14 @@ public:
 	ItemManager(GameObject* owner);
 
 	void Update() override;
-	PickUp* SpawnPickUpAtCell(Cell* targetCell, const int value = 1);
-	void SpawnPickUp(int index, bool IsInitialSpawn = false);
-	void SpawnPickUps(bool IsInitialSpawn = false);
-	bool AllPickUpsCollected() const;
+	Item* SpawnItemAtCell(Cell* targetCell, const Interactable::InteractableType interactableType, const int value = 1);
 	void NotifyPickUpInteracted();
+
+private:
+	void SpawnPickUp(int index, const Interactable::InteractableType interactableType, bool IsInitialSpawn = false);
+	void SpawnPickUps(const Interactable::InteractableType interactableType, const int amount, const bool IsInitialSpawn = false);
+	bool AllScorePickUpsCollected() const;
+	bool AllHealthPickUpsCollected() const;
+
 };
 

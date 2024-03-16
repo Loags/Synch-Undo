@@ -108,7 +108,7 @@
     <ClCompile Include="PickUpCommand.cpp">
       <Filter>Quelldateien\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="PickUp.cpp">
+    <ClCompile Include="ScorePickUp.cpp">
       <Filter>Quelldateien\Items</Filter>
     </ClCompile>
     <ClCompile Include="RespawnCommand.cpp">
@@ -124,6 +124,15 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="SpawnPickUpCommand.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthPickUp.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="ScorePickUpCommand.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthPickUpCommand.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -197,7 +206,7 @@
     <ClInclude Include="PickUpCommand.h">
       <Filter>Headerdateien\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="PickUp.h">
+    <ClInclude Include="ScorePickUp.h">
       <Filter>Headerdateien\Items</Filter>
     </ClInclude>
     <ClInclude Include="RotateCommand.h">
@@ -213,6 +222,15 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="SpawnPickUpCommand.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthPickUp.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="ScorePickUpCommand.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthPickUpCommand.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,24 +1,30 @@
-﻿  Attackable.cpp
-  AttackCommand.cpp
+﻿  AttackCommand.cpp
+  Attackable.cpp
   Character.cpp
   CharacterController.cpp
   ConsoleManager.cpp
   DieCommand.cpp
   Enemy.cpp
   Grid.cpp
+  HealthPickUp.cpp
+  HealthPickUpCommand.cpp
+  Item.cpp
   ItemManager.cpp
   Movable.cpp
   MoveCommand.cpp
-  PickUp.cpp
   PickUpCommand.cpp
   Player.cpp
   RenderComponent.cpp
   RespawnCommand.cpp
   RotateCommand.cpp
+  ScorePickUp.cpp
+  Code wird generiert...
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\ConsoleManager.h(18,1): warning C4715: "ConsoleManager::DirectionToString": Nicht alle Codepfade geben einen Wert zurück.
+  Kompilieren...
+  ScorePickUpCommand.cpp
   SpawnPickUpCommand.cpp
   Synch-Undo.cpp
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Synch-Undo.cpp(45,103): warning C4244: "Argument": Konvertierung von "double" in "const int", möglicher Datenverlust
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Synch-Undo.cpp(49,107): warning C4244: "Argument": Konvertierung von "double" in "const int", möglicher Datenverlust
   Code wird generiert...
-G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\ConsoleManager.h(18,1): warning C4715: "ConsoleManager::DirectionToString": Nicht alle Codepfade geben einen Wert zurück.
   Synch-Undo.vcxproj -> G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Debug\Synch-Undo.exe

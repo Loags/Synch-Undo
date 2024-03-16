@@ -1,7 +1,7 @@
 #pragma once
 #include "Command.h"
 
-class PickUp;
+class ScorePickUp;
 class Cell;
 
 class SpawnPickUpCommand : public Command
@@ -13,8 +13,9 @@ private:
 	int prevPosY;
 	Cell* newCell;
 	Cell* prevCell;
-	PickUp* pickUp;
+	ScorePickUp* pickUp;
 	GameObject* prevOwner;
+
 public:
 	SpawnPickUpCommand(GameObject* object, GameObject* prevOwner);
 	void Execute() override;

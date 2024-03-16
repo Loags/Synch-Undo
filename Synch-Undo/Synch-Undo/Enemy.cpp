@@ -84,7 +84,7 @@ void Enemy::Die()
 {
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
 	Cell* targetCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
-	itemManager->SpawnPickUpAtCell(targetCell, 1);
+	itemManager->SpawnItemAtCell(targetCell, Interactable::InteractableType::ScorePickUp, 1);
 
 	Character::Die();
 }
