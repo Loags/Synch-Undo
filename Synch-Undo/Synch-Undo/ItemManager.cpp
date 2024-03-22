@@ -26,7 +26,17 @@ ItemManager::ItemManager(GameObject* owner) :
 
 void ItemManager::Update()
 {
+	if (AllHealthPickUpsCollected())
+	{
+		std::cout << "test\n";
+		SpawnPickUps(Interactable::InteractableType::HealthPickUp, 1, false);
+	}
 
+	if (AllScorePickUpsCollected())
+	{
+		std::cout << "test 2\n";
+		SpawnPickUps(Interactable::InteractableType::ScorePickUp, 3, false);
+	}
 }
 
 Item* ItemManager::SpawnItemAtCell(Cell* targetCell, const Interactable::InteractableType interactableType, const int value)
@@ -87,7 +97,7 @@ void ItemManager::SpawnPickUp(int index, const Interactable::InteractableType in
 				currentItem->SpawnItem();
 				currentItem->GetOwner()->Reparent(emptyCell->GetOwner());
 				currentItem->SetCellRef(emptyCell);
-				SpawnPickUpCommand* spawnPickUpCommand = new SpawnPickUpCommand(emptyCell->GetOwner(), prevOwner);
+				SpawnPickUpCommand* spawnPickUpCommand = new SpawnPickUpCommand(emptyCell->GetOwner(), prevOwner, interactableType);
 				commandInvoker->ExecuteCommand(spawnPickUpCommand);
 			}
 		}
@@ -119,14 +129,4 @@ bool ItemManager::AllHealthPickUpsCollected() const
 			return false;
 	}
 	return true;
-}
-
-void ItemManager::NotifyPickUpInteracted()
-{
-	if (AllHealthPickUpsCollected())
-		SpawnPickUps(Interactable::InteractableType::HealthPickUp, 1, false);
-
-	if (AllScorePickUpsCollected())
-		SpawnPickUps(Interactable::InteractableType::ScorePickUp, 3, false);
-
 }

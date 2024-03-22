@@ -1,6 +1,5 @@
 #include "PickUpCommand.h"
 #include "Grid.h"
-#include "HealthPickUp.h"
 #include "Player.h"
 
 PickUpCommand::PickUpCommand(GameObject* object, Player* player) :
@@ -33,5 +32,7 @@ void PickUpCommand::Undo()
 
 std::string PickUpCommand::ToString() const
 {
-	return "";
+	std::string output = "Player picked up a " + Item::InteractableToString(item->GetInteractableType()) + " at (" +
+		std::to_string(itemPosX) + "," + std::to_string(itemPosY) + ")";
+	return output;
 }

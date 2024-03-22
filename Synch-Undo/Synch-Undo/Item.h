@@ -5,7 +5,6 @@
 #include "TransformComponent.h"
 
 
-class ItemManager;
 class CommandInvoker;
 class Player;
 class Cell;
@@ -19,7 +18,6 @@ protected:
 	Cell* cellRef;
 	Player* player;
 	CommandInvoker* commandInvoker;
-	ItemManager* itemManager;
 
 public:
 	Item(GameObject* owner, int posX, int posY, int cellSize, Cell* cellRef);

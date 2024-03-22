@@ -3,7 +3,6 @@
 #include "Cell.h"
 #include "Player.h"
 #include "ScorePickUpCommand.h"
-#include "ItemManager.h"
 
 ScorePickUp::ScorePickUp(GameObject* owner, int posX, int posY, int cellSize, Cell* cellRef, const int value) :
 	Item(owner, posX, posY, cellSize, cellRef),
@@ -28,7 +27,6 @@ void ScorePickUp::Interact()
 	player->SetScore(value);
 	ScorePickUpCommand* scorePickUpCommand = new ScorePickUpCommand(owner, player);
 	commandInvoker->ExecuteCommand(scorePickUpCommand);
-	itemManager->NotifyPickUpInteracted();
 }
 
 void ScorePickUp::SpawnItem()

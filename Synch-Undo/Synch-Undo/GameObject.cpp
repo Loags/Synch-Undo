@@ -19,22 +19,27 @@ void GameObject::PrintComponentsAndChildren(const int level) const
 		std::cout << "\n================ Hierarchy ================\n";
 	std::cout << indent << "GameObject: " << name << "\n";
 
-	if (!components.empty()) {
+	if (!components.empty())
+	{
 		std::cout << indent << "  Components:\n";
-		for (const Component* comp : components) {
+		for (const Component* comp : components)
+		{
 			std::cout << indent << "    - " << comp->GetComponentName() << "\n";
 		}
 	}
 
-	if (!children.empty()) {
+	if (!children.empty())
+	{
 		std::cout << indent << "  Children:\n";
-		for (const GameObject* child : children) {
+		for (const GameObject* child : children)
+		{
 			child->PrintComponentsAndChildren(level + 1);
 		}
 	}
 }
 
-void GameObject::AddComponent(Component* component) {
+void GameObject::AddComponent(Component* component)
+{
 	components.push_back(component);
 }
 
@@ -77,7 +82,7 @@ void GameObject::Update() const
 void GameObject::Reparent(GameObject* newParent) {
 	// Remove from current parent
 	if (this->owner) {
-		auto& siblings = this->owner->children;
+		std::vector<GameObject*>& siblings = this->owner->children;
 		siblings.erase(std::remove(siblings.begin(), siblings.end(), this), siblings.end());
 	}
 

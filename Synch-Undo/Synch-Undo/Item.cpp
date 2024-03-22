@@ -16,7 +16,6 @@ Item::Item(GameObject* owner, const int posX, const int posY, const int cellSize
 	owner->AddComponent(transformComponent);
 
 	commandInvoker = owner->GetRootObject()->GetComponent<CommandInvoker>();
-	itemManager = owner->GetRootObject()->GetComponent<ItemManager>();
 }
 
 void Item::Update()

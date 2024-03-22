@@ -1,10 +1,11 @@
 #include "SpawnPickUpCommand.h"
 
 #include "ScorePickUp.h"
+#include "HealthPickUp.h"
 #include "Player.h"
 #include "Grid.h"
 
-SpawnPickUpCommand::SpawnPickUpCommand(GameObject* object, GameObject* prevOwner) :
+SpawnPickUpCommand::SpawnPickUpCommand(GameObject* object, GameObject* prevOwner, const Interactable::InteractableType interactableType) :
 	Command(object),
 	newPosX(0),
 	newPosY(0),
@@ -12,15 +13,24 @@ SpawnPickUpCommand::SpawnPickUpCommand(GameObject* object, GameObject* prevOwner
 	prevPosY(0),
 	newCell(nullptr),
 	prevCell(nullptr),
-	pickUp(nullptr),
-	prevOwner(prevOwner)
+	itemPickUp(nullptr),
+	prevOwner(prevOwner),
+	interactableType(interactableType)
 {
-
+	SetCommandType(CommandType::Double);
 }
 
 void SpawnPickUpCommand::Execute()
 {
-	pickUp = object->GetComponentInChildren<ScorePickUp>();
+	switch (interactableType) {
+	case Interactable::InteractableType::ScorePickUp:
+		itemPickUp = object->GetComponentInChildren<ScorePickUp>();
+		break;
+	case Interactable::InteractableType::HealthPickUp:
+		itemPickUp = object->GetComponentInChildren<HealthPickUp>();
+		break;
+	}
+
 	const TransformComponent* transformComponent = object->GetComponent<TransformComponent>();
 	const Grid* grid = object->GetRootObject()->GetComponentInChildren<Grid>();
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
@@ -39,16 +49,18 @@ void SpawnPickUpCommand::Execute()
 
 void SpawnPickUpCommand::Undo()
 {
-	TransformComponent* pickUpTransform = pickUp->GetOwner()->GetComponent<TransformComponent>();
+	TransformComponent* pickUpTransform = itemPickUp->GetOwner()->GetComponent<TransformComponent>();
 	pickUpTransform->SetPosition(prevPosX, prevPosY);
-	pickUp->SetCellRef(prevCell);
-	pickUp->GetOwner()->GetComponent<RenderComponent>()->SetVisible(false);
-	pickUp->SetInteracted(false);
-	//pickUp->SpawnItem();
-	pickUp->GetOwner()->Reparent(prevOwner);
+	itemPickUp->SetCellRef(prevCell);
+	itemPickUp->GetOwner()->GetComponent<RenderComponent>()->SetVisible(false);
+	itemPickUp->SetInteracted(false);
+	//itemPickUp->SpawnItem();
+	itemPickUp->GetOwner()->Reparent(prevOwner);
 }
 
 std::string SpawnPickUpCommand::ToString() const
 {
-	return "output";
+	std::string output = "Spawned item of type " + Item::InteractableToString(itemPickUp->GetInteractableType()) +
+		" at (" + std::to_string(newPosX) + "," + std::to_string(newPosY) + ")";
+	return output;
 }

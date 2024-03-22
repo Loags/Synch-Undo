@@ -1,7 +1,8 @@
 #pragma once
 #include "Command.h"
+#include "Interactable.h"
 
-class ScorePickUp;
+class Item;
 class Cell;
 
 class SpawnPickUpCommand : public Command
@@ -13,11 +14,12 @@ private:
 	int prevPosY;
 	Cell* newCell;
 	Cell* prevCell;
-	ScorePickUp* pickUp;
+	Item* itemPickUp;
 	GameObject* prevOwner;
+	Interactable::InteractableType interactableType;
 
 public:
-	SpawnPickUpCommand(GameObject* object, GameObject* prevOwner);
+	SpawnPickUpCommand(GameObject* object, GameObject* prevOwner, const Interactable::InteractableType interactableType);
 	void Execute() override;
 	void Undo() override;
 	std::string ToString() const override;

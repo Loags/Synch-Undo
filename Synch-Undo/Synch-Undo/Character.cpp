@@ -22,7 +22,7 @@ Character::Character(GameObject* owner, const GameObject* gridObject, const int 
 
 void Character::Update()
 {
-	if (GetPendingRespawn() && SDL_GetTicks() - GetDeathTime() >= 2500) {
+	if (GetPendingRespawn() && SDL_GetTicks() - GetDeathTime() >= 1000) {
 		Respawn();
 		SetPendingRespawn(false);
 	}

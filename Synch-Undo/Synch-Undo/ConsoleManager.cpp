@@ -4,6 +4,7 @@
 
 #include "Enemy.h"
 #include "ScorePickUp.h"
+#include "HealthPickUp.h"
 #include "Player.h"
 #include "Grid.h"
 
@@ -25,7 +26,8 @@ void ConsoleManager::ProcessInput()
 	const std::string printControls = "controls";
 	const std::string printCommandStack = "commandstack";
 	const std::string printStats = "stats";
-	const std::string printPickUps = "pickups";
+	const std::string printScorePickUps = "scorepickups";
+	const std::string printHealthPickUps = "healthpickups";
 	const std::string printItems = "items";
 	const std::string exitConsole = "exit";
 
@@ -34,7 +36,8 @@ void ConsoleManager::ProcessInput()
 	std::cout << indent << printControls << "  -  Overview of all inputs for the Player and Enemy!\n";
 	std::cout << indent << printCommandStack << "  -  Stack overview of all commands the Player and Enemy executed!\n";
 	std::cout << indent << printStats << "  -  Overview of all stats for the Player and Enemy!\n";
-	std::cout << indent << printPickUps << "  -  Overview of all PickUps on the Grid!\n";
+	std::cout << indent << printScorePickUps << "  -  Overview of all ScorePickUps on the Grid!\n";
+	std::cout << indent << printHealthPickUps << "  -  Overview of all HealthPickUps on the Grid!\n";
 	std::cout << indent << printItems << "  -  Overview of all Items on the Grid!\n";
 	std::cout << indent << exitConsole << "  -  Exit the console and enable input for the game!\n\n\n";
 
@@ -58,9 +61,13 @@ void ConsoleManager::ProcessInput()
 	{
 		ShowStats();
 	}
-	else if (input == printPickUps)
+	else if (input == printScorePickUps)
 	{
-		ShowPickups();
+		ShowScorePickups();
+	}
+	else if (input == printHealthPickUps)
+	{
+		ShowHealthPickUps();
 	}
 	else if (input == printItems)
 	{
@@ -115,15 +122,42 @@ void ConsoleManager::ShowStats() const
 	std::cout << "\n================================================\n";
 }
 
-void ConsoleManager::ShowPickups() const {
-	std::cout << "\n================ Pickups ================\n\n";
+void ConsoleManager::ShowScorePickups() const {
+	std::cout << "\n================ Score Pickups ================\n\n";
 	const std::vector<GameObject*> pickUpObjects = owner->GetAllGameObjectWithComponent<ScorePickUp>();
 	for (GameObject* const& pickupObject : pickUpObjects) {
 		const ScorePickUp* pickup = pickupObject->GetComponent<ScorePickUp>();
+
+		if (pickup->GetInteracted()) continue;
+
 		const Grid* grid = owner->GetComponentInChildren<Grid>();
 		const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(pickup->GetCellRef()->GetCellPos().first,
 			pickup->GetCellRef()->GetCellPos().second);
-		std::cout << "Pickup:\n";
+		std::cout << "Score Pickup:\n";
+		std::cout << indent << "Location: " << pickup->GetOwner()->GetComponent<TransformComponent>()->GetX() << ", " <<
+			pickup->GetOwner()->GetComponent<TransformComponent>()->GetY() << "\n";
+		std::cout << indent << "Location Grid: " << std::to_string(gridPos.first) << ", " <<
+			std::to_string(gridPos.second) << "\n";
+		std::cout << indent << "Status: " << (pickup->GetInteracted() ? "Collected" : "Available") << "\n";
+		if (!pickup->GetInteracted())
+			std::cout << indent << "Value: " << pickup->GetValue() << "\n";
+	}
+	std::cout << "\n========================================\n";
+}
+
+void ConsoleManager::ShowHealthPickUps()const
+{
+	std::cout << "\n================ Health Pickups ================\n\n";
+	const std::vector<GameObject*> pickUpObjects = owner->GetAllGameObjectWithComponent<HealthPickUp>();
+	for (GameObject* const& pickupObject : pickUpObjects) {
+		const ScorePickUp* pickup = pickupObject->GetComponent<ScorePickUp>();
+
+		if (pickup->GetInteracted()) continue;
+
+		const Grid* grid = owner->GetComponentInChildren<Grid>();
+		const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(pickup->GetCellRef()->GetCellPos().first,
+			pickup->GetCellRef()->GetCellPos().second);
+		std::cout << "Health PickUp:\n";
 		std::cout << indent << "Location: " << pickup->GetOwner()->GetComponent<TransformComponent>()->GetX() << ", " <<
 			pickup->GetOwner()->GetComponent<TransformComponent>()->GetY() << "\n";
 		std::cout << indent << "Location Grid: " << std::to_string(gridPos.first) << ", " <<
@@ -141,6 +175,9 @@ void ConsoleManager::ShowItems() const
 	const std::vector<GameObject*> itemObjects = owner->GetAllGameObjectWithComponent<Item>();
 	for (GameObject* const& itemObject : itemObjects) {
 		const Item* item = itemObject->GetComponent<Item>();
+
+		if (item->GetInteracted()) continue;
+
 		const Grid* grid = owner->GetComponentInChildren<Grid>();
 		const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(item->GetCellRef()->GetCellPos().first,
 			item->GetCellRef()->GetCellPos().second);

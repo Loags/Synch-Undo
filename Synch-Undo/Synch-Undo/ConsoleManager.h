@@ -27,7 +27,8 @@ public:
 private:
 	void ShowControls() const;
 	void ShowStats() const;
-	void ShowPickups() const;
+	void ShowScorePickups() const;
+	void ShowHealthPickUps() const;
 	void ShowItems() const;
 	void ShowCommandStack() const;
 };

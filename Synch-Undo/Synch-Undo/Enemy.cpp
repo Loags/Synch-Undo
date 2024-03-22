@@ -8,7 +8,7 @@
 
 Enemy::Enemy(GameObject* owner, const GameObject* gridObject, const int posX, const int posY, const int offSet, const int enemySize) :
 	Character(owner, gridObject, offSet, CharacterStats::Enemy, 2, 1, "EnemyComponent"),
-	actionDelay(750),
+	actionDelay(250),
 	lastActionTime(0),
 	isWaiting(false)
 {
