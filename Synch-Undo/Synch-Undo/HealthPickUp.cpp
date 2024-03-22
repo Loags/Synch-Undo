@@ -22,9 +22,9 @@ void HealthPickUp::Update()
 void HealthPickUp::Interact()
 {
 	Item::Interact();
-	const int previousHealth = player->stats.GetHealth();
+	const int previousHealth = player->GetCurrentHealth();
 	renderComponent->SetVisible(false);
-	player->stats.SetHealth(player->stats.GetHealth() + healAmount);
+	player->SetCurrentHealth(player->GetCurrentHealth() + healAmount);
 
 	CommandInvoker* commandInvoker = owner->GetRootObject()->GetComponent<CommandInvoker>();
 	HealthPickUpCommand* healthPickUpCommand = new HealthPickUpCommand(owner, player, previousHealth);

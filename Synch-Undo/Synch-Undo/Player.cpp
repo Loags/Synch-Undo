@@ -10,7 +10,7 @@
 
 Player::Player(GameObject* owner, const GameObject* gridObject, const int posX, const int posY, const int offSet,
 	const int playerSize) :
-	Character(owner, gridObject, offSet, CharacterStats::Player, 5, 1, "PlayerComponent"),
+	Character(owner, gridObject, offSet, CharacterStats::Player, 100, 10, "PlayerComponent"),
 	score(0)
 
 {
@@ -47,8 +47,8 @@ void Player::Die()
 	{
 		const std::pair<int, int> playerGridPos = grid->GetPositionToGridCoords(transformComponent->GetX(), transformComponent->GetY());
 		Cell* targetCell = grid->GetCellAtPos(playerGridPos.first, playerGridPos.second);
-		SetScore(-score);
 		itemManager->SpawnItemAtCell(targetCell, Interactable::InteractableType::ScorePickUp, score);
+		SetScore(-score);
 	}
 
 	Character::Die();

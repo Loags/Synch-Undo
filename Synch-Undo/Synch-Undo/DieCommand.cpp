@@ -43,13 +43,13 @@ void DieCommand::Undo()
 	character->SetPendingRespawn(false);
 	character->SetDeathTime(0);
 	character->GetOwner()->GetComponent<RenderComponent>()->SetVisible(true);
-	character->stats.SetIsDead(false);
+	character->SetIsDead(false);
 	character->GetOwner()->GetComponent<TransformComponent>()->SetPosition(deathPosX, deathPosY);
 }
 
 std::string DieCommand::ToString() const
 {
-	const std::string& characterDiedType = CharacterStats::CharacterTypeStrings[character->stats.type];
+	const std::string& characterDiedType = CharacterStats::CharacterTypeStrings[character->type];
 
 	return "DieCommand: Character died: " + characterDiedType;
 }

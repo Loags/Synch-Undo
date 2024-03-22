@@ -1,8 +1,12 @@
 #include "ConsoleManager.h"
+
+#include <iomanip>
+
 #include "GameObject.h"
 #include <iostream>
 
 #include "Enemy.h"
+#include "EquipmentFactory.h"
 #include "ScorePickUp.h"
 #include "HealthPickUp.h"
 #include "Player.h"
@@ -39,47 +43,26 @@ void ConsoleManager::ProcessInput()
 	std::cout << indent << printScorePickUps << "  -  Overview of all ScorePickUps on the Grid!\n";
 	std::cout << indent << printHealthPickUps << "  -  Overview of all HealthPickUps on the Grid!\n";
 	std::cout << indent << printItems << "  -  Overview of all Items on the Grid!\n";
+	std::cout << indent << "equiprandom_<p/e>_<number>" << "  -  Equip <number> random items to the player or enemy. Example: equiprandom_p_3\n";
 	std::cout << indent << exitConsole << "  -  Exit the console and enable input for the game!\n\n\n";
 
 
 	std::cout << "Enter command: ";
 	std::getline(std::cin, input);
 
-	if (input == printHierarchy) {
+	if (input.rfind("equiprandom_", 0) == 0) { EquipRandomXItems(input); }
+	else if (input == printHierarchy) {
 		owner->PrintComponentsAndChildren(0);
 		std::cout << "\n================================================\n";
 	}
-	else if (input == printControls)
-	{
-		ShowControls();
-	}
-	else if (input == printCommandStack)
-	{
-		ShowCommandStack();
-	}
-	else if (input == printStats)
-	{
-		ShowStats();
-	}
-	else if (input == printScorePickUps)
-	{
-		ShowScorePickups();
-	}
-	else if (input == printHealthPickUps)
-	{
-		ShowHealthPickUps();
-	}
-	else if (input == printItems)
-	{
-		ShowItems();
-	}
-	else if (input == exitConsole)
-	{
-		SetConsoleAccess(false);
-	}
-	else {
-		std::cout << "Unknown command. Please try again.\n";
-	}
+	else if (input == printControls) { ShowControls(); }
+	else if (input == printCommandStack) { ShowCommandStack(); }
+	else if (input == printStats) { ShowStats(); }
+	else if (input == printScorePickUps) { ShowScorePickups(); }
+	else if (input == printHealthPickUps) { ShowHealthPickUps(); }
+	else if (input == printItems) { ShowItems(); }
+	else if (input == exitConsole) { SetConsoleAccess(false); }
+	else { std::cout << "Unknown command. Please try again.\n"; }
 }
 
 void ConsoleManager::ShowControls() const
@@ -108,17 +91,23 @@ void ConsoleManager::ShowStats() const
 	const Player* player = owner->GetComponentInChildren<Player>();
 	const Enemy* enemy = owner->GetComponentInChildren<Enemy>();
 
-	std::cout << "\n================ Character Stats ================\n\n";
+	std::cout << "\n================ Player Stats ================\n\n";
 	std::cout << "Player Stats:\n";
-	std::cout << indent << "Health: " << player->stats.GetHealth() << " / " << player->stats.GetInitialHealth() << "\n";
-	std::cout << indent << "Attack Power: " << player->stats.GetAttackPower() << "\n";
-	std::cout << indent << "Status: " << (player->stats.GetIsDead() ? "Dead" : "Alive") << "\n";
+	std::cout << indent << "Health: " << player->GetCurrentHealth() << " / " << player->GetMaxValueOfAttributeType(Attributes::Health) << "\n";
+	std::cout << indent << "Attack Power: " << player->GetMaxValueOfAttributeType(Attributes::AttackPower) << "\n";
+	std::cout << indent << "Armor: " << player->GetMaxValueOfAttributeType(Attributes::Armor) << "\n";
+	std::cout << indent << "Status: " << (player->GetIsDead() ? "Dead" : "Alive") << "\n";
 	std::cout << indent << "Score: " << player->GetScore() << "\n\n";
-
+	player->DisplayEquippedItems();
+	std::cout << "\n================================================\n";
+	std::cout << "\n================ Enemy Stats ================\n\n";
 	std::cout << "Enemy Stats:\n";
-	std::cout << indent << "Health: " << enemy->stats.GetHealth() << " / " << enemy->stats.GetInitialHealth() << "\n";
-	std::cout << indent << "Attack Power: " << enemy->stats.GetAttackPower() << "\n";
-	std::cout << indent << "Status: " << (enemy->stats.GetIsDead() ? "Dead" : "Alive") << "\n";
+	std::cout << indent << "Health: " << enemy->GetCurrentHealth() << " / " << enemy->GetMaxValueOfAttributeType(Attributes::Health) << "\n";
+	std::cout << indent << "Attack Power: " << enemy->GetMaxValueOfAttributeType(Attributes::AttackPower) << "\n";
+	std::cout << indent << "Armor: " << enemy->GetMaxValueOfAttributeType(Attributes::Armor) << "\n";
+	std::cout << indent << "Status: " << (enemy->GetIsDead() ? "Dead" : "Alive") << "\n";
+	enemy->DisplayEquippedItems();
+
 	std::cout << "\n================================================\n";
 }
 
@@ -169,34 +158,30 @@ void ConsoleManager::ShowHealthPickUps()const
 	std::cout << "\n========================================\n";
 }
 
-void ConsoleManager::ShowItems() const
-{
+void ConsoleManager::ShowItems() const {
 	std::cout << "\n================ Items ================\n\n";
-	const std::vector<GameObject*> itemObjects = owner->GetAllGameObjectWithComponent<Item>();
-	for (GameObject* const& itemObject : itemObjects) {
-		const Item* item = itemObject->GetComponent<Item>();
 
-		if (item->GetInteracted()) continue;
-
+	auto printItemDetails = [this](const Item* item) {
 		const Grid* grid = owner->GetComponentInChildren<Grid>();
 		const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(item->GetCellRef()->GetCellPos().first,
 			item->GetCellRef()->GetCellPos().second);
-		std::cout << "Item: (" << Item::InteractableToString(item->GetInteractableType()) << ")\n";
-		std::cout << indent << "Location: " << item->GetOwner()->GetComponent<TransformComponent>()->GetX() << ", " <<
-			item->GetOwner()->GetComponent<TransformComponent>()->GetY() << "\n";
-		std::cout << indent << "Location Grid: " << std::to_string(gridPos.first) << ", " <<
-			std::to_string(gridPos.second) << "\n";
+		std::cout << "Item: (" << Item::InteractableToString(item->GetInteractableType()) << ")\n"
+			<< indent << "Location: " << item->GetOwner()->GetComponent<TransformComponent>()->GetX() << ", "
+			<< item->GetOwner()->GetComponent<TransformComponent>()->GetY() << "\n"
+			<< indent << "Location Grid: " << std::to_string(gridPos.first) << ", "
+			<< std::to_string(gridPos.second) << "\n"
+			<< indent << "Status: " << (item->GetInteracted() ? "Collected" : "Available") << "\n"
+			<< indent << "Value: " << item->GetValue() << "\n";
+		};
 
-		if (item->GetInteractableType() == Interactable::InteractableType::ScorePickUp)
-		{
-			const ScorePickUp* pickUp = dynamic_cast<const ScorePickUp*>(item);
-			if (pickUp) {
-				std::cout << indent << "Status: " << (pickUp->GetInteracted() ? "Collected" : "Available") << "\n";
-				if (!pickUp->GetInteracted())
-					std::cout << indent << "Value: " << pickUp->GetValue() << "\n";
-			}
-		}
+	const std::vector<GameObject*> itemObjects = owner->GetAllGameObjectWithComponent<Item>();
+	for (GameObject* const& itemObject : itemObjects) {
+		const Item* item = itemObject->GetComponent<Item>();
+		if (item->GetInteracted()) continue;
+
+		printItemDetails(item);
 	}
+
 	std::cout << "\n========================================\n";
 }
 
@@ -205,4 +190,60 @@ void ConsoleManager::ShowCommandStack() const
 	std::cout << "\n================ Command Stack ================\n\n";
 	owner->GetComponent<CommandInvoker>()->DebugCommandStack();
 	std::cout << "\n========================================\n";
+}
+
+void ConsoleManager::EquipRandomXItems(const std::string& command) const
+{
+	const std::size_t firstUnderscore = command.find("_");
+	const std::size_t lastUnderscore = command.rfind("_");
+
+	if (firstUnderscore == std::string::npos || lastUnderscore == std::string::npos || firstUnderscore == lastUnderscore) {
+		std::cout << "Invalid command format." << '\n';
+		return;
+	}
+
+	const char target = command[firstUnderscore + 1];
+	int numberOfItems = 0;
+
+	try {
+		numberOfItems = std::stoi(command.substr(lastUnderscore + 1));
+	}
+	catch (...) {
+		std::cout << "Invalid number of items specified." << '\n';
+		return;
+	}
+
+	if (numberOfItems <= 0) {
+		std::cout << "Number of items must be greater than 0." << '\n';
+		return;
+	}
+
+	Character* characterTarget = nullptr;
+	if (target == 'p') {
+		characterTarget = owner->GetComponentInChildren<Player>();
+	}
+	else if (target == 'e') {
+		characterTarget = owner->GetComponentInChildren<Enemy>();
+	}
+	else {
+		std::cout << "Invalid target. Use 'p' for player or 'e' for enemy." << '\n';
+		return;
+	}
+
+	if (characterTarget) {
+		const int emptySlots = static_cast<int>(EquipmentSlot::TOTAL_SLOTS) - characterTarget->CountEquippedItems();
+
+		const int itemsToEquip = std::min(numberOfItems, emptySlots);
+
+		if (itemsToEquip <= 0) {
+			std::cout << "No empty slots to equip new items." << '\n';
+			return;
+		}
+
+		for (int i = 0; i < numberOfItems; ++i) {
+			std::shared_ptr<Equipment> randomEquipment = EquipmentFactory::CreateRandomEquipmentForEmptySlots(characterTarget->GetEmptySlots());
+			characterTarget->EquipItem(randomEquipment);
+		}
+		ShowStats();
+	}
 }

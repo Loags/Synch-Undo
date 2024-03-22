@@ -29,5 +29,6 @@ public:
 	void Update() override;
 	void Interact() override;
 	void virtual SpawnItem();
+	int virtual GetValue() const = 0;
 };
 

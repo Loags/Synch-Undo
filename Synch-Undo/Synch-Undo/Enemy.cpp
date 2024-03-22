@@ -7,7 +7,7 @@
 
 
 Enemy::Enemy(GameObject* owner, const GameObject* gridObject, const int posX, const int posY, const int offSet, const int enemySize) :
-	Character(owner, gridObject, offSet, CharacterStats::Enemy, 2, 1, "EnemyComponent"),
+	Character(owner, gridObject, offSet, CharacterStats::Enemy, 25, 10, "EnemyComponent"),
 	actionDelay(250),
 	lastActionTime(0),
 	isWaiting(false)
@@ -28,7 +28,7 @@ Enemy::Enemy(GameObject* owner, const GameObject* gridObject, const int posX, co
 void Enemy::Update()
 {
 	Character::Update();
-	if (stats.GetIsDead()) return;
+	if (GetIsDead()) return;
 	if (GameStateManager::GetCurrentTurnState() != targetTurnState) return;
 
 	const Uint32 currentTime = SDL_GetTicks();

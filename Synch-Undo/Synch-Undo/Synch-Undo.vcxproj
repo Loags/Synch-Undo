@@ -135,6 +135,11 @@
   <ItemGroup>
     <ClCompile Include="Attackable.cpp" />
     <ClCompile Include="AttackCommand.cpp" />
+    <ClCompile Include="Attribute.cpp" />
+    <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="EquipmentFactory.cpp" />
+    <ClCompile Include="EquipmentManager.cpp" />
+    <ClCompile Include="IModifier.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CharacterController.cpp" />
@@ -152,7 +157,9 @@
     <ClCompile Include="HealthPickUpCommand.cpp" />
     <ClCompile Include="Interactable.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="EquipmentBuff.cpp" />
     <ClCompile Include="ItemManager.cpp" />
+    <ClCompile Include="ModifiableInt.cpp" />
     <ClCompile Include="Movable.cpp" />
     <ClCompile Include="MoveCommand.cpp" />
     <ClCompile Include="ScorePickUp.cpp" />
@@ -169,6 +176,11 @@
   <ItemGroup>
     <ClInclude Include="Attackable.h" />
     <ClInclude Include="AttackCommand.h" />
+    <ClInclude Include="Attribute.h" />
+    <ClInclude Include="Equipment.h" />
+    <ClInclude Include="EquipmentFactory.h" />
+    <ClInclude Include="EquipmentManager.h" />
+    <ClInclude Include="IModifier.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterController.h" />
@@ -186,7 +198,9 @@
     <ClInclude Include="HealthPickUpCommand.h" />
     <ClInclude Include="Interactable.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="EquipmentBuff.h" />
     <ClInclude Include="ItemManager.h" />
+    <ClInclude Include="ModifiableInt.h" />
     <ClInclude Include="Movable.h" />
     <ClInclude Include="MoveCommand.h" />
     <ClInclude Include="ScorePickUp.h" />

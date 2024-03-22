@@ -18,15 +18,15 @@ void AttackCommand::Execute()
 
 void AttackCommand::Undo()
 {
-	target->stats.SetHealth(target->stats.GetHealth() + attacker->stats.GetAttackPower());
+	target->SetCurrentHealth(target->GetCurrentHealth() + attacker->GetMaxValueOfAttributeType(Attributes::AttackPower));
 }
 
 std::string AttackCommand::ToString() const
 {
-	const std::string& damageDealer = CharacterStats::CharacterTypeStrings[attacker->stats.type];
-	const std::string& damageReceiver = CharacterStats::CharacterTypeStrings[target->stats.type];
+	const std::string& damageDealer = CharacterStats::CharacterTypeStrings[attacker->type];
+	const std::string& damageReceiver = CharacterStats::CharacterTypeStrings[target->type];
 
-	std::string output = "AttackCommand: " + damageDealer + " damage dealt " + std::to_string(attacker->stats.GetAttackPower()) +
-		"  |  " + damageReceiver + " health lost: " + std::to_string(attacker->stats.GetAttackPower());
+	std::string output = "AttackCommand: " + damageDealer + " damage dealt " + std::to_string(attacker->GetMaxValueOfAttributeType(Attributes::AttackPower)) +
+		"  |  " + damageReceiver + " health lost: " + std::to_string(attacker->GetMaxValueOfAttributeType(Attributes::AttackPower));
 	return output;
 }

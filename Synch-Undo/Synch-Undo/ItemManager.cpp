@@ -52,7 +52,7 @@ Item* ItemManager::SpawnItemAtCell(Cell* targetCell, const Interactable::Interac
 		item = new ScorePickUp(itemObject, itemPosX, itemPosY, gridRef->GetCellSize() / 2, targetCell, value);
 		break;
 	case Interactable::InteractableType::HealthPickUp:
-		item = new HealthPickUp(itemObject, itemPosX, itemPosY, gridRef->GetCellSize() / 2, targetCell, value);
+		item = new HealthPickUp(itemObject, itemPosX, itemPosY, gridRef->GetCellSize() / 2, targetCell, 25);
 		break;
 	}
 

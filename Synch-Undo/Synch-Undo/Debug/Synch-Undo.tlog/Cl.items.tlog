@@ -1,5 +1,10 @@
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Attackable.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Attackable.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\AttackCommand.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\AttackCommand.obj
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Attribute.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Attribute.obj
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Equipment.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Equipment.obj
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\EquipmentFactory.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\EquipmentFactory.obj
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\EquipmentManager.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\EquipmentManager.obj
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\IModifier.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\IModifier.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Cell.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Cell.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Character.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Character.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\CharacterController.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\CharacterController.obj
@@ -17,7 +22,9 @@ G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\HealthPickUp.cpp;G:\MDH\7_Sem
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\HealthPickUpCommand.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\HealthPickUpCommand.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Interactable.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Interactable.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Item.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Item.obj
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\EquipmentBuff.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\EquipmentBuff.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\ItemManager.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\ItemManager.obj
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\ModifiableInt.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\ModifiableInt.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Movable.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\Movable.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\MoveCommand.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\MoveCommand.obj
 G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\ScorePickUp.cpp;G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\Debug\ScorePickUp.obj

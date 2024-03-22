@@ -3,6 +3,7 @@
 
 #include "Attackable.h"
 #include "CharacterController.h"
+#include "EquipmentManager.h"
 #include "GameStateManager.h"
 #include "Movable.h"
 #include "RenderComponent.h"
@@ -12,7 +13,7 @@
 class Grid;
 
 
-class Character : public Component, public Movable, public Attackable, public CharacterController
+class Character : public Component, public Movable, public Attackable, public CharacterController, public CharacterStats, public EquipmentManager
 {
 private:
 	Uint32 deathTime = 0;
@@ -31,7 +32,9 @@ protected:
 	Grid* grid;
 
 public:
-	Character(GameObject* owner, const GameObject* gridObject, const int offSet, const CharacterStats::CharacterType characterType, const int health, const int damage, const std::string& componentName);
+	Character(GameObject* owner, const GameObject* gridObject, const int offSet,
+		const CharacterStats::CharacterType characterType, const int health, const int damage,
+		const std::string& componentName);
 	~Character() override = default;
 	void Update() override;
 	void Move(const GameObject* gridObject, const Direction newFacingDirection) override;

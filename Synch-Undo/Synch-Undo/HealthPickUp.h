@@ -24,5 +24,6 @@ public:
 	void Update() override;
 	void Interact() override;
 	void SpawnItem() override;
+	int GetValue() const override { return healAmount; }
 };
 

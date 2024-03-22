@@ -34,24 +34,30 @@
     <Filter Include="Quelldateien\Grid">
       <UniqueIdentifier>{833dbaac-5a23-4f28-9825-5920be15f1d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Quelldateien\GOComponents">
+      <UniqueIdentifier>{bb7819ff-a07c-45be-b953-bc2816a438fe}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Headerdateien\Grid">
       <UniqueIdentifier>{5511ec25-3241-44fd-b340-782dd02a276c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\GOComponents">
+      <UniqueIdentifier>{b1012d1a-984f-476b-b192-bed5e7ea83c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Utility">
+      <UniqueIdentifier>{4648bd81-077f-4249-9722-7f27d439e424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Utility">
+      <UniqueIdentifier>{3a1fb5dc-9436-4c5a-80a1-6292a9724a12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Equipment">
+      <UniqueIdentifier>{993bd3af-e808-4d88-ae20-2c46fcf6b12b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Equipment">
+      <UniqueIdentifier>{0d8423fe-257d-4ea6-b6fa-9019b26fb667}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Synch-Undo.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="TransformComponent.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderComponent.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Attackable.cpp">
@@ -117,12 +123,6 @@
     <ClCompile Include="RotateCommand.cpp">
       <Filter>Quelldateien\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="ConsoleManager.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateManager.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="SpawnPickUpCommand.cpp">
       <Filter>Quelldateien\Commands</Filter>
     </ClCompile>
@@ -135,20 +135,47 @@
     <ClCompile Include="HealthPickUp.cpp">
       <Filter>Quelldateien\Items</Filter>
     </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Quelldateien\GOComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Quelldateien\GOComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderComponent.cpp">
+      <Filter>Quelldateien\GOComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>Quelldateien\GOComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="Attribute.cpp">
+      <Filter>Quelldateien\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="IModifier.cpp">
+      <Filter>Quelldateien\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="ModifiableInt.cpp">
+      <Filter>Quelldateien\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateManager.cpp">
+      <Filter>Quelldateien\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleManager.cpp">
+      <Filter>Quelldateien\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>Quelldateien\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentManager.cpp">
+      <Filter>Quelldateien\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentBuff.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentFactory.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Component.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="TransformComponent.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderComponent.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -215,12 +242,6 @@
     <ClInclude Include="RespawnCommand.h">
       <Filter>Headerdateien\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="ConsoleManager.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStateManager.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="HealthPickUpCommand.h">
       <Filter>Headerdateien\Commands</Filter>
     </ClInclude>
@@ -232,6 +253,45 @@
     </ClInclude>
     <ClInclude Include="HealthPickUp.h">
       <Filter>Headerdateien\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Attribute.h">
+      <Filter>Headerdateien\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="IModifier.h">
+      <Filter>Headerdateien\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="ModifiableInt.h">
+      <Filter>Headerdateien\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Headerdateien\GOComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Headerdateien\GOComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderComponent.h">
+      <Filter>Headerdateien\GOComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Headerdateien\GOComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateManager.h">
+      <Filter>Headerdateien\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleManager.h">
+      <Filter>Headerdateien\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipment.h">
+      <Filter>Headerdateien\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentManager.h">
+      <Filter>Headerdateien\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentBuff.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentFactory.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

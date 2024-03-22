@@ -27,8 +27,8 @@ void RespawnCommand::Undo()
 	respawnCell->SetCharacterObjectRef(nullptr);
 	respawnCell->SetCellState(Cell::Empty);
 
-	character->stats.SetHealth(0);
-	character->stats.SetIsDead(true);
+	character->SetCurrentHealth(0);
+	character->SetIsDead(true);
 	character->GetOwner()->GetComponent<RenderComponent>()->SetVisible(false);
 	character->SetPendingRespawn(true);
 	character->SetDeathTime(SDL_GetTicks());
@@ -36,7 +36,7 @@ void RespawnCommand::Undo()
 
 std::string RespawnCommand::ToString() const
 {
-	const std::string& characterRespawnType = CharacterStats::CharacterTypeStrings[character->stats.type];
+	const std::string& characterRespawnType = CharacterStats::CharacterTypeStrings[character->type];
 
 	return "RespawnCommand: Character respawned: " + characterRespawnType;
 }

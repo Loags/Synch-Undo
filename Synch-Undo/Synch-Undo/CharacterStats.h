@@ -2,13 +2,18 @@
 #include <string>
 #include <array>
 
+#include "Attribute.h"
+#include "ModifiableInt.h"
+
+
+
 class CharacterStats
 {
 private:
-	int health;
-	int initialHealth;
-	int attackPower;
+	std::vector<Attribute> attributes;
 	bool isDead;
+	int currentHealth;
+
 public:
 	enum CharacterType
 	{
@@ -16,22 +21,21 @@ public:
 		Enemy
 	};
 	static const std::array<std::string, 2> CharacterTypeStrings;
-
-
-	void SetHealth(int newHealth);
-	void SetInitialHealth(int newInitialHealth) { initialHealth = newInitialHealth; }
-	void SetAttackPower(int newAttackPower) { attackPower = newAttackPower; }
-	void SetIsDead(bool newDead) { isDead = newDead; }
-
-	int GetHealth() const { return health; }
-	int GetInitialHealth() const { return initialHealth; }
-	int GetAttackPower() const { return attackPower; }
-	bool GetIsDead() const { return isDead; }
-
-
-
 	CharacterType type;
 
-	CharacterStats(const int health, const int attackPower, const CharacterType type);
-};
+	CharacterStats(const int baseHealthValue, const int baseAttackPowerValue, const CharacterType type);
 
+	void SetIsDead(bool newDead) { isDead = newDead; }
+	bool GetIsDead() const { return isDead; }
+
+	int GetIndexOfAttributeInList(const Attributes type) const;
+	int GetBaseValueOfAttributeType(const Attributes type) const;
+	int GetMaxValueOfAttributeType(const Attributes type) const;
+	void AddModifierToAttribute(const Attributes type, IModifier* modifier) const;
+	void RemoveModifierFromAttribute(Attributes type, IModifier* modifier) const;
+
+	int GetCurrentHealth() const { return currentHealth; }
+	void SetCurrentHealth(int newCurrentHealth) { currentHealth = newCurrentHealth; }
+	void AttributeModified() const;
+	void DebugLogAttributes() const;
+};

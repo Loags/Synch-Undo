@@ -73,7 +73,7 @@ int main(int argc, char* argv[])
 				}
 				else if (!consoleManager->GetConsoleAccess())
 				{
-					if (GameStateManager::GetCurrentTurnState() == GameStateManager::TurnState::PlayerTurn && !player->stats.GetIsDead()) {
+					if (GameStateManager::GetCurrentTurnState() == GameStateManager::TurnState::PlayerTurn && !player->GetIsDead()) {
 						player->HandleInput(e);
 					}
 

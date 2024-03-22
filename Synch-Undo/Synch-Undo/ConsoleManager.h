@@ -31,5 +31,6 @@ private:
 	void ShowHealthPickUps() const;
 	void ShowItems() const;
 	void ShowCommandStack() const;
+	void EquipRandomXItems(const std::string& command) const;
 };
 

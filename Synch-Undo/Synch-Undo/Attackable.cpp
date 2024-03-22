@@ -1,14 +1,14 @@
 #include "Attackable.h"
 
 #include "AttackCommand.h"
+#include "Attribute.h"
 #include "Character.h"
 #include "DieCommand.h"
 #include "RespawnCommand.h"
 
-Attackable::Attackable(const int health, const int attackPower, const CharacterStats::CharacterType type) :
-	stats(health, attackPower, type),
-	character(nullptr),
-	commandInvoker(nullptr)
+Attackable::Attackable(const CharacterStats::CharacterType type) :
+	commandInvoker(nullptr),
+	character(nullptr)
 {
 }
 
@@ -22,24 +22,31 @@ void Attackable::Attack(Attackable* target)
 {
 	AttackCommand* attackCommand = new AttackCommand(character->GetOwner());
 	commandInvoker->ExecuteCommand(attackCommand);
-	target->TakeDamage(stats.GetAttackPower());
+	target->TakeDamage(character->GetMaxValueOfAttributeType(Attributes::AttackPower));
 }
 
-void Attackable::TakeDamage(const int damage)
+void Attackable::TakeDamage(int damage)
 {
-	int currentHealth = stats.GetHealth();
-	stats.SetHealth(currentHealth -= damage);
+	if (character->GetIsDead()) return;
 
-	if (stats.GetHealth() <= 0)
+	damage -= character->GetMaxValueOfAttributeType(Attributes::Armor);
+	if (damage < 0)
+		damage = 0;
+
+	int currentHealth = character->GetCurrentHealth();
+
+	character->SetCurrentHealth(currentHealth -= damage);
+
+	if (character->GetCurrentHealth() <= 0)
 	{
-		stats.SetHealth(0);
+		character->SetCurrentHealth(0);
 		Die();
 	}
 }
 
 void Attackable::Die()
 {
-	stats.SetIsDead(true);
+	character->SetIsDead(true);
 	DieCommand* dieCommand = new DieCommand(character->GetOwner());
 	commandInvoker->ExecuteCommand(dieCommand);
 }

@@ -19,7 +19,7 @@ void HealthPickUpCommand::Execute()
 void HealthPickUpCommand::Undo()
 {
 	PickUpCommand::Undo();
-	player->stats.SetHealth(previousHealth);
+	player->SetCurrentHealth(previousHealth);
 }
 
 std::string HealthPickUpCommand::ToString() const

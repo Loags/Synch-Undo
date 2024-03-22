@@ -3,11 +3,12 @@
 #include "Grid.h"
 
 Character::Character(GameObject* owner, const GameObject* gridObject, const int offSet,
-	const CharacterStats::CharacterType characterType, const int health, const int damage,
+	const CharacterType characterType, const int health, const int damage,
 	const std::string& componentName) :
 	Component(componentName, owner),
 	Movable(owner, offSet),
-	Attackable(health, damage, characterType),
+	Attackable(characterType),
+	CharacterStats(health, damage, characterType),
 	gridObject(gridObject),
 	transformComponent(nullptr),
 	renderComponent(nullptr),
@@ -18,6 +19,7 @@ Character::Character(GameObject* owner, const GameObject* gridObject, const int 
 	CharacterController::SetCharacter(this);
 	Attackable::SetCharacter(this);
 	Movable::SetCharacter(this);
+	EquipmentManager::SetCharacter(this);
 }
 
 void Character::Update()
@@ -80,8 +82,8 @@ void Character::Die()
 
 void Character::Respawn()
 {
-	stats.SetHealth(stats.GetInitialHealth());
-	stats.SetIsDead(false);
+	SetCurrentHealth(GetBaseValueOfAttributeType(Attributes::Health));
+	SetIsDead(false);
 	Cell* cell = grid->FindDistantEmptyCell();
 	if (!cell) return;
 	cell->SetCellState(Cell::Occupied);
