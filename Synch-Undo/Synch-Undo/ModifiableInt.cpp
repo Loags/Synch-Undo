@@ -35,6 +35,5 @@ void ModifiableInt::UpdateModifiedValue()
 		modifier->AddValue(valueToAdd);
 	}
 	modifiedValue = baseValue + valueToAdd;
-	std::cout << "ModifiedValue: " << modifiedValue << " with base: " << baseValue << " for instance: " << this << "\n";
 	if (ValueModified) ValueModified();
 }

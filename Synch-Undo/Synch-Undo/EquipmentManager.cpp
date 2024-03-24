@@ -74,6 +74,8 @@ void EquipmentManager::DisplayEquippedItems() const {
 		std::cout << "No items equipped.\n";
 	}
 	else {
+		std::map<Attributes, int> totalStats;
+
 		for (const std::pair<const EquipmentSlot, std::shared_ptr<Equipment>>& itemPair : equippedItems) {
 			const EquipmentSlot& slot = itemPair.first;
 			const std::shared_ptr<Equipment>& item = itemPair.second;
@@ -83,9 +85,17 @@ void EquipmentManager::DisplayEquippedItems() const {
 			for (const std::shared_ptr<EquipmentBuff>& buff : item->equipmentBuffs) {
 				std::cout << std::setw(6) << " " << AttributesToString(buff->GetAttribute())
 					<< ": +" << buff->GetValue() << "\n";
+
+				totalStats[buff->GetAttribute()] += buff->GetValue();
 			}
 			std::cout << "\n";
 		}
+
+		std::cout << "========== Combined Stats from Equipment ==========\n";
+		for (const std::pair<const Attributes, int>& stat : totalStats) {
+			std::cout << std::setw(6) << AttributesToString(stat.first) << ": +" << stat.second << "\n";
+		}
+		std::cout << "===================================================\n";
 	}
 }
 

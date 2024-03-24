@@ -31,8 +31,8 @@ public:
 	int GetIndexOfAttributeInList(const Attributes type) const;
 	int GetBaseValueOfAttributeType(const Attributes type) const;
 	int GetMaxValueOfAttributeType(const Attributes type) const;
-	void AddModifierToAttribute(const Attributes type, IModifier* modifier) const;
-	void RemoveModifierFromAttribute(Attributes type, IModifier* modifier) const;
+	void AddModifierToAttribute(const Attributes type, IModifier* modifier);
+	void RemoveModifierFromAttribute(Attributes type, IModifier* modifier);
 
 	int GetCurrentHealth() const { return currentHealth; }
 	void SetCurrentHealth(int newCurrentHealth);

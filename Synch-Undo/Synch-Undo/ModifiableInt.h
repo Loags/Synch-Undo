@@ -15,11 +15,7 @@ public:
 
 	void SetBaseValue(int value);
 	int GetBaseValue() const { return baseValue; }
-	int GetModifiedValue() const
-	{
-		std::cout << "Getting ModifiedValue: " << modifiedValue << " for instance: " << this << "\n";
-		return modifiedValue;
-	}
+	int GetModifiedValue() const { return modifiedValue; }
 	void AddModifier(IModifier* modifier);
 	void RemoveModifier(IModifier* modifier);
 	void UpdateModifiedValue();

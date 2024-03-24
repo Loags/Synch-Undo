@@ -22,7 +22,8 @@ public:
 
 	void SetParent(CharacterStats* parent) { this->parent = parent; }
 
-	ModifiableInt GetValue() const { return value; }
+	ModifiableInt& GetValueByRef() { return value; }
+	const ModifiableInt& GetValue() const { return value; }
 	Attributes GetType() const { return type; }
 };
 

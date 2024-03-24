@@ -41,21 +41,21 @@ int CharacterStats::GetMaxValueOfAttributeType(const Attributes type) const
 	return attributes[index].GetValue().GetModifiedValue();
 }
 
-void CharacterStats::AddModifierToAttribute(const Attributes type, IModifier* modifier) const
+void CharacterStats::AddModifierToAttribute(const Attributes type, IModifier* modifier)
 {
-	for (const Attribute& attribute : attributes) {
+	for (Attribute& attribute : attributes) {
 		if (attribute.GetType() == type) {
-			attribute.GetValue().AddModifier(modifier);
+			attribute.GetValueByRef().AddModifier(modifier);
 			break;
 		}
 	}
 }
 
-void CharacterStats::RemoveModifierFromAttribute(const Attributes type, IModifier* modifier) const
+void CharacterStats::RemoveModifierFromAttribute(const Attributes type, IModifier* modifier)
 {
-	for (const Attribute& attribute : attributes) {
+	for (Attribute& attribute : attributes) {
 		if (attribute.GetType() == type) {
-			attribute.GetValue().RemoveModifier(modifier);
+			attribute.GetValueByRef().RemoveModifier(modifier);
 			break;
 		}
 	}
