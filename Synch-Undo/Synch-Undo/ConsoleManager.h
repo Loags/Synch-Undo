@@ -32,5 +32,8 @@ private:
 	void ShowItems() const;
 	void ShowCommandStack() const;
 	void EquipRandomXItems(const std::string& command) const;
+	void UnequipAll(const std::string& command);
+	void UnequipSlot(const std::string& command);
+	Character* GetCharacterTarget(char target) const;
 };
 

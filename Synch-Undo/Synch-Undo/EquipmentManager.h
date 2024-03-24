@@ -20,4 +20,6 @@ public:
 	void DisplayEquippedItems() const;
 	int CountEquippedItems() const { return equippedItems.size(); }
     std::vector<EquipmentSlot> GetEmptySlots() const;
+	void UnequipAllItems();
+	bool UnequipItemBySlot(const std::string& slotName);
 };

@@ -1,1 +1,3 @@
-﻿  Synch-Undo.vcxproj -> G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Debug\Synch-Undo.exe
+﻿  ConsoleManager.cpp
+G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Synch-Undo\ConsoleManager.h(18,1): warning C4715: "ConsoleManager::DirectionToString": Nicht alle Codepfade geben einen Wert zurück.
+  Synch-Undo.vcxproj -> G:\MDH\7_Semester\Synch-Undo\Synch-Undo\Debug\Synch-Undo.exe

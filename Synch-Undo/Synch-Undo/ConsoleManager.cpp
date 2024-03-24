@@ -43,14 +43,20 @@ void ConsoleManager::ProcessInput()
 	std::cout << indent << printScorePickUps << "  -  Overview of all ScorePickUps on the Grid!\n";
 	std::cout << indent << printHealthPickUps << "  -  Overview of all HealthPickUps on the Grid!\n";
 	std::cout << indent << printItems << "  -  Overview of all Items on the Grid!\n";
-	std::cout << indent << "equiprandom_<p/e>_<number>" << "  -  Equip <number> random items to the player or enemy. Example: equiprandom_p_3\n";
+	std::cout << indent << "equiprandom_<p/e>_<number>" <<
+		"  -  Equip <p/e> (player / enemy) <number> random items to the player or enemy. Example: equiprandom_p_3\n";
+	std::cout << indent << "unequipall_<p/e>" <<
+		"  -  Unequip <p/e> (player / enemy) all items from the player or enemy. Example: unequipall_p\n";
+	std::cout << indent << "unequipslot_<p/e>_<slotname>" <<
+		"  -  Unequip <p/e> (player / enemy) specific item from slot of the player or enemy. Example: unequipslot_p_helmet\n";
 	std::cout << indent << exitConsole << "  -  Exit the console and enable input for the game!\n\n\n";
-
 
 	std::cout << "Enter command: ";
 	std::getline(std::cin, input);
 
 	if (input.rfind("equiprandom_", 0) == 0) { EquipRandomXItems(input); }
+	else if (input.rfind("unequipall_", 0) == 0) { UnequipAll(input); }
+	else if (input.rfind("unequipslot_", 0) == 0) { UnequipSlot(input); }
 	else if (input == printHierarchy) {
 		owner->PrintComponentsAndChildren(0);
 		std::cout << "\n================================================\n";
@@ -68,21 +74,13 @@ void ConsoleManager::ProcessInput()
 void ConsoleManager::ShowControls() const
 {
 	const Player* player = owner->GetComponentInChildren<Player>();
-	const Enemy* enemy = owner->GetComponentInChildren<Enemy>();
 	std::cout << "\n================ Character Controls ================\n\n";
 	std::cout << "\nPlayer Controls:\n";
 	std::cout << "Hold SHIFT while pressing move keys to Rotate instead of moving.\n";
 	for (const std::pair<const int, Movable::Direction>& keyMap : player->GetKeyMap()) {
 		std::cout << indent << "Move " << DirectionToString(keyMap.second) << ": " << SDL_GetKeyName(keyMap.first) << "\n";
 	}
-	std::cout << indent << "Attack: " << SDL_GetKeyName(player->GetAttackKey()) << "\n\n";
-
-	std::cout << "Enemy Controls:\n";
-	std::cout << "Hold SHIFT while pressing move keys to Rotate instead of moving.\n";
-	for (const std::pair<const int, Movable::Direction>& keyMap : enemy->GetKeyMap()) {
-		std::cout << indent << "Move " << DirectionToString(keyMap.second) << ": " << SDL_GetKeyName(keyMap.first) << "\n";
-	}
-	std::cout << indent << "Attack: " << SDL_GetKeyName(enemy->GetAttackKey()) << "\n";
+	std::cout << indent << "Attack: " << SDL_GetKeyName(player->GetAttackKey()) << "\n";
 	std::cout << "\n================================================\n";
 }
 
@@ -246,4 +244,51 @@ void ConsoleManager::EquipRandomXItems(const std::string& command) const
 		}
 		ShowStats();
 	}
+}
+
+void ConsoleManager::UnequipAll(const std::string& command) {
+	const char target = command[11];
+	Character* characterTarget = GetCharacterTarget(target);
+
+	if (!characterTarget) {
+		std::cout << "Invalid target. Use 'p' for player or 'e' for enemy.\n";
+		return;
+	}
+
+	characterTarget->UnequipAllItems();
+	std::cout << "All items have been unequipped from " << (target == 'p' ? "player" : "enemy") << ".\n";
+	ShowStats();
+}
+
+void ConsoleManager::UnequipSlot(const std::string& command) {
+	const size_t underscorePos = command.find('_', 12);
+	if (underscorePos == std::string::npos) return;
+
+	const char target = command[12];
+	const std::string slotName = command.substr(underscorePos + 1);
+
+	Character* characterTarget = GetCharacterTarget(target);
+	if (!characterTarget) {
+		std::cout << "Invalid target. Use 'p' for player or 'e' for enemy.\n";
+		return;
+	}
+
+	const bool success = characterTarget->UnequipItemBySlot(slotName);
+	if (success) {
+		std::cout << "Item from slot " << slotName << " has been unequipped.\n";
+	}
+	else {
+		std::cout << "Failed to unequip item from slot " << slotName << ". Slot may be empty or incorrect.\n";
+	}
+	ShowStats();
+}
+
+Character* ConsoleManager::GetCharacterTarget(const char target) const {
+	if (target == 'p') {
+		return owner->GetComponentInChildren<Player>();
+	}
+	else if (target == 'e') {
+		return owner->GetComponentInChildren<Enemy>();
+	}
+	return nullptr;
 }

@@ -39,6 +39,8 @@ void ItemManager::Update()
 
 Item* ItemManager::SpawnItemAtCell(Cell* targetCell, const Interactable::InteractableType interactableType, const int value)
 {
+	//TODO: Handle edge case when a pickup is already inside a cell and the enemy dies and spawns a ScorePickUp!
+
 	const int itemPosX = targetCell->GetCellPos().first + gridRef->GetCellSize() / 4;
 	const int itemPosY = targetCell->GetCellPos().second + gridRef->GetCellSize() / 4;
 

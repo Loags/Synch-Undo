@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ItemManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\ItemManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ConsoleManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\ConsoleManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\EquipmentManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentFactory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\EquipmentFactory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ConsoleManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\ConsoleManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentFactory.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\EquipmentFactory.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Equipment.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Equipment.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ModifiableInt.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\ModifiableInt.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Attribute.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Attribute.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ModifiableInt.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -27,8 +35,28 @@
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\CharacterStats.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Attribute.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Attribute.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentBuff.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\EquipmentBuff.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentFactory.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\EquipmentFactory.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentBuff.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\EquipmentBuff.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\EquipmentManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentFactory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\EquipmentFactory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ModifiableInt.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\ModifiableInt.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\CharacterStats.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -39,36 +67,16 @@
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Attribute.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentBuff.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\EquipmentBuff.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\IModifier.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\IModifier.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Equipment.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Equipment.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Equipment.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Equipment.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentBuff.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\EquipmentBuff.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\EquipmentManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\HealthPickUpCommand.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\HealthPickUpCommand.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ConsoleManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\ConsoleManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -121,10 +129,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ItemManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\ItemManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\CommandInvoker.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -223,10 +227,6 @@
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\ScorePickUp.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ConsoleManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\ConsoleManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Attackable.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C3CD0E1E-A1C8-433E-8D59-63035A3804D8}|Synch-Undo\\Synch-Undo.vcxproj|solutionrelative:Synch-Undo\\Attackable.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -318,7 +318,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 33,
           "Children": [
             {
               "$type": "Bookmark",
@@ -326,7 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "Synch-Undo.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Synch-Undo.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Synch-Undo.cpp",
@@ -338,25 +338,21 @@
               "IsPinned": true
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d3750d8a-574b-4fb3-b7e2-aa8af40e8231}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "EquipmentFactory.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentFactory.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\EquipmentFactory.cpp",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentFactory.cpp",
               "RelativeToolTip": "Synch-Undo\\EquipmentFactory.cpp",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAAAFwAAAAWAAAA",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAYwG0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-22T22:13:38.556Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "EquipmentFactory.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentFactory.h",
               "RelativeDocumentMoniker": "Synch-Undo\\EquipmentFactory.h",
@@ -369,20 +365,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 8,
               "Title": "EquipmentBuff.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentBuff.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\EquipmentBuff.cpp",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentBuff.cpp",
               "RelativeToolTip": "Synch-Undo\\EquipmentBuff.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-22T22:01:19.948Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "EquipmentBuff.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentBuff.h",
               "RelativeDocumentMoniker": "Synch-Undo\\EquipmentBuff.h",
@@ -395,20 +391,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "EquipmentManager.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentManager.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\EquipmentManager.cpp",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentManager.cpp",
               "RelativeToolTip": "Synch-Undo\\EquipmentManager.cpp",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAAAFsAAAADAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-22T21:49:07.487Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 11,
               "Title": "EquipmentManager.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\EquipmentManager.h",
               "RelativeDocumentMoniker": "Synch-Undo\\EquipmentManager.h",
@@ -421,7 +417,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "Equipment.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Equipment.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Equipment.cpp",
@@ -434,20 +430,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "Equipment.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Equipment.h",
               "RelativeDocumentMoniker": "Synch-Undo\\Equipment.h",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Equipment.h",
               "RelativeToolTip": "Synch-Undo\\Equipment.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-03-22T21:42:49.911Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "Attribute.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Attribute.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Attribute.cpp",
@@ -460,20 +456,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Attribute.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Attribute.h",
               "RelativeDocumentMoniker": "Synch-Undo\\Attribute.h",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Attribute.h",
               "RelativeToolTip": "Synch-Undo\\Attribute.h",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAAwA0AAAAGAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-03-22T18:58:43.951Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 13,
               "Title": "ModifiableInt.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ModifiableInt.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\ModifiableInt.cpp",
@@ -486,13 +482,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "ModifiableInt.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ModifiableInt.h",
               "RelativeDocumentMoniker": "Synch-Undo\\ModifiableInt.h",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ModifiableInt.h",
               "RelativeToolTip": "Synch-Undo\\ModifiableInt.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAALAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-03-22T18:56:44.531Z",
               "EditorCaption": ""
@@ -511,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 16,
               "Title": "IModifier.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\IModifier.h",
               "RelativeDocumentMoniker": "Synch-Undo\\IModifier.h",
@@ -524,7 +520,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 51,
               "Title": "HealthPickUpCommand.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\HealthPickUpCommand.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\HealthPickUpCommand.cpp",
@@ -536,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "HealthPickUpCommand.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\HealthPickUpCommand.h",
               "RelativeDocumentMoniker": "Synch-Undo\\HealthPickUpCommand.h",
@@ -549,7 +545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "ScorePickUpCommand.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ScorePickUpCommand.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\ScorePickUpCommand.cpp",
@@ -561,7 +557,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "ScorePickUpCommand.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ScorePickUpCommand.h",
               "RelativeDocumentMoniker": "Synch-Undo\\ScorePickUpCommand.h",
@@ -573,7 +569,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "HealthPickUp.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\HealthPickUp.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\HealthPickUp.cpp",
@@ -585,7 +581,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 52,
               "Title": "HealthPickUp.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\HealthPickUp.h",
               "RelativeDocumentMoniker": "Synch-Undo\\HealthPickUp.h",
@@ -597,7 +593,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "SpawnPickUpCommand.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\SpawnPickUpCommand.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\SpawnPickUpCommand.cpp",
@@ -609,7 +605,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 43,
               "Title": "SpawnPickUpCommand.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\SpawnPickUpCommand.h",
               "RelativeDocumentMoniker": "Synch-Undo\\SpawnPickUpCommand.h",
@@ -657,31 +653,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 1,
               "Title": "ConsoleManager.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ConsoleManager.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\ConsoleManager.cpp",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ConsoleManager.cpp",
               "RelativeToolTip": "Synch-Undo\\ConsoleManager.cpp",
-              "ViewState": "AQIAADoAAAAAAAAAAAAAAF8AAABbAAAA",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAAAEkAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-13T10:36:08.492Z"
+              "WhenOpened": "2024-03-13T10:36:08.492Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 3,
               "Title": "ConsoleManager.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ConsoleManager.h",
               "RelativeDocumentMoniker": "Synch-Undo\\ConsoleManager.h",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ConsoleManager.h",
               "RelativeToolTip": "Synch-Undo\\ConsoleManager.h",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAACEAAAAyAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAnwCMAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-13T10:34:52.392Z"
+              "WhenOpened": "2024-03-13T10:34:52.392Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "PickUpCommand.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\PickUpCommand.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\PickUpCommand.cpp",
@@ -693,7 +691,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "PickUpCommand.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\PickUpCommand.h",
               "RelativeDocumentMoniker": "Synch-Undo\\PickUpCommand.h",
@@ -705,7 +703,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "ScorePickUp.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ScorePickUp.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\ScorePickUp.cpp",
@@ -717,7 +715,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 55,
               "Title": "ScorePickUp.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ScorePickUp.h",
               "RelativeDocumentMoniker": "Synch-Undo\\ScorePickUp.h",
@@ -729,19 +727,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 0,
               "Title": "ItemManager.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ItemManager.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\ItemManager.cpp",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ItemManager.cpp",
               "RelativeToolTip": "Synch-Undo\\ItemManager.cpp",
-              "ViewState": "AQIAABQAAAAAAAAAAAAAACsAAAAAAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAACkAAABtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-09T12:39:07.803Z"
+              "WhenOpened": "2024-03-09T12:39:07.803Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 49,
               "Title": "ItemManager.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\ItemManager.h",
               "RelativeDocumentMoniker": "Synch-Undo\\ItemManager.h",
@@ -777,7 +776,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 45,
               "Title": "Item.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Item.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Item.cpp",
@@ -789,7 +788,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 44,
               "Title": "Item.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Item.h",
               "RelativeDocumentMoniker": "Synch-Undo\\Item.h",
@@ -801,7 +800,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "RespawnCommand.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\RespawnCommand.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\RespawnCommand.cpp",
@@ -813,7 +812,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "RespawnCommand.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\RespawnCommand.h",
               "RelativeDocumentMoniker": "Synch-Undo\\RespawnCommand.h",
@@ -825,7 +824,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "DieCommand.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\DieCommand.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\DieCommand.cpp",
@@ -837,7 +836,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "DieCommand.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\DieCommand.h",
               "RelativeDocumentMoniker": "Synch-Undo\\DieCommand.h",
@@ -849,7 +848,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 41,
               "Title": "Command.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Command.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Command.cpp",
@@ -861,7 +860,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "AttackCommand.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\AttackCommand.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\AttackCommand.cpp",
@@ -909,7 +908,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "CommandInvoker.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\CommandInvoker.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\CommandInvoker.cpp",
@@ -921,7 +920,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "CommandInvoker.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\CommandInvoker.h",
               "RelativeDocumentMoniker": "Synch-Undo\\CommandInvoker.h",
@@ -933,7 +932,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "MoveCommand.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\MoveCommand.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\MoveCommand.cpp",
@@ -957,7 +956,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "Command.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Command.h",
               "RelativeDocumentMoniker": "Synch-Undo\\Command.h",
@@ -993,7 +992,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "Attackable.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Attackable.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Attackable.cpp",
@@ -1017,7 +1016,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "CharacterStats.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\CharacterStats.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\CharacterStats.cpp",
@@ -1030,20 +1029,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "CharacterStats.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\CharacterStats.h",
               "RelativeDocumentMoniker": "Synch-Undo\\CharacterStats.h",
               "ToolTip": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\CharacterStats.h",
               "RelativeToolTip": "Synch-Undo\\CharacterStats.h",
-              "ViewState": "AQIAABMAAAAAAAAAAAAAwBIAAAACAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-02-29T13:06:33.562Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 53,
               "Title": "Movable.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Movable.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Movable.cpp",
@@ -1067,7 +1066,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Character.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Character.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Character.cpp",
@@ -1079,7 +1078,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "Character.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Character.h",
               "RelativeDocumentMoniker": "Synch-Undo\\Character.h",
@@ -1103,7 +1102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 50,
               "Title": "RenderComponent.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\RenderComponent.h",
               "RelativeDocumentMoniker": "Synch-Undo\\RenderComponent.h",
@@ -1139,7 +1138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "Player.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Player.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Player.cpp",
@@ -1151,7 +1150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "Player.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Player.h",
               "RelativeDocumentMoniker": "Synch-Undo\\Player.h",
@@ -1175,7 +1174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 48,
               "Title": "TransformComponent.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\TransformComponent.h",
               "RelativeDocumentMoniker": "Synch-Undo\\TransformComponent.h",
@@ -1199,7 +1198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 46,
               "Title": "Cell.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Cell.h",
               "RelativeDocumentMoniker": "Synch-Undo\\Cell.h",
@@ -1211,7 +1210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 54,
               "Title": "Grid.cpp",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Grid.cpp",
               "RelativeDocumentMoniker": "Synch-Undo\\Grid.cpp",
@@ -1235,7 +1234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "GameObject.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\GameObject.h",
               "RelativeDocumentMoniker": "Synch-Undo\\GameObject.h",
@@ -1259,7 +1258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 47,
               "Title": "Component.h",
               "DocumentMoniker": "G:\\MDH\\7_Semester\\Synch-Undo\\Synch-Undo\\Synch-Undo\\Component.h",
               "RelativeDocumentMoniker": "Synch-Undo\\Component.h",

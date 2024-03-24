@@ -69,7 +69,7 @@ std::string EquipmentManager::AttributesToString(const Attributes attribute)
 }
 
 void EquipmentManager::DisplayEquippedItems() const {
-	std::cout << "\n================ Equipped Items =================\n\n";
+	std::cout << "================ Equipped Items =================\n\n";
 	if (equippedItems.empty()) {
 		std::cout << "No items equipped.\n";
 	}
@@ -91,11 +91,10 @@ void EquipmentManager::DisplayEquippedItems() const {
 			std::cout << "\n";
 		}
 
-		std::cout << "========== Combined Stats from Equipment ==========\n";
+		std::cout << "Combined Stats from Equipment:\n";
 		for (const std::pair<const Attributes, int>& stat : totalStats) {
-			std::cout << std::setw(6) << AttributesToString(stat.first) << ": +" << stat.second << "\n";
+			std::cout << std::setw(6) << " " << AttributesToString(stat.first) << ": +" << stat.second << "\n";
 		}
-		std::cout << "===================================================\n";
 	}
 }
 
@@ -115,4 +114,28 @@ std::vector<EquipmentSlot> EquipmentManager::GetEmptySlots() const
 	}
 
 	return emptySlots;
+}
+
+void EquipmentManager::UnequipAllItems() {
+	for (auto it = equippedItems.begin(); it != equippedItems.end(); ) {
+		UnequipItem(it->first);
+		it = equippedItems.begin();
+	}
+}
+
+bool EquipmentManager::UnequipItemBySlot(const std::string& slotName) {
+	EquipmentSlot slot;
+	if (slotName == "helmet") slot = EquipmentSlot::Helmet;
+	else if (slotName == "chestplate") slot = EquipmentSlot::Chestplate;
+	else if (slotName == "gloves") slot = EquipmentSlot::Gloves;
+	else if (slotName == "legs") slot = EquipmentSlot::Legs;
+	else if (slotName == "boots") slot = EquipmentSlot::Boots;
+	else if (slotName == "weapon") slot = EquipmentSlot::Weapon;
+	else return false;
+
+	if (equippedItems.find(slot) != equippedItems.end()) {
+		UnequipItem(slot);
+		return true;
+	}
+	return false;
 }
