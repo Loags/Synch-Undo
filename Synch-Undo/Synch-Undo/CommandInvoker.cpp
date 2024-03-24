@@ -98,6 +98,9 @@ void CommandInvoker::DebugCommandStack()
 		tempStack.pop();
 	}
 
+	if (commandStack.empty())
+		std::cout << "\n" << indent << "Command Stack is empty!";
+
 	std::cout << "\n";
 }
 
