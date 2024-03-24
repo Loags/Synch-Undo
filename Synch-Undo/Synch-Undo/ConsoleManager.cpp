@@ -127,7 +127,7 @@ void ConsoleManager::ShowScorePickups() const {
 			pickup->GetOwner()->GetComponent<TransformComponent>()->GetY() << "\n";
 		std::cout << indent << "Location Grid: " << std::to_string(gridPos.first) << ", " <<
 			std::to_string(gridPos.second) << "\n";
-		std::cout << indent << "Status: " << (pickup->GetInteracted() ? "Collected" : "Available") << "\n";
+		std::cout << indent << "Status: " << (pickup->GetInteracted() && pickup->GetOwner()->GetComponent<RenderComponent>()->GetVisible() ? "Collected" : "Available") << "\n";
 		if (!pickup->GetInteracted())
 			std::cout << indent << "Value: " << pickup->GetValue() << "\n";
 	}
@@ -139,7 +139,7 @@ void ConsoleManager::ShowHealthPickUps()const
 	std::cout << "\n================ Health Pickups ================\n\n";
 	const std::vector<GameObject*> pickUpObjects = owner->GetAllGameObjectWithComponent<HealthPickUp>();
 	for (GameObject* const& pickupObject : pickUpObjects) {
-		const ScorePickUp* pickup = pickupObject->GetComponent<ScorePickUp>();
+		const HealthPickUp* pickup = pickupObject->GetComponent<HealthPickUp>();
 
 		if (pickup->GetInteracted()) continue;
 
@@ -151,7 +151,7 @@ void ConsoleManager::ShowHealthPickUps()const
 			pickup->GetOwner()->GetComponent<TransformComponent>()->GetY() << "\n";
 		std::cout << indent << "Location Grid: " << std::to_string(gridPos.first) << ", " <<
 			std::to_string(gridPos.second) << "\n";
-		std::cout << indent << "Status: " << (pickup->GetInteracted() ? "Collected" : "Available") << "\n";
+		std::cout << indent << "Status: " << (pickup->GetInteracted() && pickup->GetOwner()->GetComponent<RenderComponent>()->GetVisible() ? "Collected" : "Available") << "\n";
 		if (!pickup->GetInteracted())
 			std::cout << indent << "Value: " << pickup->GetValue() << "\n";
 	}
@@ -170,7 +170,7 @@ void ConsoleManager::ShowItems() const {
 			<< item->GetOwner()->GetComponent<TransformComponent>()->GetY() << "\n"
 			<< indent << "Location Grid: " << std::to_string(gridPos.first) << ", "
 			<< std::to_string(gridPos.second) << "\n"
-			<< indent << "Status: " << (item->GetInteracted() ? "Collected" : "Available") << "\n"
+			<< indent << "Status: " << (item->GetInteracted() && item->GetOwner()->GetComponent<RenderComponent>()->GetVisible() ? "Collected" : "Available") << "\n"
 			<< indent << "Value: " << item->GetValue() << "\n";
 		};
 

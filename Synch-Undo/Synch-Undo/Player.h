@@ -17,5 +17,5 @@ public:
 	void Die() override;
 	void Respawn() override;
 	int GetScore() const { return score; }
-	void SetScore(const int amount) { score += amount; }
+	void SetScore(const int amount);
 };

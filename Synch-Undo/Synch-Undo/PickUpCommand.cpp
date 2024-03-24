@@ -10,7 +10,6 @@ PickUpCommand::PickUpCommand(GameObject* object, Player* player) :
 	item(nullptr),
 	player(player)
 {
-	SetCommandType(CommandType::Double);
 }
 
 void PickUpCommand::Execute()
@@ -32,7 +31,5 @@ void PickUpCommand::Undo()
 
 std::string PickUpCommand::ToString() const
 {
-	std::string output = "Player picked up a " + Item::InteractableToString(item->GetInteractableType()) + " at (" +
-		std::to_string(itemPosX) + "," + std::to_string(itemPosY) + ")";
-	return output;
+	return "";
 }

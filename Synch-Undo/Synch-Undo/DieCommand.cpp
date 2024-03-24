@@ -1,6 +1,7 @@
 #include "DieCommand.h"
 
 #include "Character.h"
+#include "Player.h"
 #include "ScorePickUp.h"
 
 DieCommand::DieCommand(GameObject* object) :
@@ -25,8 +26,13 @@ void DieCommand::Execute()
 	const Grid* grid = object->GetRootObject()->GetComponentInChildren<Grid>();
 	const std::pair<int, int> gridPos = grid->GetPositionToGridCoords(deathPosX, deathPosY);
 	deathCell = grid->GetCellAtPos(gridPos.first, gridPos.second);
+	const std::vector<ScorePickUp*> scorePickUps = deathCell->GetOwner()->GetAllComponentsInChildren<ScorePickUp>();
+	for (ScorePickUp* scorePickUp : scorePickUps)
+	{
+		if (!scorePickUp->GetInteracted() && scorePickUp->GetOwner()->GetComponent<RenderComponent>()->GetVisible())
+			pickUp = scorePickUp;
+	}
 
-	pickUp = deathCell->GetOwner()->GetComponentInChildren<ScorePickUp>();
 }
 
 void DieCommand::Undo()
@@ -39,6 +45,12 @@ void DieCommand::Undo()
 
 	deathCell->SetCellState(Cell::Occupied);
 	deathCell->SetCharacterObjectRef(object);
+
+	if (character->type == CharacterStats::Player)
+	{
+		Player* player = character->GetOwner()->GetComponent<Player>();
+		player->SetScore(+pickUp->GetValue());
+	}
 
 	character->SetPendingRespawn(false);
 	character->SetDeathTime(0);

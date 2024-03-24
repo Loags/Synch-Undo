@@ -1,5 +1,7 @@
 #include "ModifiableInt.h"
 
+#include <iostream>
+
 ModifiableInt::ModifiableInt(std::function<void()> callback) :
 	baseValue(0),
 	modifiedValue(0),
@@ -33,5 +35,6 @@ void ModifiableInt::UpdateModifiedValue()
 		modifier->AddValue(valueToAdd);
 	}
 	modifiedValue = baseValue + valueToAdd;
+	std::cout << "ModifiedValue: " << modifiedValue << " with base: " << baseValue << " for instance: " << this << "\n";
 	if (ValueModified) ValueModified();
 }

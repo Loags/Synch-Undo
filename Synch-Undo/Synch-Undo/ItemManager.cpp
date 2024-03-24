@@ -28,13 +28,11 @@ void ItemManager::Update()
 {
 	if (AllHealthPickUpsCollected())
 	{
-		std::cout << "test\n";
 		SpawnPickUps(Interactable::InteractableType::HealthPickUp, 1, false);
 	}
 
 	if (AllScorePickUpsCollected())
 	{
-		std::cout << "test 2\n";
 		SpawnPickUps(Interactable::InteractableType::ScorePickUp, 3, false);
 	}
 }
@@ -66,20 +64,20 @@ Item* ItemManager::SpawnItemAtCell(Cell* targetCell, const Interactable::Interac
 	return item;
 }
 
-void ItemManager::SpawnPickUp(int index, const Interactable::InteractableType interactableType, bool IsInitialSpawn)
+Item* ItemManager::SpawnPickUp(int index, Cell* targetCell, const Interactable::InteractableType interactableType, bool IsInitialSpawn)
 {
-	Cell* emptyCell = gridRef->FindDistantEmptyCell();
-	if (emptyCell)
+	if (targetCell)
 	{
-		const int pickUpPosX = emptyCell->GetCellPos().first + gridRef->GetCellSize() / 4;
-		const int pickUpPosY = emptyCell->GetCellPos().second + gridRef->GetCellSize() / 4;
+		const int pickUpPosX = targetCell->GetCellPos().first + gridRef->GetCellSize() / 4;
+		const int pickUpPosY = targetCell->GetCellPos().second + gridRef->GetCellSize() / 4;
 
 		if (IsInitialSpawn) {
-			Item* createdItem = SpawnItemAtCell(emptyCell, interactableType, 1);
+			Item* createdItem = SpawnItemAtCell(targetCell, interactableType, 1);
 			switch (interactableType) {
 			case Interactable::InteractableType::ScorePickUp: scorePickUpsOnGrid[index] = createdItem; break;
 			case Interactable::InteractableType::HealthPickUp: healthPickUpsOnGrid[index] = createdItem; break;
 			}
+			return createdItem;
 		}
 		else
 		{
@@ -95,19 +93,55 @@ void ItemManager::SpawnPickUp(int index, const Interactable::InteractableType in
 				TransformComponent* pickUpTransform = currentItem->GetOwner()->GetComponent<TransformComponent>();
 				pickUpTransform->SetPosition(pickUpPosX, pickUpPosY);
 				currentItem->SpawnItem();
-				currentItem->GetOwner()->Reparent(emptyCell->GetOwner());
-				currentItem->SetCellRef(emptyCell);
-				SpawnPickUpCommand* spawnPickUpCommand = new SpawnPickUpCommand(emptyCell->GetOwner(), prevOwner, interactableType);
-				commandInvoker->ExecuteCommand(spawnPickUpCommand);
+				currentItem->GetOwner()->Reparent(targetCell->GetOwner());
+				currentItem->SetCellRef(targetCell);
+				/*SpawnPickUpCommand* spawnPickUpCommand = new SpawnPickUpCommand(emptyCell->GetOwner(), prevOwner, interactableType);
+				commandInvoker->ExecuteCommand(spawnPickUpCommand);*/
+				return currentItem;
 			}
 		}
 	}
+	return nullptr;
 }
 
 void ItemManager::SpawnPickUps(const Interactable::InteractableType interactableType, const int amount, const bool IsInitialSpawn)
 {
+	std::vector<SpawnData> allSpawnData;
+
 	for (int i = 0; i < amount; ++i) {
-		SpawnPickUp(i, interactableType, IsInitialSpawn);
+		Cell* targetCell = gridRef->FindDistantEmptyCell();
+
+		if (!targetCell)continue;
+
+		SpawnData data;
+
+		if (!IsInitialSpawn)
+		{
+			Item* prevItem = nullptr;
+			switch (interactableType) {
+			case Interactable::InteractableType::ScorePickUp: prevItem = scorePickUpsOnGrid[i]; break;
+			case Interactable::InteractableType::HealthPickUp: prevItem = healthPickUpsOnGrid[i]; break;
+			}
+			data.prevCell = prevItem->GetCellRef();
+			data.prevOwner = data.prevCell->GetOwner();
+			data.newCell = targetCell;
+			data.interactableType = interactableType;
+		}
+
+		Item* currentItem = SpawnPickUp(i, targetCell, interactableType, IsInitialSpawn);
+
+		if (!IsInitialSpawn)
+		{
+			data.owner = targetCell->GetOwner();
+			data.itemPickUp = currentItem;
+			allSpawnData.push_back(data);
+		}
+	}
+
+	if (!allSpawnData.empty() && !IsInitialSpawn)
+	{
+		SpawnPickUpCommand* spawnPickUpCommand = new SpawnPickUpCommand(owner, allSpawnData);
+		commandInvoker->ExecuteCommand(spawnPickUpCommand);
 	}
 }
 

@@ -26,7 +26,7 @@ void Item::Update()
 		player = objectRef->GetComponent<Player>();
 		if (player)
 		{
-			if (!GetInteracted())
+			if (!GetInteracted() && renderComponent->GetVisible())
 				Interact();
 		}
 	}

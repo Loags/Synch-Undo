@@ -39,7 +39,6 @@ void Attackable::TakeDamage(int damage)
 
 	if (character->GetCurrentHealth() <= 0)
 	{
-		character->SetCurrentHealth(0);
 		Die();
 	}
 }

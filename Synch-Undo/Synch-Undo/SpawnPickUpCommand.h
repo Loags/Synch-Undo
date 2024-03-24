@@ -1,13 +1,13 @@
 #pragma once
+#include <vector>
+
 #include "Command.h"
 #include "Interactable.h"
 
 class Item;
 class Cell;
 
-class SpawnPickUpCommand : public Command
-{
-private:
+struct SpawnData {
 	int newPosX;
 	int newPosY;
 	int prevPosX;
@@ -16,15 +16,23 @@ private:
 	Cell* prevCell;
 	Item* itemPickUp;
 	GameObject* prevOwner;
+	GameObject* owner;
 	Interactable::InteractableType interactableType;
+};
+
+class SpawnPickUpCommand : public Command
+{
+private:
+	std::vector<SpawnData> spawnData;
 
 public:
-	SpawnPickUpCommand(GameObject* object, GameObject* prevOwner, const Interactable::InteractableType interactableType);
+	SpawnPickUpCommand(GameObject* object, const std::vector<SpawnData>& spawnData);
 	void Execute() override;
 	void Undo() override;
 	std::string ToString() const override;
 	SpawnPickUpCommand* Clone() const override {
 		return new SpawnPickUpCommand(*this);
 	}
+	CommandType GetType() const override { return CommandType::SwapCommand; }
 };
 

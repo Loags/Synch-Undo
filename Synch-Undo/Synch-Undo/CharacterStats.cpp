@@ -38,7 +38,6 @@ int CharacterStats::GetMaxValueOfAttributeType(const Attributes type) const
 	const int index = GetIndexOfAttributeInList(type);
 
 	if (index < 0) return -1;
-
 	return attributes[index].GetValue().GetModifiedValue();
 }
 
@@ -60,6 +59,16 @@ void CharacterStats::RemoveModifierFromAttribute(const Attributes type, IModifie
 			break;
 		}
 	}
+}
+
+void CharacterStats::SetCurrentHealth(int newCurrentHealth)
+{
+	currentHealth = newCurrentHealth;
+	if (currentHealth < 0)
+		currentHealth = 0;
+
+	if (currentHealth > GetMaxValueOfAttributeType(Attributes::Health))
+		currentHealth = GetMaxValueOfAttributeType(Attributes::Health);
 }
 
 void CharacterStats::AttributeModified() const

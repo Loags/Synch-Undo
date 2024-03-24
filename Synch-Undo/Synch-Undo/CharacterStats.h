@@ -35,7 +35,7 @@ public:
 	void RemoveModifierFromAttribute(Attributes type, IModifier* modifier) const;
 
 	int GetCurrentHealth() const { return currentHealth; }
-	void SetCurrentHealth(int newCurrentHealth) { currentHealth = newCurrentHealth; }
+	void SetCurrentHealth(int newCurrentHealth);
 	void AttributeModified() const;
 	void DebugLogAttributes() const;
 };

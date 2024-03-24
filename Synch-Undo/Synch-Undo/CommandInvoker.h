@@ -10,13 +10,10 @@ class CommandInvoker final : public Component
 {
 private:
 	std::stack<std::unique_ptr<Command>> commandStack;
-	int counterUndo = 0;
-	int counterUndoAll = 0;
 	bool isUndoAllScheduled = false;
 	Uint32 undoAllIntervalMs = 1000;
 	Uint32 lastUndoTime = 0;
 	Command* commandCopy;
-
 
 public:
 	CommandInvoker(GameObject* owner);
@@ -28,5 +25,6 @@ public:
 	void Update() override;
 	void DebugCommandStack();
 	bool GetIsUndoAllScheduled()const { return isUndoAllScheduled; }
+	void PreProcessUndoStack();
 };
 

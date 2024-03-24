@@ -59,6 +59,13 @@ void Player::Respawn()
 	Character::Respawn();
 }
 
+void Player::SetScore(const int amount)
+{
+	score += amount;
+	if (score < 0)
+		score = 0;
+}
+
 void Player::Update()
 {
 	Character::Update();

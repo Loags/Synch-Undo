@@ -82,7 +82,7 @@ void Character::Die()
 
 void Character::Respawn()
 {
-	SetCurrentHealth(GetBaseValueOfAttributeType(Attributes::Health));
+	SetCurrentHealth(GetMaxValueOfAttributeType(Attributes::Health));
 	SetIsDead(false);
 	Cell* cell = grid->FindDistantEmptyCell();
 	if (!cell) return;

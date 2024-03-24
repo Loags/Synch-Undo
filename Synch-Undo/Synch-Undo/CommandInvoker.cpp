@@ -1,7 +1,9 @@
 #include "CommandInvoker.h"
 
+#include <algorithm>
 #include <iostream>
 #include <SDL_timer.h>
+#include <vector>
 
 #include "Command.h"
 
@@ -15,40 +17,43 @@ CommandInvoker::CommandInvoker(GameObject* owner) :
 void CommandInvoker::ExecuteCommand(Command* command)
 {
 	command->Execute();
-	commandStack.push(std::unique_ptr<Command>(command));
+
+	if (command->GetType() == CommandType::SwapCommand && !commandStack.empty()) {
+		std::unique_ptr<Command> lastCommand = std::move(commandStack.top());
+		commandStack.pop();
+		lastCommand->SetUndoSteps(3);
+		commandStack.push(std::unique_ptr<Command>(command));
+		commandStack.push(std::move(lastCommand));
+		std::cout << "Rearrange order!\n";
+	}
+	else {
+		commandStack.push(std::unique_ptr<Command>(command));
+	}
 }
 
 void CommandInvoker::Undo()
 {
-	if (!commandStack.empty()) {
-		counterUndo += 1;
-		if (counterUndo % 2 == 0) return;
+	if (commandStack.empty()) {
+		std::cout << "No commands to undo.\n";
+		return;
+	}
 
-		const std::unique_ptr<Command>& command = commandStack.top();
-		if (command->GetCommandType() == Command::CommandType::Double && commandCopy == nullptr) {
-			commandCopy = command->Clone();
-			commandStack.pop();
+	std::vector<std::unique_ptr<Command>> tempCommands;
 
-			if (!commandStack.empty()) {
-				const std::unique_ptr<Command>& nextCommand = commandStack.top();
-				nextCommand->Undo();
-				commandStack.pop();
-			}
-			commandCopy->Undo();
-			delete commandCopy;
-			commandCopy = nullptr;
-		}
-		else {
-			command->Undo();
-			commandStack.pop();
-		}
+	const int stepsToUndo = commandStack.top()->GetUndoSteps();
+	for (int i = 0; i < stepsToUndo && !commandStack.empty(); ++i) {
+		tempCommands.push_back(std::move(commandStack.top()));
+		commandStack.pop();
+	}
+
+	for (std::vector<std::unique_ptr<Command>>::reverse_iterator it = tempCommands.rbegin(); it != tempCommands.rend(); ++it) {
+		std::cout << "Undo: " << (*it)->ToString() << "\n";
+		(*it)->Undo();
 	}
 }
 
 void CommandInvoker::ScheduleUndoAll(Uint32 intervalMs)
 {
-	counterUndoAll += 1;
-	if (counterUndoAll % 2 == 0) return;
 	isUndoAllScheduled = true;
 	undoAllIntervalMs = intervalMs;
 	lastUndoTime = SDL_GetTicks() - undoAllIntervalMs;
@@ -56,7 +61,6 @@ void CommandInvoker::ScheduleUndoAll(Uint32 intervalMs)
 
 void CommandInvoker::CancelUndoAll()
 {
-	if (counterUndoAll % 2 != 0) return;
 	isUndoAllScheduled = false;
 }
 
@@ -95,4 +99,23 @@ void CommandInvoker::DebugCommandStack()
 	}
 
 	std::cout << "\n";
+}
+
+void CommandInvoker::PreProcessUndoStack() {
+	if (commandStack.size() < 2) return;
+	std::cout << "\n\n\n\n\nPreProcessUndoStack\n\n\n\n\n";
+	std::vector<std::unique_ptr<Command>> tempCommands;
+	while (!commandStack.empty()) {
+		tempCommands.push_back(std::move(commandStack.top()));
+		commandStack.pop();
+	}
+
+	if (tempCommands[tempCommands.size() - 1]->GetType() == CommandType::SwapCommand)
+	{
+		std::swap(tempCommands[tempCommands.size() - 1], tempCommands[tempCommands.size() - 2]);
+	}
+
+	for (std::vector<std::unique_ptr<Command>>::reverse_iterator it = tempCommands.rbegin(); it != tempCommands.rend(); ++it) {
+		commandStack.push(std::move(*it));
+	}
 }

@@ -42,6 +42,25 @@ public:
 	}
 
 	template<typename T>
+	std::vector<T*> GetAllComponentsInChildren() const {
+		static_assert(std::is_base_of<Component, T>::value, "T must be a derived class of Component");
+		std::vector<T*> componentsFound;
+
+		T* component = this->GetComponent<T>();
+		if (component) {
+			componentsFound.push_back(component);
+		}
+
+		for (const GameObject* child : children) {
+			std::vector<T*> childComponents = child->GetAllComponentsInChildren<T>();
+			componentsFound.insert(componentsFound.end(), childComponents.begin(), childComponents.end());
+		}
+
+		return componentsFound;
+	}
+
+
+	template<typename T>
 	GameObject* GetGameObjectWithComponent() const {
 		static_assert(std::is_base_of<Component, T>::value, "T must be a derived class of Component");
 

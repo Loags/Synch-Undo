@@ -20,6 +20,7 @@ public:
 	void Render(SDL_Renderer* renderer, const TransformComponent* transformComponent, const SDL_Color color) const;
 	void SetRenderColor(const SDL_Color newColor) { color = newColor; }
 	void SetVisible(bool visible) { isVisible = visible; }
+	bool GetVisible() const { return isVisible; }
 	SDL_Color GetRenderColor() const { return color; }
 
 	static void DrawArrow(SDL_Renderer* renderer, const TransformComponent* transformComponent, const int direction);

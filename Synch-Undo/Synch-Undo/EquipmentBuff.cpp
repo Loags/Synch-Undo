@@ -1,6 +1,4 @@
 #include "EquipmentBuff.h"
-
-#include <iostream>
 #include <random>
 
 EquipmentBuff::EquipmentBuff(Attributes attribute, int _min, int _max) :

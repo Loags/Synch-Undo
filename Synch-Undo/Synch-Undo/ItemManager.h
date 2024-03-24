@@ -24,10 +24,9 @@ public:
 
 	void Update() override;
 	Item* SpawnItemAtCell(Cell* targetCell, const Interactable::InteractableType interactableType, const int value = 1);
-	void NotifyPickUpInteracted();
 
 private:
-	void SpawnPickUp(int index, const Interactable::InteractableType interactableType, bool IsInitialSpawn = false);
+	Item* SpawnPickUp(int index, Cell* targetCell, const Interactable::InteractableType interactableType, bool IsInitialSpawn = false);
 	void SpawnPickUps(const Interactable::InteractableType interactableType, const int amount, const bool IsInitialSpawn = false);
 	bool AllScorePickUpsCollected() const;
 	bool AllHealthPickUpsCollected() const;

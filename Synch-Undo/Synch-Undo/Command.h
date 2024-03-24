@@ -3,14 +3,18 @@
 
 class GameObject;
 
+enum class CommandType {
+	Default,
+	SwapCommand
+};
+
 class Command
 {
-public:
-	enum class CommandType { Single, Double };
+private:
+	int undoSteps;
 
 protected:
 	GameObject* object;
-	CommandType type;
 
 public:
 	virtual ~Command() = default;
@@ -19,7 +23,8 @@ public:
 	virtual void Undo() = 0;
 	virtual std::string ToString() const = 0;
 	virtual Command* Clone() const = 0;
-	void SetCommandType(CommandType newType) { type = newType; }
-	CommandType GetCommandType() const { return type; }
+	virtual CommandType GetType() const { return CommandType::Default; }
+	void SetUndoSteps(int steps) { undoSteps = steps; }
+	int GetUndoSteps() const { return undoSteps; }
 };
 
