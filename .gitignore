@@ -31,9 +31,111 @@
 *.out
 *.app
 *.opendb
-Synch-Undo/.vs/Synch-Undo/FileContentIndex/f9fa716e-c2cc-4f5d-8a93-1a46a636b801.vsidx
-Synch-Undo/.vs/Synch-Undo/FileContentIndex/e048ca40-4e5d-4705-bbe6-de53586e9654.vsidx
-Synch-Undo/.vs/Synch-Undo/FileContentIndex/cb9506c0-d375-4baa-a4f7-fd648d47f302.vsidx
-Synch-Undo/.vs/Synch-Undo/FileContentIndex/735d3799-9aff-4818-9218-11742dfdb350.vsidx
-Synch-Undo/.vs/Synch-Undo/FileContentIndex/6a3f1f51-fdec-4b0d-a6ae-be90299c7979.vsidx
-Synch-Undo/.vs/Synch-Undo/FileContentIndex/121084ad-3337-4295-9d60-eff11f7bdc3e.vsidx
+
+# Visual Studio folders
+.vs/
+Debug/
+Release/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio user files
+*.user
+*.suo
+
+# Visual Studio auto-generated files
+Generated\ Files/
+
+# Visual Studio Database files
+*.dbmdl
+
+# Visual Studio cache/options directory
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio - Auto-generated user files
+*.rsuser
+
+# Visual Studio - MPF project file (older)
+*.mpf
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUNIT
+*.VisualState.xml
+TestResult.xml
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Others
+*.log
+*.vspscc
+*.vssscc
+*.bak.*
+*.bak
+*.cache
+*.ilk
+*.mtrx
+*.mtc
+*.mtx
+*.idb
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.vspscc
+*.vssscc
+*.bak
+*.extensibility.log
+
+# Exclude the specific files you have listed, though these seem to be auto-generated
+# Synch-Undo/.vs/Synch-Undo/FileContentIndex/*.vsidx
+
+# Exclude specific directories (can be used for other directories as needed)
+Synch-Undo/Debug/
+Synch-Undo/Release/
+Synch-Undo/x64/
+Synch-Undo/x86/
+Synch-Undo/[Aa][Rr][Mm]/
+Synch-Undo/[Aa][Rr][Mm]64/
+Synch-Undo/bld/
+Synch-Undo/[Bb]in/
+Synch-Undo/[Oo]bj/
+Synch-Undo/[Ll]og/
+Synch-Undo/[Ll]ogs/
+
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
