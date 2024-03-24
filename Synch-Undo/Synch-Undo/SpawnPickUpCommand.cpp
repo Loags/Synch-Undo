@@ -8,7 +8,6 @@ SpawnPickUpCommand::SpawnPickUpCommand(GameObject* object, const std::vector<Spa
 	Command(object),
 	spawnData(spawnData)
 {
-	//SetUndoSteps(3);
 }
 
 void SpawnPickUpCommand::Execute()

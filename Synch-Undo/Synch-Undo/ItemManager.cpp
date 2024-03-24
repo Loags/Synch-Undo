@@ -97,8 +97,6 @@ Item* ItemManager::SpawnPickUp(int index, Cell* targetCell, const Interactable::
 				currentItem->SpawnItem();
 				currentItem->GetOwner()->Reparent(targetCell->GetOwner());
 				currentItem->SetCellRef(targetCell);
-				/*SpawnPickUpCommand* spawnPickUpCommand = new SpawnPickUpCommand(emptyCell->GetOwner(), prevOwner, interactableType);
-				commandInvoker->ExecuteCommand(spawnPickUpCommand);*/
 				return currentItem;
 			}
 		}

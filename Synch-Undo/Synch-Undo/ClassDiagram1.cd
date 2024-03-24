@@ -1,220 +1,298 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Component" Collapsed="true">
-    <Position X="17.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQgAAAAAIAAgAAAAABAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
-      <FileName>Component.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ConsoleManager" Collapsed="true">
-    <Position X="14.25" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AEQAAACAAAAAACBIJAAAAAAAAAAgAAAAAEAAAIAAAAg=</HashCode>
-      <FileName>ConsoleManager.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GameObject" Collapsed="true">
-    <Position X="34.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAASAAIgAQAQACBBAgAAAAEAAAIABAABAIADAA=</HashCode>
-      <FileName>GameObject.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GameStateManager" Collapsed="true">
-    <Position X="23.25" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAgAAIgIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>GameStateManager.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="RenderComponent" Collapsed="true">
-    <Position X="27.75" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAQAAAAAAIAAAAABCAAAoAAAAQAACAABAAAAIAAAA=</HashCode>
-      <FileName>RenderComponent.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SpawnPickUpCommand" Collapsed="true">
-    <Position X="14.75" Y="7.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>JAAAIAAAIAAABAQEQAAAAIBgAAAAAEAAAAAAAAAAABA=</HashCode>
-      <FileName>SpawnPickUpCommand.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TransformComponent" Collapsed="true">
-    <Position X="9.75" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAEAAAAQAQAAIAABAAAAAAgAAYAAAwEAAAAA=</HashCode>
-      <FileName>TransformComponent.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Attackable" Collapsed="true">
-    <Position X="20.5" Y="0.5" Width="1.5" />
+    <Position X="7.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAIAAAQAAAAAAggAAAAAAAABoAAAAAAAACAgACAAAA=</HashCode>
+      <HashCode>AAAIAAAAAAAAAAggAAAAAAAABoAAAAAAAACAgACAAAA=</HashCode>
       <FileName>Attackable.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Attribute" Collapsed="true">
+    <Position X="40" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAACEABAAAAAAAAAAAABACEAAEAAAAAAAAA=</HashCode>
+      <FileName>Attribute.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IModifier" Collapsed="true">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IModifier.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Character" Collapsed="true">
-    <Position X="17.75" Y="1.75" Width="1.5" />
-    <InheritanceLine Type="Movable" ManuallyRouted="true">
-      <Path>
-        <Point X="16" Y="1.062" />
-        <Point X="16" Y="1.585" />
-        <Point X="16.813" Y="1.585" Type="JumpStart" />
-        <Point X="16.979" Y="1.585" Type="JumpEnd" />
-        <Point X="18.5" Y="1.585" />
-        <Point X="18.5" Y="1.75" />
-      </Path>
-    </InheritanceLine>
+    <Position X="18" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAUgYAAAoIIAAICgABACABAABIAAAgABAgCgACAJKAA=</HashCode>
       <FileName>Character.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CharacterController" Collapsed="true">
-    <Position X="22.75" Y="0.5" Width="1.5" />
+    <Position X="5.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAIAACAABQAAAIAAAAAAAAAAAAAAAAAAgCAAACAAAA=</HashCode>
       <FileName>CharacterController.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CharacterStats" Collapsed="true">
-    <Position X="32.5" Y="0.5" Width="1.5" />
+    <Position X="37.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAIAAAAAAAAAAIAIAACAAAAJABAgAAAACACiAIAAg=</HashCode>
+      <HashCode>ACAAAAAAAACEAAAIAIAAAICAAJAFEAAAAEAIIAAAABg=</HashCode>
       <FileName>CharacterStats.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Enemy" Collapsed="true">
-    <Position X="18.75" Y="3.75" Width="1.5" />
+    <Position X="17" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgQAAgAAAIAAAAAgAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgQAAiIAAJAAAAAgAIAAAgAABAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Enemy.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ModifiableInt" Collapsed="true">
+    <Position X="41.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAQAICAAAIAAAACAAAQBAAACAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>ModifiableInt.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Movable" Collapsed="true">
-    <Position X="15.25" Y="0.5" Width="1.5" />
+    <Position X="24.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAIAAAQAIAAAAAAAAAAAAgAEAAAAAAAQACAAACwgAA=</HashCode>
       <FileName>Movable.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Player" Collapsed="true">
-    <Position X="16.75" Y="3.75" Width="1.5" />
+    <Position X="19.25" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAIAAAAAgAAAIAAAABAAAAAAAAAgAgQAAABA=</HashCode>
       <FileName>Player.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AttackCommand" Collapsed="true">
-    <Position X="10.25" Y="7.75" Width="1.5" />
+    <Position X="11.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAABBAQEIAAAAAAAAAAAAAAAAAAAAAAAABg=</HashCode>
       <FileName>AttackCommand.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Command" Collapsed="true">
-    <Position X="11.25" Y="6.5" Width="1.5" />
+    <Position X="11.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAABAQEAAAABAAAAAAJAAAAAAAAAIAACBA=</HashCode>
+      <HashCode>AAQAAAQAACAABAQEAAAABAAAAEAIAAEAAAAAAAAAABA=</HashCode>
       <FileName>Command.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CommandInvoker" Collapsed="true">
-    <Position X="30" Y="1.75" Width="1.5" />
+    <Position X="10.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIQAAiAAAAgABAAIAIAEAEAIEAAAAAAAAYAAAAAAgAA=</HashCode>
+      <HashCode>AIQAAiAAAAgABAAIAIAgAAAIEAAAAAAAAYAAAAAAgAA=</HashCode>
       <FileName>CommandInvoker.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DieCommand" Collapsed="true">
-    <Position X="17" Y="7.75" Width="1.5" />
+    <Position X="5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAIAAAAAIAABAQEAASAAAAAAAAQAAAAAAAgAAAAABA=</HashCode>
       <FileName>DieCommand.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="HealthPickUpCommand" Collapsed="true">
+    <Position X="16.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAEBAQEAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>HealthPickUpCommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="MoveCommand" Collapsed="true">
-    <Position X="5.75" Y="7.75" Width="1.5" />
+    <Position X="9.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIoAAAIAAABAQEQIAEAIAAABAAAAAAAAAAAAAAABA=</HashCode>
       <FileName>MoveCommand.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PickUpCommand" Collapsed="true">
-    <Position X="8" Y="7.75" Width="1.5" />
+    <Position X="15.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>MAAAAAAAAAAABAQEAAAAAIAAACAAAAABAAAAAAAAABA=</HashCode>
+      <HashCode>AAAAAAAAAAAABAQEAAQCAIgAAAAAAAABAABAAAAAABA=</HashCode>
       <FileName>PickUpCommand.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RespawnCommand" Collapsed="true">
-    <Position X="12.5" Y="7.75" Width="1.5" />
+    <Position X="18.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAIAAAABAQEAAAAAIAAAAAAAACAAAAAQAAAABA=</HashCode>
       <FileName>RespawnCommand.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RotateCommand" Collapsed="true">
-    <Position X="5.75" Y="9.25" Width="1.5" />
+    <Position X="9.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAAABAQEAAAAAAAAAAAAAAAAAAAQAAAAABA=</HashCode>
       <FileName>RotateCommand.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ScorePickUpCommand" Collapsed="true">
+    <Position X="14" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAQEAAAAAAABAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ScorePickUpCommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpawnPickUpCommand" Collapsed="true">
+    <Position X="7.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAADAQEAAAAAAAAAAAAAEEAAAAAAAAAABA=</HashCode>
+      <FileName>SpawnPickUpCommand.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthPickUp" Collapsed="true">
+    <Position X="11.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEAAEAIAAIAAAABAAAAAAAIAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>HealthPickUp.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Interactable" Collapsed="true">
-    <Position X="6.5" Y="2.5" Width="1.5" />
+    <Position X="22" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAQAAAAAACAAAgIAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Interactable.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Item" Collapsed="true">
-    <Position X="6.5" Y="3.75" Width="1.5" />
-    <InheritanceLine Type="Component" ManuallyRouted="true">
-      <Path>
-        <Point X="18.5" Y="1.062" />
-        <Point X="18.5" Y="1.375" />
-        <Point X="16.896" Y="1.375" />
-        <Point X="16.896" Y="3.25" />
-        <Point X="7.25" Y="3.25" />
-        <Point X="7.25" Y="3.75" />
-      </Path>
-    </InheritanceLine>
+    <Position X="15" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQEQAEAAAAAAAAAAAAAABAEJAAAAAAAAAAAAEAAAEA=</HashCode>
+      <HashCode>AAQAQACAICAAAAIAIAAAABAEJAAAAAABAACAAEAAAEA=</HashCode>
       <FileName>Item.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ItemManager" Collapsed="true">
-    <Position X="12" Y="1.75" Width="1.5" />
+    <Position X="32.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAwAAAAAAAAAAAAAgCAAAAAAAAEABCAAAACAACAAAEA=</HashCode>
+      <HashCode>AgwAAAAAAAAAAAAAgAAAAQAAAgAAACBAAACAACAACAA=</HashCode>
       <FileName>ItemManager.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="PickUp" Collapsed="true">
-    <Position X="6.5" Y="5.5" Width="1.5" />
+  <Class Name="ScorePickUp" Collapsed="true">
+    <Position X="14" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQACCAAIAAAAgAAAAAAAAAAIAAAACABAACgAIAAAAg=</HashCode>
-      <FileName>PickUp.h</FileName>
+      <HashCode>AAQEAAEBIAAAAgAAAAAAAAAAIAIAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>ScorePickUp.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Cell" Collapsed="true">
-    <Position X="21" Y="1.75" Width="1.5" />
+    <Position X="14.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAQAAACAiAAAAABAFEABAAAAAAABACAABAAAAAAAA=</HashCode>
       <FileName>Cell.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Grid" Collapsed="true">
-    <Position X="25.5" Y="1.75" Width="1.5" />
+    <Position X="19.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAQgBAAAAACAAABARAQBAAEACABCIAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAgBAAABACAAABARAQAAAEACCBCIAAAAAAAAAAAE=</HashCode>
       <FileName>Grid.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Component" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAAIAAgAAAAABAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Component.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameObject" Collapsed="true">
+    <Position X="40" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAASAIIgAQAQACBBAgAAAAEAAAIABAABAIADAA=</HashCode>
+      <FileName>GameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RenderComponent" Collapsed="true">
+    <Position X="30.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAAAAAAIAAAAABCAAAoAAAAQAACAAJAAAAIAAAA=</HashCode>
+      <FileName>RenderComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransformComponent" Collapsed="true">
+    <Position X="35" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAEAAAAQAQAAIAABAAAAAAgAAYAAAwEAAAAA=</HashCode>
+      <FileName>TransformComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleManager" Collapsed="true">
+    <Position X="12.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAARCAAAAIAABIJAAAAAAAAAAgBAAAAEAAAIEAAAg=</HashCode>
+      <FileName>ConsoleManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameStateManager" Collapsed="true">
+    <Position X="17" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAgAAIgIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameStateManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Equipment" Collapsed="true">
+    <Position X="41.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Equipment.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EquipmentManager" Collapsed="true">
+    <Position X="27" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEAIAAAAAgAAAAgCAAAAAAAAAAAAAAAQAgAQIACEAAA=</HashCode>
+      <FileName>EquipmentManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EquipmentBuff" Collapsed="true">
+    <Position X="4.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAIAAQAAAAAwAAAAAAAAAAACIACAAAAAQAAAA=</HashCode>
+      <FileName>EquipmentBuff.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EquipmentFactory" Collapsed="true">
+    <Position X="43.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAEAAAAAAAAAAAAAAEAAABJAAABAAABAAAA=</HashCode>
+      <FileName>EquipmentFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="SpawnData" Collapsed="true">
+    <Position X="40" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAIAAAIAAAgAAAQAAAAIBgAAAAAAIAAAAAEAAAAAA=</HashCode>
+      <FileName>SpawnPickUpCommand.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="Attributes" Collapsed="true">
+    <Position X="40" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAACAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Attribute.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CommandType" Collapsed="true">
+    <Position X="41.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Command.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EquipmentSlot" Collapsed="true">
+    <Position X="43.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAQAQAAAAgAQAAAAAAQAAI=</HashCode>
+      <FileName>Equipment.h</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

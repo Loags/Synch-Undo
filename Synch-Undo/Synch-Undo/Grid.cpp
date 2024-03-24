@@ -149,11 +149,11 @@ std::pair<int, int> Grid::GetCharacterGridPosition(const CharacterStats::Charact
 
 std::vector<Movable::Direction> Grid::FindPathBFS(const std::pair<int, int> start, const std::pair<int, int> goal) const {
 	std::queue<PathNode*> queue;
-	std::map<std::pair<int, int>, PathNode*> visited; // Use to track visited nodes and their parents
+	std::map<std::pair<int, int>, PathNode*> visited; 
 	std::vector<Movable::Direction> directions;
 
 	queue.push(new PathNode(start, nullptr));
-	visited[start] = nullptr; // Mark the start node as visited
+	visited[start] = nullptr;
 
 	bool goalFound = false;
 	PathNode* goalNode = nullptr;
@@ -164,10 +164,9 @@ std::vector<Movable::Direction> Grid::FindPathBFS(const std::pair<int, int> star
 		queue.pop();
 
 		if (goalFound) {
-			break; // No need to look further if the goal is found
+			break; 
 		}
 
-		// Add neighbors
 		std::vector<std::pair<int, int>> movements = { {0, 1}, {1, 0}, {0, -1}, {-1, 0} };
 		for (const std::pair<int, int>& move : movements) {
 			std::pair<int, int> nextPosition = std::make_pair(currentNode->position.first + move.first, currentNode->position.second + move.second);
@@ -188,7 +187,6 @@ std::vector<Movable::Direction> Grid::FindPathBFS(const std::pair<int, int> star
 		}
 	}
 
-	// Backtrack to find the path from goal to start, if found
 	if (goalFound && goalNode != nullptr) {
 		for (const PathNode* node = goalNode; node->parent != nullptr; node = node->parent) {
 			const std::pair<int, int> direction = std::make_pair(
@@ -196,16 +194,14 @@ std::vector<Movable::Direction> Grid::FindPathBFS(const std::pair<int, int> star
 				node->position.second - node->parent->position.second
 			);
 
-			// Convert the pair to Direction and add to directions
 			if (direction.second == -1) directions.push_back(Movable::Direction::North);
 			else if (direction.second == 1) directions.push_back(Movable::Direction::South);
 			else if (direction.first == -1) directions.push_back(Movable::Direction::West);
 			else if (direction.first == 1) directions.push_back(Movable::Direction::East);
 		}
-		std::reverse(directions.begin(), directions.end()); // Reverse to get the correct order from start to goal
+		std::reverse(directions.begin(), directions.end());
 	}
 
-	// Cleanup: Deallocate PathNodes
 	for (const std::pair<const std::pair<int, int>, PathNode*>& entry : visited) {
 		delete entry.second;
 	}

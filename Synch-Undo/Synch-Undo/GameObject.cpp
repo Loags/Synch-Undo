@@ -50,8 +50,7 @@ void GameObject::AddChildGameObject(GameObject* child)
 
 void GameObject::Render(SDL_Renderer* renderer) const
 {
-	// Render this object's components first, if any
-	for (const auto& component : components) {
+	for (Component* const& component : components) {
 		const RenderComponent* renderComp = dynamic_cast<const RenderComponent*>(component);
 		if (renderComp) {
 			const TransformComponent* transform = GetComponent<TransformComponent>();
@@ -61,7 +60,6 @@ void GameObject::Render(SDL_Renderer* renderer) const
 		}
 	}
 
-	// Then recursively render all children
 	for (const GameObject* child : children) {
 		if (child) {
 			child->Render(renderer);
@@ -80,16 +78,13 @@ void GameObject::Update() const
 }
 
 void GameObject::Reparent(GameObject* newParent) {
-	// Remove from current parent
 	if (this->owner) {
 		std::vector<GameObject*>& siblings = this->owner->children;
 		siblings.erase(std::remove(siblings.begin(), siblings.end(), this), siblings.end());
 	}
 
-	// Set new parent
 	this->owner = newParent;
 
-	// Add to new parent's children list
 	if (newParent) {
 		newParent->children.push_back(this);
 	}

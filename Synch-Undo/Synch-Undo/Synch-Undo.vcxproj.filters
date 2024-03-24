@@ -169,10 +169,10 @@
       <Filter>Quelldateien\Equipment</Filter>
     </ClCompile>
     <ClCompile Include="EquipmentBuff.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\Equipment</Filter>
     </ClCompile>
     <ClCompile Include="EquipmentFactory.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\Equipment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -288,10 +288,10 @@
       <Filter>Headerdateien\Equipment</Filter>
     </ClInclude>
     <ClInclude Include="EquipmentBuff.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\Equipment</Filter>
     </ClInclude>
     <ClInclude Include="EquipmentFactory.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\Equipment</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

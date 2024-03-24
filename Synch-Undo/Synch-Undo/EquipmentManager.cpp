@@ -16,17 +16,14 @@ void EquipmentManager::SetCharacter(Character* characterRef)
 
 void EquipmentManager::EquipItem(const std::shared_ptr<Equipment>& item)
 {
-	// Remove currently equipped item in the slot, if any
 	const std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<
 		const EquipmentSlot, std::shared_ptr<Equipment>>>>> current = equippedItems.find(item->slot);
 	if (current != equippedItems.end()) {
 		UnequipItem(item->slot);
 	}
 
-	// Equip new item
 	equippedItems[item->slot] = item;
 
-	// Apply new item's equipmentBuffs to the character stats
 	for (const std::shared_ptr<EquipmentBuff>& equipmentBuff : item->equipmentBuffs) {
 		character->AddModifierToAttribute(equipmentBuff->GetAttribute(), equipmentBuff.get());
 	}
@@ -37,7 +34,6 @@ void EquipmentManager::UnequipItem(const EquipmentSlot slot)
 	const std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<
 		const EquipmentSlot, std::shared_ptr<Equipment>>>>> it = equippedItems.find(slot);
 	if (it != equippedItems.end()) {
-		// Remove item's equipmentBuffs from the character stats
 		for (const std::shared_ptr<EquipmentBuff>& equipmentBuff : it->second->equipmentBuffs) {
 			character->RemoveModifierFromAttribute(equipmentBuff->GetAttribute(), equipmentBuff.get());
 		}
