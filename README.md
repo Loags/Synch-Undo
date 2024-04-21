@@ -1,0 +1,7 @@
+ In the Synch & Undo project, my focus was not on game design, but on the development of a highly modular system for game components. This system provides the basis for fast and efficient extensibility, allowing the design of diverse and complex game mechanics. The core philosophy of this project is to provide a robust architecture where modularity and flexibility of components are central, allowing easy adaptation and extension of the system to specific game concepts.
+
+The game offers players a dynamic and interactive world, brought to life through a sophisticated system of modular classes and mechanisms. At the heart of this game system are carefully designed classes such as GameObject, Component, Character, Player, Enemy, and various specialized classes such as EquipmentManager, CommandInvoker, and ConsoleManager. Together, they provide a rich and layered player experience.
+
+Players and developers can interact with the game in real time through the ConsoleManager, making adjustments and retrieving game information to aid in debugging and deeper exploration of game mechanics. Gameplay is controlled through an intricate command system that allows actions such as moving, attacking, or using special abilities to be implemented as commands for flexible character control.
+
+This project is a testament to my commitment to pushing the boundaries of digital simulation and component-based game architecture, and reflects my passion for bringing theoretical concepts to life through innovative programming and design. 
